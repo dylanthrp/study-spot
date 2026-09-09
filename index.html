@@ -3,115 +3,214 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Study Spot — The Wolverines</title>
+<title>Study Spot — UM-Dearborn</title>
 <meta name="theme-color" content="#0b1118" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #0b1118;
-    --bg-2: #0f1620;
-    --card: #141b26;
-    --card-2: #1a2230;
-    --line: #233149;
-    --text: #e8edf5;
-    --text-dim: #98a4b6;
-    --text-mute: #5e6a80;
+    /* Soft off-white tinted background — warmer than pure white, easier on the eyes */
+    --bg-warm: #fbf7f0;          /* warm cream */
+    --bg-soft: #f4ede0;          /* slightly deeper cream for hover/section dividers */
+    --line-soft: #e6dccc;        /* warm tan line */
+
+    /* Michigan accents */
+    --blue: #00274C;
+    --blue-light: #1a3a6b;
+    --blue-glow: #4a7bbf;
     --maize: #FFCB05;
     --maize-glow: #ffe45c;
-    --blue: #2e7dff;
-    --blue-2: #5b9bff;
-    --good: #22c55e;
-    --bad: #ef4444;
-    --shadow: 0 12px 32px rgba(0,0,0,.45);
-    --shadow-hover: 0 18px 48px rgba(0,0,0,.6);
+    --maize-deep: #e0a800;
+
+    /* Text */
+    --ink: #1a2230;              /* dark navy-ink on cream */
+    --ink-soft: #3a4a60;
+    --text-dim: #6b7a90;
+    --text-mute: #9aa3b6;
+
+    /* Status */
+    --good: #16a34a;
+    --good-soft: #dcfce7;
+    --bad: #dc2626;
+    --bad-soft: #fee2e2;
+    --warn: #ea580c;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,39,76,.06), 0 4px 12px rgba(0,39,76,.04);
+    --shadow:    0 4px 12px rgba(0,39,76,.08), 0 12px 28px rgba(0,39,76,.06);
+    --shadow-hover: 0 6px 18px rgba(0,39,76,.10), 0 20px 40px rgba(0,39,76,.10);
+
+    /* Radii */
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 18px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background:
-      radial-gradient(1100px 600px at 80% -10%, rgba(255,203,5,.07), transparent 60%),
-      radial-gradient(900px 500px at -10% 90%, rgba(46,125,255,.08), transparent 50%),
-      var(--bg);
-    color: var(--text);
+      radial-gradient(900px 500px at 100% 0%, rgba(255,203,5,.10), transparent 60%),
+      radial-gradient(800px 500px at 0% 100%, rgba(0,39,76,.07), transparent 60%),
+      var(--bg-warm);
+    color: var(--ink);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    /* Subtle grain texture */
+    background-image:
+      radial-gradient(900px 500px at 100% 0%, rgba(255,203,5,.10), transparent 60%),
+      radial-gradient(800px 500px at 0% 100%, rgba(0,39,76,.07), transparent 60%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.04  0 0 0 0 0.02  0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
   }
   button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
   a { color: inherit; text-decoration: none; }
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+  /* Focus rings — maize accent on every focusable element */
+  :focus-visible {
+    outline: 2px solid var(--maize);
+    outline-offset: 3px;
+    border-radius: var(--r-sm);
+  }
 
-  /* ===== Topbar ===== */
+  /* ===== TOPBAR ===== */
   .topbar {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    padding: 16px 28px; border-bottom: 1px solid var(--line);
-    background: rgba(11,17,24,.85); backdrop-filter: blur(10px);
+    padding: 14px 28px;
+    background: rgba(251,247,240,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
     position: sticky; top: 0; z-index: 50;
   }
   .brand { display: flex; gap: 12px; align-items: center; cursor: pointer; }
   .brand .logo {
-    width: 38px; height: 38px; border-radius: 11px;
-    background: linear-gradient(135deg, var(--maize) 0%, #e0a800 100%);
-    display: grid; place-items: center; color: #1a1a1a;
-    box-shadow: 0 6px 20px rgba(255,203,5,.25);
+    width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--maize) 0%, var(--maize-deep) 100%);
+    display: grid; place-items: center; color: var(--blue);
+    box-shadow: 0 6px 18px rgba(255,203,5,.4), inset 0 -2px 6px rgba(0,39,76,.15);
+    transition: transform .25s cubic-bezier(.2,.7,.2,1);
   }
+  .brand:hover .logo { transform: rotate(-8deg) scale(1.08); }
   .brand .logo svg { width: 22px; height: 22px; }
-  .brand .title { font-weight: 800; font-size: 15px; letter-spacing: -.01em; }
+  .brand .title { font-weight: 800; font-size: 16px; letter-spacing: -.01em; }
   .brand .sub   { font-size: 11px; color: var(--text-dim); letter-spacing: .04em; }
+
   .crumbs { display: flex; gap: 8px; align-items: center; color: var(--text-dim); font-size: 13px; flex: 1; margin-left: 16px; min-width: 0; overflow: hidden; }
-  .crumbs .crumb { color: var(--text-dim); cursor: pointer; transition: color .15s ease; white-space: nowrap; }
-  .crumbs .crumb:hover { color: var(--maize); }
-  .crumbs .crumb.current { color: var(--text); cursor: default; }
+  .crumbs .crumb { color: var(--text-dim); cursor: pointer; transition: color .15s ease; white-space: nowrap; padding: 4px 6px; border-radius: 6px; }
+  .crumbs .crumb:hover { color: var(--blue); background: var(--bg-soft); }
+  .crumbs .crumb.current { color: var(--ink); cursor: default; font-weight: 700; }
   .crumbs .sep { color: var(--text-mute); }
+
   .toolbar { display: flex; align-items: center; gap: 10px; }
   .search { position: relative; }
   .search input {
-    background: var(--card); border: 1px solid var(--line); color: var(--text);
-    padding: 9px 14px 9px 36px; border-radius: 10px; font: inherit;
-    width: 220px; outline: none; transition: all .15s ease;
+    background: rgba(255,255,255,.7);
+    border: 1px solid var(--line-soft);
+    color: var(--ink);
+    padding: 9px 14px 9px 36px;
+    border-radius: 10px;
+    font: inherit;
+    width: 220px;
+    outline: none;
+    transition: all .15s ease;
   }
-  .search input:focus { border-color: var(--maize); width: 280px; }
+  .search input:focus {
+    border-color: var(--maize);
+    width: 280px;
+    background: rgba(255,255,255,.95);
+    box-shadow: 0 0 0 3px rgba(255,203,5,.15);
+  }
   .search input::placeholder { color: var(--text-mute); }
   .search svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-mute); }
   .kbd-hint { font-size: 10px; color: var(--text-mute); }
-
-  /* ===== View ===== */
-  .view {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 28px 24px 80px;
-    animation: viewIn .35s cubic-bezier(.2,.7,.2,1);
+  .kbd {
+    display: inline-block;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    color: var(--ink-soft);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    box-shadow: 0 1px 0 rgba(0,39,76,.06);
   }
-  @keyframes viewIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
 
-  /* ===== Landing: Who's studying? ===== */
+  /* ===== Generic button (the foundation for everything) ===== */
+  .btn {
+    background: var(--bg-warm);
+    border: 1px solid var(--line-soft);
+    color: var(--ink);
+    padding: 11px 18px;
+    border-radius: var(--r-md);
+    font-weight: 700; font-size: 13.5px;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); border-color: var(--blue-glow); }
+  .btn:active { transform: translateY(0) scale(.97); box-shadow: 0 1px 2px rgba(0,39,76,.1); }
+  /* Subtle maize ripple on click */
+  .btn::after {
+    content: "";
+    position: absolute; left: 50%; top: 50%;
+    width: 5px; height: 5px;
+    background: var(--maize);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .btn.ripple::after { animation: btnRipple .55s ease-out; }
+  @keyframes btnRipple {
+    0%   { transform: translate(-50%, -50%) scale(0); opacity: .55; }
+    100% { transform: translate(-50%, -50%) scale(40); opacity: 0; }
+  }
+  .btn.primary { background: var(--blue); color: #f4ede0; border-color: var(--blue); }
+  .btn.primary:hover { background: var(--blue-light); border-color: var(--blue-light); box-shadow: 0 8px 22px rgba(0,39,76,.3); }
+  .btn.maize { background: var(--maize); color: var(--blue); border-color: var(--maize); box-shadow: 0 6px 18px rgba(255,203,5,.3); }
+  .btn.maize:hover { background: var(--maize-glow); border-color: var(--maize-deep); box-shadow: 0 10px 24px rgba(255,203,5,.4); }
+  .btn.again { background: var(--bad-soft); color: var(--bad); border-color: var(--bad); }
+  .btn.hard  { background: rgba(234,88,12,.10); color: var(--warn); border-color: var(--warn); }
+  .btn.good  { background: var(--good-soft); color: var(--good); border-color: var(--good); }
+  .btn.easy  { background: var(--good-soft); color: var(--good); border-color: var(--good); }
+  .btn:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+
+  /* ===== VIEW ===== */
+  .view { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; animation: viewIn .35s cubic-bezier(.2,.7,.2,1); }
+  @keyframes viewIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ===== LANDING ===== */
   .who-pad { padding: 36px 8px 0; text-align: center; }
   .who-tag {
     display: inline-block;
-    background: rgba(255,203,5,.12);
-    border: 1px solid rgba(255,203,5,.3);
-    color: var(--maize);
+    background: rgba(0,39,76,.08);
+    color: var(--blue);
+    border: 1px solid rgba(0,39,76,.18);
     font-size: 11px; font-weight: 800;
     letter-spacing: .18em; text-transform: uppercase;
     padding: 7px 14px; border-radius: 999px;
+    margin-bottom: 18px;
   }
   .who-h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(48px, 9vw, 88px);
     letter-spacing: .01em; line-height: 1;
-    background: linear-gradient(135deg, var(--maize-glow), #ffffff 50%, var(--maize));
+    background: linear-gradient(135deg, var(--blue) 0%, var(--maize) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     margin: 16px 0 10px;
   }
-  .who-sub { color: var(--text-dim); font-size: 16px; max-width: 540px; margin: 0 auto 36px; }
+  .who-sub { color: var(--ink-soft); font-size: 16px; max-width: 540px; margin: 0 auto 36px; }
+  .streak-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--maize); color: var(--blue);
+    padding: 8px 16px; border-radius: 999px;
+    font-weight: 800; font-size: 13px; letter-spacing: .04em;
+    box-shadow: 0 6px 16px rgba(255,203,5,.3);
+    margin-bottom: 22px;
+  }
+  .streak-pill .fire { font-size: 16px; }
 
   .roster-grid {
     display: grid;
@@ -120,81 +219,84 @@
     margin-top: 32px;
   }
   .roommate {
-    background: linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%);
-    border: 1px solid var(--line);
-    border-radius: 18px;
+    background: rgba(255,255,255,.65);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
     padding: 22px 18px;
     text-align: left;
     cursor: pointer;
-    transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s ease, box-shadow .25s ease;
+    transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease, border-color .25s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
-  .roommate::before {
-    content: ""; position: absolute; inset: -1px; border-radius: 18px;
-    background: linear-gradient(135deg, var(--maize), var(--blue));
-    opacity: 0; transition: opacity .25s ease; pointer-events: none;
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    padding: 1px;
+  .roommate::after {
+    content: ""; position: absolute; right: -40px; bottom: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,203,5,.25), transparent 70%);
+    opacity: 0; transition: opacity .3s ease;
+    pointer-events: none;
   }
-  .roommate:hover { transform: translateY(-4px); border-color: transparent; box-shadow: var(--shadow-hover); }
-  .roommate:hover::before { opacity: 1; }
+  .roommate:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--maize); }
+  .roommate:hover::after { opacity: 1; }
   .roommate .avatar {
     width: 64px; height: 64px; border-radius: 50%;
-    background: var(--card-2);
-    border: 2px solid var(--line);
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    color: var(--maize);
+    border: 2px solid var(--maize);
     display: grid; place-items: center; font-weight: 800; font-size: 22px;
     margin-bottom: 14px;
-    color: var(--maize);
-    overflow: hidden;
-    transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .25s ease;
+    box-shadow: 0 6px 16px rgba(0,39,76,.25);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
   }
-  .roommate:hover .avatar { transform: scale(1.06); border-color: var(--maize); }
-  .roommate .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .roommate:hover .avatar { transform: scale(1.06) rotate(-4deg); }
   .roommate .name { font-weight: 800; font-size: 18px; letter-spacing: -.01em; }
   .roommate .meta { color: var(--text-dim); font-size: 13px; margin-top: 2px; }
   .roommate .tag {
     display: inline-block; margin-top: 12px;
-    background: var(--card-2);
-    border: 1px solid var(--line);
-    color: var(--text-dim);
+    background: var(--maize);
+    color: var(--blue);
     padding: 4px 10px; border-radius: 999px;
-    font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    font-size: 11px; font-weight: 800; letter-spacing: .04em;
   }
-  .roommate .tag.live { color: var(--maize); border-color: rgba(255,203,5,.35); background: rgba(255,203,5,.07); }
+  .roommate .tag.dim { background: var(--bg-soft); color: var(--ink-soft); }
 
   .house-cta {
     margin-top: 48px;
     padding: 20px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 16px;
+    background: rgba(255,255,255,.65);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 12px;
+    box-shadow: var(--shadow-sm);
   }
-  .house-cta .txt { color: var(--text-dim); font-size: 14px; }
-  .house-cta .txt b { color: var(--text); }
+  .house-cta .txt { color: var(--ink-soft); font-size: 14px; }
+  .house-cta .txt b { color: var(--ink); }
 
-  /* ===== Student dashboard (class grid) ===== */
+  /* ===== STUDENT DASHBOARD ===== */
   .stu-hero { padding: 24px 8px 4px; }
   .stu-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(40px, 7vw, 64px);
     letter-spacing: .01em; line-height: 1;
-    background: linear-gradient(135deg, var(--maize-glow), var(--maize));
+    background: linear-gradient(135deg, var(--maize) 0%, var(--maize-deep) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .stu-hero .sub { color: var(--text-dim); margin-top: 6px; font-size: 14px; }
+  .stu-hero .sub { color: var(--ink-soft); margin-top: 6px; font-size: 14px; }
   .stu-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 22px 0 6px; }
   .stu-stat {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
+    background: rgba(255,255,255,.7);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-md);
     padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .15s ease, box-shadow .15s ease;
   }
-  .stu-stat .v { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--maize); }
-  .stu-stat .k { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .stu-stat:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .stu-stat .v { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--blue); }
+  .stu-stat .v.maize { color: var(--maize-deep); }
+  .stu-stat .k { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 
   .class-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -202,133 +304,131 @@
   }
   .class-tile {
     position: relative;
-    background: linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 18px 18px 18px;
+    background: rgba(255,255,255,.75);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    padding: 18px;
     cursor: pointer;
+    transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease, border-color .25s ease;
     overflow: hidden;
-    transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s ease, box-shadow .25s ease;
+    box-shadow: var(--shadow-sm);
   }
-  .class-tile::after {
-    content: ""; position: absolute; right: -40px; top: -40px;
-    width: 140px; height: 140px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,203,5,.08), transparent 70%);
-    opacity: 0; transition: opacity .3s ease;
+  .class-tile::before {
+    content: ""; position: absolute; left: 0; top: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--maize), var(--blue));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1);
   }
-  .class-tile:hover { transform: translateY(-3px); border-color: var(--maize); box-shadow: var(--shadow-hover); }
-  .class-tile:hover::after { opacity: 1; }
+  .class-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--maize); }
+  .class-tile:hover::before { transform: scaleX(1); }
+  .class-tile.has-hub { border-color: rgba(255,203,5,.5); background: rgba(255,253,235,.85); }
   .class-tile .code {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px; font-weight: 600;
-    color: var(--maize);
-    background: rgba(255,203,5,.1);
-    border: 1px solid rgba(255,203,5,.25);
+    font-size: 12px; font-weight: 700;
+    color: var(--blue);
+    background: rgba(0,39,76,.08);
+    border: 1px solid rgba(0,39,76,.18);
     padding: 4px 8px; border-radius: 6px;
     display: inline-block;
     margin-bottom: 10px;
   }
-  .class-tile.has-hub .code { color: var(--good); background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.4); }
+  .class-tile.has-hub .code { color: var(--maize-deep); background: rgba(255,203,5,.18); border-color: rgba(255,203,5,.45); }
   .class-tile .name { font-weight: 800; font-size: 17px; letter-spacing: -.01em; }
-  .class-tile .meta { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+  .class-tile .meta { color: var(--ink-soft); font-size: 13px; margin-top: 4px; }
   .class-tile .progress {
     margin-top: 14px;
-    height: 6px; background: var(--line); border-radius: 999px; overflow: hidden;
+    height: 6px; background: var(--bg-soft); border-radius: 999px; overflow: hidden;
   }
   .class-tile .progress > div {
     height: 100%;
-    background: linear-gradient(90deg, var(--maize), var(--maize-glow));
+    background: linear-gradient(90deg, var(--maize), var(--maize-deep));
     border-radius: 999px;
     transition: width .5s cubic-bezier(.2,.7,.2,1);
   }
   .class-tile .progress-label {
     display: flex; justify-content: space-between;
-    font-size: 11px; color: var(--text-dim); margin-top: 6px;
+    font-size: 11px; color: var(--ink-soft); margin-top: 6px;
     font-weight: 700; letter-spacing: .04em;
   }
 
-  /* ===== Class hub (mode tabs) ===== */
+  /* ===== CLASS HUB ===== */
   .hub-hero { padding: 22px 8px 0; }
   .hub-hero .top {
     display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
   }
   .hub-hero .code {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px; font-weight: 700;
-    color: var(--maize);
-    background: rgba(255,203,5,.1);
-    border: 1px solid rgba(255,203,5,.3);
+    font-size: 14px; font-weight: 800;
+    color: var(--blue);
+    background: rgba(255,203,5,.18);
+    border: 1px solid rgba(255,203,5,.45);
     padding: 6px 12px; border-radius: 8px;
   }
   .hub-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(40px, 7vw, 60px);
-    letter-spacing: .01em; line-height: 1; color: var(--text);
+    letter-spacing: .01em; line-height: 1; color: var(--ink);
     margin: 8px 0 4px;
   }
-  .hub-hero .sub { color: var(--text-dim); }
+  .hub-hero .sub { color: var(--ink-soft); }
 
   .mode-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0 16px; }
   .mode-tab {
-    background: var(--card); border: 1px solid var(--line); color: var(--text-dim);
-    padding: 11px 16px; border-radius: 12px;
+    background: rgba(255,255,255,.7);
+    border: 1px solid var(--line-soft);
+    color: var(--ink-soft);
+    padding: 11px 16px;
+    border-radius: var(--r-md);
     font-weight: 700; font-size: 13.5px;
     transition: all .15s ease;
   }
-  .mode-tab:hover { background: var(--card-2); color: var(--text); }
+  .mode-tab:hover { background: var(--maize); border-color: var(--maize); transform: translateY(-1px); color: var(--blue); }
+  .mode-tab:active { transform: scale(.96); }
   .mode-tab.active {
-    background: linear-gradient(135deg, var(--maize), var(--maize-glow));
-    color: #1a1a1a; border-color: transparent;
-    box-shadow: 0 6px 18px rgba(255,203,5,.25);
-  }
-
-  .empty-state {
-    margin-top: 18px;
-    padding: 32px;
-    background: var(--card);
-    border: 1px dashed var(--line);
-    border-radius: 16px;
-    text-align: center;
-  }
-  .empty-state .ico {
-    width: 60px; height: 60px; border-radius: 16px;
-    background: var(--card-2);
-    display: grid; place-items: center; margin: 0 auto 12px;
+    background: var(--blue);
     color: var(--maize);
+    border-color: var(--blue);
+    box-shadow: 0 6px 18px rgba(0,39,76,.25);
   }
-  .empty-state h3 { font-size: 18px; font-weight: 800; }
-  .empty-state p { color: var(--text-dim); margin-top: 6px; max-width: 460px; margin-left: auto; margin-right: auto; }
-  .empty-state .cta {
-    margin-top: 16px; display: inline-block;
-    background: var(--maize);
-    color: #1a1a1a;
-    padding: 10px 18px; border-radius: 10px;
-    font-weight: 800; font-size: 13.5px;
-    box-shadow: 0 6px 18px rgba(255,203,5,.25);
-    transition: transform .15s ease; cursor: pointer;
+  .mode-tab.active::after {
+    content: ""; display: block; height: 3px;
+    background: var(--maize); margin-top: 6px;
+    border-radius: 999px;
   }
-  .empty-state .cta:hover { transform: translateY(-2px); }
 
-  /* ===== PHYS-150 study interface (per chapter) ===== */
+  /* ===== PHYS-150 NOTES / CARDS / SHEET ===== */
   .notes {
-    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    padding: 28px; line-height: 1.7;
+    background: rgba(255,255,255,.75);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    line-height: 1.7;
+    box-shadow: var(--shadow-sm);
   }
-  .notes h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--maize); margin: 22px 0 10px; letter-spacing: .02em; }
+  .notes h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--blue); margin: 22px 0 10px; letter-spacing: .02em; }
   .notes h2:first-child { margin-top: 0; }
-  .notes h3 { font-size: 16px; font-weight: 800; margin: 18px 0 8px; color: var(--text); }
-  .notes p { color: var(--text-dim); margin: 8px 0; }
-  .notes ul, .notes ol { padding-left: 22px; color: var(--text-dim); margin: 8px 0; }
+  .notes h3 { font-size: 16px; font-weight: 800; margin: 18px 0 8px; color: var(--ink); }
+  .notes p { color: var(--ink-soft); margin: 8px 0; }
+  .notes ul, .notes ol { padding-left: 22px; color: var(--ink-soft); margin: 8px 0; }
   .notes li { margin: 4px 0; }
-  .notes code { font-family: 'JetBrains Mono', monospace; background: var(--card-2); padding: 2px 6px; border-radius: 4px; font-size: 12.5px; color: var(--maize); }
-  .notes strong { color: var(--text); }
+  .notes code { font-family: 'JetBrains Mono', monospace; background: var(--bg-soft); padding: 2px 6px; border-radius: 4px; font-size: 12.5px; color: var(--blue); }
+  .notes strong { color: var(--ink); }
   .notes table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13.5px; }
-  .notes th { background: var(--card-2); color: var(--text); padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); }
-  .notes td { padding: 8px 12px; border-bottom: 1px solid var(--line); color: var(--text-dim); }
+  .notes th { background: var(--bg-soft); color: var(--ink); padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line-soft); }
+  .notes td { padding: 8px 12px; border-bottom: 1px solid var(--line-soft); color: var(--ink-soft); }
   .notes .placeholder-callout {
-    background: rgba(255,203,5,.06); border: 1px dashed rgba(255,203,5,.3);
+    background: rgba(255,203,5,.10); border: 1px dashed rgba(255,203,5,.55);
     padding: 14px 18px; border-radius: 10px; margin: 12px 0;
-    color: var(--maize); font-size: 13.5px;
+    color: var(--maize-deep); font-size: 13.5px;
+  }
+  .ch-source-pill {
+    display: inline-block;
+    background: var(--bg-soft);
+    color: var(--ink-soft);
+    border: 1px solid var(--line-soft);
+    font-size: 10px; font-weight: 800; letter-spacing: .14em;
+    padding: 3px 9px; border-radius: 6px;
+    margin-bottom: 12px;
   }
 
   .formula-grid {
@@ -336,25 +436,30 @@
     gap: 12px; margin-top: 14px;
   }
   .formula-card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    background: rgba(255,255,255,.75);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-md);
     padding: 16px 18px;
     transition: all .15s ease;
+    box-shadow: var(--shadow-sm);
   }
-  .formula-card:hover { border-color: var(--maize); }
-  .formula-card .name { font-weight: 800; font-size: 14px; color: var(--maize); }
+  .formula-card:hover { border-color: var(--maize); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .formula-card .name { font-weight: 800; font-size: 14px; color: var(--blue); }
   .formula-card .tex {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
-    background: var(--card-2); padding: 10px 14px; border-radius: 8px;
-    margin: 10px 0; color: var(--text); text-align: center;
+    background: var(--bg-soft); padding: 10px 14px; border-radius: 8px;
+    margin: 10px 0; color: var(--ink); text-align: center;
     overflow-x: auto;
   }
-  .formula-card .desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; }
+  .formula-card .desc { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
 
-  .card-stage { perspective: 1200px; margin: 14px 0; min-height: 360px; }
+  /* ===== FLASHCARD (3D flip) ===== */
+  .card-stage { perspective: 1200px; margin: 14px 0; min-height: 380px; }
   .card {
-    position: relative; width: 100%; min-height: 360px;
-    transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2,.7,.2,1);
+    position: relative; width: 100%; min-height: 380px;
+    transform-style: preserve-3d;
+    transition: transform .45s cubic-bezier(.2,.7,.2,1);
     cursor: pointer;
   }
   .card.flipped { transform: rotateY(180deg); }
@@ -362,111 +467,272 @@
     position: absolute; inset: 0; backface-visibility: hidden;
     border-radius: 22px; padding: 36px;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; box-shadow: var(--shadow); border: 1px solid var(--line);
+    text-align: center; box-shadow: var(--shadow);
+    border: 1px solid var(--line-soft);
   }
-  .card-face.front { background: linear-gradient(160deg, var(--card) 0%, #202633 100%); }
+  .card-face.front { background: linear-gradient(160deg, #ffffff 0%, #f9f3e3 100%); }
   .card-face.front::before {
     content: ""; position: absolute; inset: 0; border-radius: 22px;
-    background: radial-gradient(ellipse at 50% 0%, rgba(255,203,5,.18), transparent 60%);
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,203,5,.25), transparent 60%);
     pointer-events: none;
   }
-  .card-face.back { background: linear-gradient(160deg, #1a1f2c 0%, var(--card-2) 100%); transform: rotateY(180deg); }
-  .card-face .tag { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--maize); margin-bottom: 18px; }
-  .card-face .term { font-size: 26px; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; color: var(--text); }
-  .card-face .defn { font-size: 17px; line-height: 1.55; color: #d9dde6; max-width: 700px; }
-  .card-face .tap { font-size: 12px; color: var(--text-dim); margin-top: auto; opacity: .75; }
+  .card-face.back { background: linear-gradient(160deg, #f4ede0 0%, #ece1c8 100%); transform: rotateY(180deg); }
+  .card-face .tag {
+    font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 18px;
+    background: var(--maize); padding: 4px 10px; border-radius: 999px;
+  }
+  .card-face .term { font-size: 28px; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; color: var(--ink); }
+  .card-face .defn { font-size: 17px; line-height: 1.55; color: var(--ink-soft); max-width: 700px; }
+  .card-face .tap { font-size: 12px; color: var(--text-mute); margin-top: auto; opacity: .75; }
+  .card-stage .reveal-flash {
+    position: absolute; inset: 0; border-radius: 22px;
+    background: var(--maize); opacity: 0; pointer-events: none;
+  }
+  .card.flipped .reveal-flash { animation: revealFlash .6s ease; }
+  @keyframes revealFlash {
+    0%   { opacity: .6; }
+    100% { opacity: 0; }
+  }
 
   .card-controls {
-    display: grid; grid-template-columns: auto 1fr auto auto auto auto; gap: 10px;
+    display: grid; grid-template-columns: auto 1fr auto auto auto auto auto; gap: 8px;
     align-items: center; margin-top: 18px;
   }
-  .btn {
-    background: var(--card); border: 1px solid var(--line); color: var(--text);
-    padding: 11px 18px; border-radius: 12px; font-weight: 700; font-size: 13.5px;
-    transition: all .15s ease;
-  }
-  .btn:hover { background: var(--card-2); }
-  .btn:disabled { opacity: .4; cursor: not-allowed; }
-  .btn.primary { background: linear-gradient(135deg, var(--maize), var(--maize-glow)); color: #1a1a1a; border-color: transparent; }
-  .btn.again { background: rgba(239,68,68,.15); color: #fca5a5; border-color: rgba(239,68,68,.4); }
-  .btn.hard  { background: rgba(251,191,36,.12); color: #fde68a; border-color: rgba(251,191,36,.4); }
-  .btn.good  { background: rgba(34,197,94,.15); color: #86efac; border-color: rgba(34,197,94,.4); }
-  .btn.easy  { background: rgba(34,197,94,.22); color: #bbf7d0; border-color: rgba(34,197,94,.5); }
+  .card-controls .counter { text-align: center; color: var(--ink-soft); font-size: 13px; font-weight: 700; padding: 0 12px; }
+  .grade-buttons { display: contents; }
+  .grade-buttons .btn { min-width: 86px; }
+  .grade-label { font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); margin-top: 4px; text-align: center; }
+  .grade-cell { display: flex; flex-direction: column; align-items: stretch; }
 
-  .flash-stage {
-    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+  /* ===== ACTIVE RECALL WIDGET (the new feature) ===== */
+  .recall-card {
+    background: rgba(255,255,255,.85);
+    border: 1px solid var(--maize);
+    border-radius: var(--r-lg);
     padding: 28px;
+    box-shadow: 0 8px 24px rgba(255,203,5,.15);
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
   }
-  .flash-progress { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
-  .flash-progress > div { height: 100%; background: linear-gradient(90deg, var(--maize), var(--maize-glow)); transition: width .35s ease; }
-  .flash-q { font-size: 18px; line-height: 1.5; margin-bottom: 18px; color: var(--text); }
-  .flash-q code { font-family: 'JetBrains Mono', monospace; background: var(--card-2); padding: 2px 6px; border-radius: 4px; color: var(--maize); }
+  .recall-card::before {
+    content: ""; position: absolute; left: 0; top: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--maize), var(--blue));
+  }
+  .recall-tag {
+    display: inline-block;
+    background: var(--maize); color: var(--blue);
+    font-size: 11px; font-weight: 800; letter-spacing: .14em;
+    padding: 4px 10px; border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .recall-q { font-size: 22px; line-height: 1.45; color: var(--ink); font-weight: 700; margin-bottom: 16px; }
+  .recall-q code { font-family: 'JetBrains Mono', monospace; background: var(--bg-soft); padding: 2px 6px; border-radius: 4px; font-size: 18px; color: var(--blue); }
+  .recall-input {
+    width: 100%;
+    background: var(--bg-warm);
+    border: 1.5px solid var(--line-soft);
+    color: var(--ink);
+    padding: 14px 16px;
+    border-radius: var(--r-md);
+    font: inherit;
+    font-size: 15px;
+    resize: vertical;
+    min-height: 70px;
+    margin-bottom: 12px;
+    transition: border-color .15s ease, box-shadow .15s ease;
+    box-sizing: border-box;
+  }
+  .recall-input:focus {
+    border-color: var(--maize);
+    box-shadow: 0 0 0 3px rgba(255,203,5,.18);
+    outline: none;
+  }
+  .recall-input.correct { border-color: var(--good); background: var(--good-soft); }
+  .recall-input.partial { border-color: #ea580c; background: rgba(234,88,12,.08); }
+  .recall-input.wrong { border-color: var(--bad); background: var(--bad-soft); }
+
+  .recall-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .recall-feedback {
+    padding: 14px 18px;
+    border-radius: var(--r-md);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    border: 1px solid var(--line-soft);
+    background: var(--bg-soft);
+    display: none;
+  }
+  .recall-feedback.show { display: block; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  .recall-feedback .expected { color: var(--ink); margin-top: 6px; font-style: italic; }
+  .recall-feedback .self-vs-answer { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; font-size: 13px; }
+  .recall-feedback .col { padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,.6); }
+  .recall-feedback .col-head { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+  .recall-feedback .col-body { color: var(--ink); }
+  .recall-feedback .correct { background: var(--good-soft); border-left: 3px solid var(--good); }
+  .recall-feedback .partial { background: rgba(234,88,12,.08); border-left: 3px solid #ea580c; }
+  .recall-feedback .wrong { background: var(--bad-soft); border-left: 3px solid var(--bad); }
+
+  .confidence-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .conf-btn {
+    background: rgba(255,255,255,.75);
+    border: 1.5px solid var(--line-soft);
+    border-radius: var(--r-md);
+    padding: 12px 8px;
+    cursor: pointer;
+    transition: all .15s ease;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .conf-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .conf-btn:active { transform: scale(.96); }
+  .conf-btn .num { font-size: 18px; font-weight: 800; color: var(--blue); }
+  .conf-btn .label { font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-top: 2px; }
+  .conf-btn .days { font-size: 10px; color: var(--text-dim); margin-top: 2px; font-weight: 600; }
+  .conf-btn.selected { background: var(--blue); border-color: var(--blue); color: var(--maize); }
+  .conf-btn.selected .num, .conf-btn.selected .label, .conf-btn.selected .days { color: var(--maize); }
+  .conf-btn[data-grade="1"] { border-left: 4px solid #dc2626; }
+  .conf-btn[data-grade="2"] { border-left: 4px solid #ea580c; }
+  .conf-btn[data-grade="3"] { border-left: 4px solid #ca8a04; }
+  .conf-btn[data-grade="4"] { border-left: 4px solid #65a30d; }
+  .conf-btn[data-grade="5"] { border-left: 4px solid #16a34a; }
+
+  .recall-meta { font-size: 11px; color: var(--text-dim); letter-spacing: .06em; margin-top: 4px; }
+  .recall-due { font-size: 11px; color: var(--text-dim); margin-top: 8px; font-style: italic; }
+  .recall-due strong { color: var(--blue); font-style: normal; font-weight: 800; }
+
+  /* ===== FLASH TEST ===== */
+  .flash-stage {
+    background: rgba(255,255,255,.75);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .flash-progress { height: 6px; background: var(--bg-soft); border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
+  .flash-progress > div { height: 100%; background: linear-gradient(90deg, var(--maize), var(--maize-deep)); transition: width .35s ease; }
+  .flash-q { font-size: 18px; line-height: 1.5; margin-bottom: 18px; color: var(--ink); }
+  .flash-q code { font-family: 'JetBrains Mono', monospace; background: var(--bg-soft); padding: 2px 6px; border-radius: 4px; color: var(--blue); }
   .flash-option {
-    width: 100%; text-align: left; padding: 14px 18px; border-radius: 12px;
-    background: var(--card-2); border: 1px solid var(--line); color: var(--text);
+    width: 100%; text-align: left; padding: 14px 18px; border-radius: var(--r-md);
+    background: rgba(255,255,255,.6); border: 1px solid var(--line-soft); color: var(--ink);
     font-size: 14.5px; cursor: pointer; margin-bottom: 10px;
     transition: all .15s ease;
     display: flex; align-items: center; gap: 12px;
   }
-  .flash-option:hover { border-color: var(--maize); }
+  .flash-option:hover { border-color: var(--maize); transform: translateX(2px); box-shadow: var(--shadow-sm); }
+  .flash-option:active { transform: scale(.99); }
   .flash-option .letter {
     width: 28px; height: 28px; border-radius: 8px;
-    background: var(--line); display: grid; place-items: center;
+    background: var(--bg-soft); display: grid; place-items: center;
     font-weight: 800; font-size: 12px; flex-shrink: 0;
-    color: var(--text);
+    color: var(--ink);
   }
-  .flash-option.correct { background: rgba(34,197,94,.12); border-color: var(--good); color: #bbf7d0; }
-  .flash-option.correct .letter { background: var(--good); color: #052e16; }
-  .flash-option.wrong { background: rgba(239,68,68,.12); border-color: var(--bad); color: #fecaca; }
-  .flash-option.wrong .letter { background: var(--bad); color: #450a0a; }
-  .flash-feedback { margin-top: 16px; padding: 14px 18px; border-radius: 10px; font-size: 13.5px; line-height: 1.55; }
-  .flash-feedback.good { background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.4); color: #bbf7d0; }
-  .flash-feedback.bad { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.4); color: #fecaca; }
-  .flash-empty { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .flash-option.correct { background: var(--good-soft); border-color: var(--good); color: #15803d; }
+  .flash-option.correct .letter { background: var(--good); color: white; }
+  .flash-option.wrong { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+  .flash-option.wrong .letter { background: var(--bad); color: white; }
+  .flash-feedback { margin-top: 16px; padding: 14px 18px; border-radius: var(--r-md); font-size: 13.5px; line-height: 1.55; }
+  .flash-feedback.good { background: var(--good-soft); border: 1px solid var(--good); color: #14532d; }
+  .flash-feedback.bad { background: var(--bad-soft); border: 1px solid var(--bad); color: var(--bad); }
+  .flash-empty { text-align: center; padding: 40px 20px; color: var(--ink-soft); }
   .flash-score { font-family: 'Bebas Neue', sans-serif; font-size: 64px;
-    background: linear-gradient(135deg, var(--maize), var(--maize-glow));
+    background: linear-gradient(135deg, var(--maize) 0%, var(--maize-deep) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     line-height: 1; margin-bottom: 8px;
   }
 
-  .cheat-sheet { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px; }
-  .cheat-sheet h3 { color: var(--maize); margin-bottom: 12px; font-size: 16px; }
+  .cheat-sheet { background: rgba(255,255,255,.75); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: 28px; box-shadow: var(--shadow-sm); }
+  .cheat-sheet h3 { color: var(--blue); margin-bottom: 12px; font-size: 16px; }
   .cheat-row {
     display: grid; grid-template-columns: 200px 1fr; gap: 14px;
-    padding: 10px 0; border-bottom: 1px solid var(--line);
+    padding: 10px 0; border-bottom: 1px solid var(--line-soft);
     align-items: center;
   }
   .cheat-row:last-child { border-bottom: 0; }
-  .cheat-row .name { font-weight: 700; color: var(--text); font-size: 14px; }
+  .cheat-row .name { font-weight: 700; color: var(--ink); font-size: 14px; }
   .cheat-row .tex {
     font-family: 'JetBrains Mono', monospace;
     font-size: 13.5px;
-    color: var(--text);
-    background: var(--card-2); padding: 8px 12px; border-radius: 6px;
+    color: var(--ink);
+    background: var(--bg-soft); padding: 8px 12px; border-radius: 6px;
   }
 
+  /* ===== SHORTCUTS MODAL ===== */
+  .modal-bg {
+    position: fixed; inset: 0; background: rgba(0,39,76,.55);
+    backdrop-filter: blur(6px);
+    display: grid; place-items: center;
+    z-index: 200;
+    animation: fadeIn .2s ease;
+  }
+  .modal {
+    background: var(--bg-warm);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 24px 60px rgba(0,39,76,.4);
+    border: 1px solid var(--maize);
+  }
+  .modal h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--blue); margin-bottom: 12px; }
+  .modal .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line-soft); font-size: 13px; }
+  .modal .row:last-child { border-bottom: 0; }
+
+  /* ===== TOAST ===== */
   .toast {
     position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
-    background: var(--card-2); border: 1px solid var(--line);
+    background: var(--blue); color: var(--maize);
     padding: 10px 18px; border-radius: 999px;
-    font-size: 13px; color: var(--text);
-    box-shadow: var(--shadow); z-index: 100;
+    font-size: 13px; font-weight: 700;
+    box-shadow: var(--shadow);
+    z-index: 100;
     animation: toastIn .25s ease;
   }
   @keyframes toastIn { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
 
+  /* ===== EMPTY STATES ===== */
+  .empty-state {
+    margin-top: 18px;
+    padding: 32px;
+    background: rgba(255,255,255,.6);
+    border: 1px dashed var(--line-soft);
+    border-radius: var(--r-lg);
+    text-align: center;
+  }
+  .empty-state .ico {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--maize) 0%, var(--maize-deep) 100%);
+    display: grid; place-items: center; margin: 0 auto 12px;
+    color: var(--blue);
+    box-shadow: 0 8px 20px rgba(255,203,5,.25);
+  }
+  .empty-state h3 { font-size: 18px; font-weight: 800; color: var(--ink); }
+  .empty-state p { color: var(--ink-soft); margin-top: 6px; max-width: 460px; margin-left: auto; margin-right: auto; }
+
   footer { text-align: center; padding: 20px 16px 32px; color: var(--text-mute); font-size: 12px; }
-  footer .go-blue { color: var(--maize); font-weight: 700; letter-spacing: .04em; }
+  footer .go-blue { color: var(--blue); font-weight: 800; letter-spacing: .04em; }
 
   @media (max-width: 720px) {
     .stu-stats { grid-template-columns: repeat(2, 1fr); }
     .class-grid { grid-template-columns: 1fr; }
     .formula-grid { grid-template-columns: 1fr; }
-    .search input { width: 150px; }
-    .search input:focus { width: 170px; }
+    .search input { width: 130px; }
+    .search input:focus { width: 150px; }
     .cheat-row { grid-template-columns: 1fr; gap: 4px; }
-    .card-controls { grid-template-columns: 1fr 1fr; }
-    .card-controls .counter { grid-column: 1 / -1; text-align: center; }
+    .card-controls { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+    .card-controls .counter { grid-column: 1 / -1; }
+    .grade-cell { min-width: 0; }
+    .confidence-row { grid-template-columns: 1fr; }
+    .recall-feedback .self-vs-answer { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -481,22 +747,24 @@
     </div>
     <div>
       <div class="title">Study Spot</div>
-      <div class="sub">The Wolverines · UM-Dearborn</div>
+      <div class="sub">UM-Dearborn</div>
     </div>
   </div>
   <div id="crumbs" class="crumbs"></div>
   <div class="toolbar">
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="globalSearch" placeholder="Search notes… ( / )" />
+      <input id="globalSearch" placeholder="Search… ( / )" />
     </div>
-    <span class="kbd-hint">/</span>
+    <span class="kbd">/</span>
+    <span class="kbd-hint">·</span>
+    <span class="kbd">?</span>
   </div>
 </div>
 
 <main id="root" class="view"></main>
 
-<footer>The Wolverines · UM-Dearborn · <span class="go-blue">Go Blue</span></footer>
+<footer>UM-Dearborn · <span class="go-blue">Go Blue</span></footer>
 
 <script src="phys150-data.js"></script>
 <script>
@@ -504,12 +772,10 @@
 const $ = (sel) => document.querySelector(sel);
 const root = $('#root');
 
-/* Student data (mirrors what we had in the original landing) */
 const STUDENTS = {
   dylan: {
-    display: "Dylan Thorpe",
-    initials: "DT",
-    major: "Engineering · Pre-Med Track",
+    display: "Dylan Thorpe", initials: "DT",
+    major: "Mechanical Engineering",
     classes: [
       { code: "ANTH-101",  name: "Introduction to Anthropology",      meta: "Section 001 · Fall 2026", progress: 12, count: "12 notes",  hasHub: false },
       { code: "ENGR-250",  name: "Principles of Engineering Materials", meta: "Section 001 · Fall 2026", progress: 28, count: "8 notes",   hasHub: false },
@@ -520,8 +786,7 @@ const STUDENTS = {
     ],
   },
   charlie: {
-    display: "Charlie Woodcock",
-    initials: "CW",
+    display: "Charlie Woodcock", initials: "CW",
     major: "Mechanical Engineering",
     classes: [
       { code: "ENGR-250", name: "Principles of Engineering Materials", meta: "Section 001 · Fall 2026", progress: 22, count: "2 notes", hasHub: false },
@@ -531,9 +796,8 @@ const STUDENTS = {
     ],
   },
   cooper: {
-    display: "Cooper Hallwood",
-    initials: "CH",
-    major: "Accounting",
+    display: "Cooper Hallwood", initials: "CH",
+    major: "Business",
     classes: [
       { code: "ACC-289", name: "Financial Accounting", meta: "Section 001 · Fall 2026", progress: 50, count: "32 cards" },
     ],
@@ -541,34 +805,28 @@ const STUDENTS = {
     noteLink: { label: "coop-accounting-deck ↗", href: "https://dylanthrp.github.io/coop-accounting-deck/" },
   },
   wyatt: {
-    display: "Wyatt Potter",
-    initials: "WP",
-    major: "Lacrosse · Business",
+    display: "Wyatt Potter", initials: "WP",
+    major: "Business",
     classes: [
       { code: "BUS-201", name: "Principles of Management", meta: "Fall 2026", progress: 15, count: "—" },
     ],
   },
   christian: {
-    display: "Christian Van Tiem",
-    initials: "CV",
-    major: "Defense-first",
+    display: "Christian Van Tiem", initials: "CV",
+    major: "Business",
     classes: [
-      { code: "DEF-101", name: "Lacrosse: Defense", meta: "Spring 2027", progress: 0, count: "0 notes" },
+      { code: "BUS-101", name: "Introduction to Business", meta: "Fall 2026", progress: 0, count: "0 notes" },
     ],
   },
 };
 
-function go(path) {
-  if (location.hash !== '#' + path) { location.hash = path; return; }
-  render(path);
-}
+function go(path) { if (location.hash !== '#' + path) { location.hash = path; return; } render(path); }
 function render(path) {
   const [pathOnly, qs] = path.split('?');
   const params = new URLSearchParams(qs || '');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
-  if (pathOnly === '/' || pathOnly === '')       return viewHome();
-  const u = pathOnly.match(/^\/u\/(\w+)$/);
-  if (u) return viewStudent(u[1]);
+  if (pathOnly === '/' || pathOnly === '') return viewHome();
+  const u = pathOnly.match(/^\/u\/(\w+)$/); if (u) return viewStudent(u[1]);
   const c = pathOnly.match(/^\/u\/(\w+)\/(\S+?)(?:\/(\w+))?$/);
   if (c) return viewClass(c[1], c[2], c[3] || 'overview');
   root.innerHTML = notFound();
@@ -578,61 +836,82 @@ window.addEventListener('hashchange', () => render(location.hash.slice(1) || '/'
 
 function crumbFor(path) {
   const segs = path.split('/').filter(Boolean);
-  if (segs.length === 0) return null;
+  if (!segs.length) return null;
   const out = [];
   if (segs[0] === 'u') {
     const s = STUDENTS[segs[1]];
-    if (!s) return 'Home';
-    out.push(s.display);
-    if (segs[2]) {
-      const cls = s.classes.find(c => c.code === segs[2]);
-      out.push(cls ? `${cls.code} · ${cls.name}` : segs[2]);
+    if (s) {
+      out.push(s.display);
+      if (segs[2]) {
+        const cls = s.classes.find(c => c.code === segs[2]);
+        out.push(cls ? `${cls.code} · ${cls.name}` : segs[2]);
+      }
     }
   }
   return out.join(' › ');
 }
 function updateCrumbs(path) {
   const c = $('#crumbs');
-  if (path === '/' || path === '') {
-    c.innerHTML = '';
-    return;
-  }
+  if (path === '/' || path === '') { c.innerHTML = ''; return; }
   const segs = path.split('/').filter(Boolean);
   let html = `<span class="crumb" data-route="/">Home</span><span class="sep">›</span>`;
   if (segs[0] === 'u' && segs[1]) {
     html += `<span class="crumb" data-route="/u/${segs[1]}">${STUDENTS[segs[1]]?.display || segs[1]}</span><span class="sep">›</span>`;
     if (segs[2]) {
       html += `<span class="crumb current">${STUDENTS[segs[1]]?.classes.find(c => c.code === segs[2])?.code || segs[2]}</span>`;
-    } else {
-      html = html.replace('<span class="crumb current">', '<span class="crumb">').replace('›</span>›', '›</span>').replace(/›<\/span>$/, '</span>');
     }
   }
   c.innerHTML = html;
 }
 
-/* ================== HOME: Who's studying? ================== */
+/* ================== DAILY STREAK ================== */
+function streakGet() {
+  try { return JSON.parse(localStorage.getItem('studyspot_streak') || '{}'); }
+  catch { return {}; }
+}
+function streakRecord() {
+  const s = streakGet();
+  const today = new Date().toISOString().slice(0, 10);
+  if (s.lastStudyDate === today) return s.streak || 1;
+  const yest = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const streak = (s.lastStudyDate === yest ? (s.streak || 0) + 1 : 1);
+  const next = { streak, lastStudyDate: today, best: Math.max(s.best || 0, streak) };
+  localStorage.setItem('studyspot_streak', JSON.stringify(next));
+  return streak;
+}
+
+/* ================== HOME ================== */
 function viewHome() {
   updateCrumbs('/');
+  const streak = streakRecord();
   root.innerHTML = `
     <div class="who-pad">
-      <span class="who-tag">The Wolverines · Study Spot</span>
+      <span class="who-tag">UM-Dearborn · The Wolverines</span>
+      <div class="streak-pill"><span class="fire">🔥</span> Day ${streak} streak${streak > 1 ? ' — keep going' : ' — let\'s start'}</div>
       <h1 class="who-h1">Who's studying?</h1>
-      <p class="who-sub">Pick your name to drop into your dashboard. The other roommates are placeholder — we'll flesh theirs out as they want it.</p>
+      <p class="who-sub">Pick your name to drop into your dashboard. Each roommate has their own class hubs — your study progress stays separate.</p>
 
       <div class="roster-grid">
-        ${Object.entries(STUDENTS).map(([key, s]) => `
+        ${Object.entries(STUDENTS).map(([key, s]) => {
+          const isMech = key === 'dylan' || key === 'charlie';
+          const tagText = isMech ? `${s.classes.length} classes` : `${s.classes.length} classes`;
+          return `
           <div class="roommate" data-route="/u/${key}">
             <div class="avatar">${s.initials}</div>
             <div class="name">${s.display}</div>
             <div class="meta">${s.major}</div>
-            <span class="tag ${key === 'dylan' || key === 'charlie' ? 'live' : ''}">${key === 'dylan' || key === 'charlie' ? 'In progress' : s.classes.length + ' classes'}</span>
+            <span class="tag ${isMech ? 'dim' : ''}">${tagText}</span>
           </div>
-        `).join('')}
+        `;}).join('')}
       </div>
 
       <div class="house-cta">
-        <div class="txt"><b>House shortcut:</b> Search with <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">/</span> &nbsp;·&nbsp; Navigate with <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">←</span> <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">→</span> &nbsp;·&nbsp; Press <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">g</span> to go home</div>
-        <span class="kbd-hint">try it</span>
+        <div class="txt"><b>Keyboard:</b>
+          <span class="kbd">/</span> search ·
+          <span class="kbd">g</span> home ·
+          <span class="kbd">?</span> all shortcuts ·
+          <span class="kbd">Esc</span> clear
+        </div>
       </div>
     </div>
   `;
@@ -641,12 +920,11 @@ function viewHome() {
 
 /* ================== STUDENT DASHBOARD ================== */
 function viewStudent(who) {
-  const s = STUDENTS[who];
-  if (!s) { root.innerHTML = notFound(); return; }
+  const s = STUDENTS[who]; if (!s) { root.innerHTML = notFound(); return; }
   updateCrumbs(`/u/${who}`);
-
   const totalNotes = s.classes.reduce((acc, c) => acc + (parseInt(c.count) || 0), 0);
   const avgProgress = Math.round(s.classes.reduce((a, c) => a + c.progress, 0) / s.classes.length);
+  const dueCount = typeof phys150_dueCount === 'function' ? phys150_dueCount() : 0;
 
   root.innerHTML = `
     <div class="stu-hero">
@@ -656,7 +934,7 @@ function viewStudent(who) {
 
     <div class="stu-stats">
       <div class="stu-stat"><div class="v">${s.classes.length}</div><div class="k">Classes</div></div>
-      <div class="stu-stat"><div class="v">${totalNotes}</div><div class="k">Notes & Cards</div></div>
+      <div class="stu-stat"><div class="v maize">${dueCount}</div><div class="k">Due today</div></div>
       <div class="stu-stat"><div class="v">${avgProgress}%</div><div class="k">Avg progress</div></div>
       <div class="stu-stat"><div class="v">${s.classes.filter(c => c.progress > 0).length}</div><div class="k">Active</div></div>
     </div>
@@ -677,55 +955,42 @@ function viewStudent(who) {
     </div>
 
     ${s.note ? `<div class="house-cta" style="margin-top:24px;">
-      <div class="txt">${s.note}<a href="${s.noteLink.href}" style="color:var(--maize);font-weight:700;">${s.noteLink.label}</a></div>
+      <div class="txt">${s.note}<a href="${s.noteLink.href}" style="color:var(--maize-deep);font-weight:700;">${s.noteLink.label}</a></div>
     </div>` : ''}
   `;
   window.scrollTo({top:0});
 }
 
-/* ================== CLASS HUB ROUTER ================== */
+/* ================== CLASS HUB ================== */
 function viewClass(who, code, mode) {
-  const s = STUDENTS[who];
-  if (!s) { root.innerHTML = notFound(); return; }
-  const c = s.classes.find(x => x.code === code);
-  if (!c) { root.innerHTML = notFound(); return; }
+  const s = STUDENTS[who]; if (!s) { root.innerHTML = notFound(); return; }
+  const c = s.classes.find(x => x.code === code); if (!c) { root.innerHTML = notFound(); return; }
 
-  // If this class has a dedicated hub (PHYS-150), render its full study interface
   if (who === 'dylan' && code === 'PHYS-150') return viewPhys150(mode);
-  if (who === 'charlie' && code === 'PHYS-150') {
-    // Charlie is welcome to the same physics hub (read-only or shared)
-    return viewPhys150(mode);
-  }
+  if (who === 'charlie' && code === 'PHYS-150') return viewPhys150(mode);
 
-  // Otherwise: the empty placeholder hub (other classes waiting for notes)
   updateCrumbs(`/u/${who}/${code}`);
-  if (mode === 'overview') mode = 'overview';
   const tabs = [
     { id: 'overview', label: '📌 Overview' },
-    { id: 'notes',    label: '📝 Notes' },
-    { id: 'cards',    label: '🃏 Cards' },
-    { id: 'flash',    label: '🎯 Flash Test' },
+    { id: 'recall',   label: '✍️ Active Recall' },
   ];
-  const tabsHTML = tabs.map(t =>
-    `<div class="mode-tab ${mode === t.id ? 'active' : ''}" data-mode="${t.id}">${t.label}</div>`
-  ).join('');
-
+  const tabsHTML = tabs.map(t => `<div class="mode-tab ${mode === t.id ? 'active' : ''}" data-mode="${t.id}">${t.label}</div>`).join('');
   let body = '';
-  if (mode === 'overview') {
+  if (mode === 'overview' || !['overview','recall'].includes(mode)) {
     body = `
       <div class="empty-state">
         <div class="ico">📚</div>
         <h3>${c.name}</h3>
         <p>${c.meta} · This is your hub. Notes, cards, and practice will live here once you upload material for this class.</p>
-        <p style="margin-top:14px;font-size:12px;color:var(--text-mute);">⌘ Tip: drop photos, PDFs, or screenshots of your class notes into chat and say <code>add these to ${c.code}</code></p>
+        <p style="margin-top:14px;font-size:12px;color:var(--text-dim);">⌘ Tip: drop photos, PDFs, or screenshots of your class notes into chat and say <code>add these to ${c.code}</code></p>
       </div>
     `;
   } else {
     body = `
       <div class="empty-state">
-        <div class="ico">⏳</div>
-        <h3>${mode.charAt(0).toUpperCase() + mode.slice(1)} mode</h3>
-        <p>Auto-built from your notes once uploaded. Cards will use spaced repetition so the things you miss come back more often.</p>
+        <div class="ico">✍️</div>
+        <h3>Active Recall (typing + confidence grading)</h3>
+        <p>Once you upload notes for ${c.code}, the system will auto-generate typing-based recall questions from your class material. You'll type your answer, see the expected one, and rate your confidence 1-5 — the schedule adapts based on how confident you felt.</p>
       </div>
     `;
   }
@@ -734,8 +999,8 @@ function viewClass(who, code, mode) {
     <div class="hub-hero">
       <div class="top">
         <span class="code">${c.code}</span>
-        <span style="color:var(--text-dim);">·</span>
-        <span style="color:var(--text-dim);">${who.toUpperCase()}'s hub</span>
+        <span style="color:var(--ink-soft);">·</span>
+        <span style="color:var(--ink-soft);">${who.toUpperCase()}'s hub</span>
       </div>
       <h1>${c.name}</h1>
       <div class="sub">${c.meta} · ${c.progress}% complete · ${c.count}</div>
@@ -744,56 +1009,52 @@ function viewClass(who, code, mode) {
     <div class="mode-tabs" id="modeTabs">${tabsHTML}</div>
     ${body}
   `;
-  document.querySelectorAll('.mode-tab').forEach(t => {
-    t.onclick = () => go(`/u/${who}/${code}/${t.dataset.mode}`);
-  });
+  document.querySelectorAll('.mode-tab').forEach(t => { t.onclick = () => go(`/u/${who}/${code}/${t.dataset.mode}`); });
   window.scrollTo({top:0});
 }
 
-/* ================== PHYS-150 STUDY INTERFACE ================== */
+/* ================== PHYS-150 HUB ================== */
 function viewPhys150(mode) {
   if (mode === 'overview' || mode === undefined) mode = 'notes';
-  if (!['notes','cards','flash','sheet'].includes(mode)) mode = 'notes';
+  if (!['notes','cards','flash','sheet','recall'].includes(mode)) mode = 'notes';
 
-  const ch = PHYS150.chapters;
   const tabs = [
-    { id: 'notes', label: '📝 Notes', n: 3 },
-    { id: 'cards', label: '🃏 Cards', n: 0 },
-    { id: 'flash', label: '🎯 Flash', n: 0 },
-    { id: 'sheet', label: '📐 Sheet', n: 0 },
+    { id: 'notes',  label: '📝 Notes' },
+    { id: 'recall', label: '✍️ Recall' },
+    { id: 'cards',  label: '🃏 Cards' },
+    { id: 'flash',  label: '🎯 Flash' },
+    { id: 'sheet',  label: '📐 Sheet' },
   ];
-  const tabsHTML = tabs.map(t =>
-    `<div class="mode-tab ${mode === t.id ? 'active' : ''}" data-mode="${t.id}">${t.label}</div>`
-  ).join('');
+  const tabsHTML = tabs.map(t => `<div class="mode-tab ${mode === t.id ? 'active' : ''}" data-mode="${t.id}">${t.label}</div>`).join('');
 
   let body = '';
-  if (mode === 'notes')      body = renderPhysNotes();
-  else if (mode === 'cards') body = renderPhysCards();
-  else if (mode === 'flash') body = renderPhysFlash();
-  else if (mode === 'sheet') body = renderPhysSheet();
+  if      (mode === 'notes')  body = renderPhysNotes();
+  else if (mode === 'recall') body = renderPhysRecall();
+  else if (mode === 'cards')  body = renderPhysCards();
+  else if (mode === 'flash')  body = renderPhysFlash();
+  else if (mode === 'sheet')  body = renderPhysSheet();
 
   root.innerHTML = `
     <div class="hub-hero">
       <div class="top">
         <span class="code">PHYS-150</span>
-        <span style="color:var(--text-dim);">·</span>
-        <span style="color:var(--text-dim);">Dylan &amp; Charlie's hub</span>
-        <span style="color:var(--good);font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.12);border-radius:6px;margin-left:4px;">3 CHAPTERS VERIFIED</span>
+        <span style="color:var(--ink-soft);">·</span>
+        <span style="color:var(--ink-soft);">General Physics I</span>
+        <span style="background:var(--maize);color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:6px;margin-left:4px;">3 CHAPTERS VERIFIED</span>
       </div>
-      <h1>General Physics I</h1>
-      <div class="sub">${PHYS150.meta.school} · ${PHYS150.meta.term} · ${PHYS150.meta.instructor} · ${PHYS150.meta.credits} credits</div>
+      <h1>${PHYS150.meta.title}</h1>
+      <div class="sub">${PHYS150.meta.school} · ${PHYS150.meta.term} · ${PHYS150.meta.instructor}</div>
     </div>
 
     <div class="mode-tabs" id="modeTabs">${tabsHTML}</div>
 
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
-      <button class="mode-tab" id="backToHub">← Back to hub</button>
-      <button class="mode-tab" id="backHome">← Home</button>
+      <button class="btn" id="backToHub">← Back to hub</button>
+      <button class="btn" id="backHome">← Home</button>
     </div>
 
     <div id="modeBody">${body}</div>
   `;
-  // Wire breadcrumb + back
   updateCrumbs('/u/dylan/PHYS-150');
   document.querySelectorAll('.mode-tab').forEach(t => {
     if (t.id === 'backToHub' || t.id === 'backHome') return;
@@ -801,21 +1062,20 @@ function viewPhys150(mode) {
   });
   $('#backToHub').onclick = () => go('/u/dylan');
   $('#backHome').onclick   = () => go('/');
-  if (mode === 'cards') wirePhysCards();
-  if (mode === 'flash') wirePhysFlash();
+  if (mode === 'recall') wirePhysRecall();
+  if (mode === 'cards')  wirePhysCards();
+  if (mode === 'flash')  wirePhysFlash();
   window.scrollTo({top:0});
 }
 
+/* ================== PHYS-150 NOTES ================== */
 function renderPhysNotes() {
   const ch = PHYS150.chapters.filter(c => c.verified);
   let html = `
     <div class="notes">
       <h2>${PHYS150.meta.title}</h2>
-      <p style="color:var(--text);">${PHYS150.meta.school} · ${PHYS150.meta.term} · ${PHYS150.meta.instructor} · ${PHYS150.meta.credits} credits</p>
-      <p style="font-size:13px;color:var(--text-mute);margin-top:6px;">Source: ${PHYS150.meta.source_files.join(' · ')}</p>
-      <div style="margin:18px 0 8px;display:flex;flex-wrap:wrap;gap:8px;">
-        ${ch.map(c => `<a class="btn" href="#/u/dylan/PHYS-150/sheet" data-ch="${c.num}" style="cursor:pointer;text-decoration:none;">📐 Ch ${c.num} formulas</a>`).join('')}
-      </div>
+      <p style="color:var(--ink);">${PHYS150.meta.school} · ${PHYS150.meta.term} · ${PHYS150.meta.instructor} · ${PHYS150.meta.credits} credits</p>
+      <p style="font-size:13px;color:var(--text-dim);margin-top:6px;">Source: ${PHYS150.meta.source_files.join(' · ')}</p>
       ${ch.map(c => renderPhysChapterNotes(c)).join('')}
       ${PHYS150.chapters.filter(c => !c.verified).map(c => `
         <h2>Chapter ${c.num} · ${c.title} <span style="font-size:13px;color:var(--text-mute);font-weight:400;">(scaffold — awaiting notes)</span></h2>
@@ -826,10 +1086,8 @@ function renderPhysNotes() {
   `;
   return html;
 }
-
 function renderPhysChapterNotes(c) {
   const md = c.notes_md || '';
-  // Tiny markdown converter
   const html = md
     .replace(/^## (.+)$/gm, '<h2>$1</h2>')
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
@@ -846,16 +1104,196 @@ function renderPhysChapterNotes(c) {
     .replace(/<p><p>/g, '<p>')
     .replace(/<p><\/p>/g, '');
   return `<h2>Chapter ${c.num} · ${c.title}</h2>
-    <div style="font-size:11px;color:var(--good);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;">✓ Verified · from ${c.source || 'your class notes'}</div>
+    <div class="ch-source-pill">✓ Verified · ${c.source || 'your class notes'}</div>
     <p>${html}</p>`;
 }
 
-/* ----- Cards ----- */
+/* ================== ACTIVE RECALL WIDGET (the new feature) ==================
+ * Confidence-based grading algorithm:
+ *   1 → 10 minutes  (total blank, see immediately)
+ *   2 → 1 day      (vague recall)
+ *   3 → 3 days     (right-ish)
+ *   4 → 7 days     (right + confident)
+ *   5 → 21 days    (locked in, mastery)
+ * Questions in localStorage persist across browser closes.
+ */
+function loadRecallState() {
+  try { return JSON.parse(localStorage.getItem('phys150_recall') || '{}'); }
+  catch { return {}; }
+}
+function saveRecallState(s) { localStorage.setItem('phys150_recall', JSON.stringify(s)); }
+function dueRecallQuestions() {
+  const s = loadRecallState();
+  const now = Date.now();
+  const out = [];
+  for (const [id, q] of Object.entries(s)) {
+    if (!q.due || new Date(q.due).getTime() <= now) out.push({ id, ...q });
+  }
+  return out;
+}
+function getNextRecallQuestion() {
+  // Prefer due questions, then any
+  const due = dueRecallQuestions();
+  if (due.length) return due[Math.floor(Math.random() * due.length)];
+  const all = Object.entries(loadRecallState()).map(([id, q]) => ({ id, ...q }));
+  if (all.length) return all[Math.floor(Math.random() * all.length)];
+  return null;
+}
+function gradeRecall(id, grade, correct) {
+  const state = loadRecallState();
+  const intervals = [
+    { grade: 1, days: 10 / (60 * 24) },  // 10 minutes
+    { grade: 2, days: 1 },
+    { grade: 3, days: 3 },
+    { grade: 4, days: 7 },
+    { grade: 5, days: 21 },
+  ];
+  const it = intervals.find(i => i.grade === grade).days;
+  const next = state[id] || { attempts: 0, correct: 0, grade: 0 };
+  next.attempts++;
+  if (correct) next.correct++;
+  next.lastGrade = grade;
+  next.lastCorrect = correct;
+  next.lastSeen = new Date().toISOString();
+  next.due = new Date(Date.now() + it * 86400000).toISOString();
+  state[id] = next;
+  saveRecallState(state);
+}
+
+function renderPhysRecall() {
+  const questions = [];
+  for (const ch of PHYS150.chapters.filter(c => c.verified)) {
+    for (const card of ch.cards) {
+      questions.push({ id: 'r:' + ch.num + ':' + card.front, q: card.front, a: card.back, ch: ch.num });
+    }
+  }
+  const state = loadRecallState();
+  for (const qq of questions) if (!state[qq.id]) { state[qq.id] = { attempts: 0, correct: 0 }; }
+  saveRecallState(state);
+
+  const due = dueRecallQuestions();
+  const totalAttempts = Object.values(state).reduce((n, q) => n + (q.attempts || 0), 0);
+  const totalCorrect = Object.values(state).reduce((n, q) => n + (q.correct || 0), 0);
+  const accuracy = totalAttempts ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+
+  return `
+    <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;margin-bottom:18px;">
+      <div class="stu-stat"><div class="v">${due.length}</div><div class="k">Due now</div></div>
+      <div class="stu-stat"><div class="v maize">${totalAttempts}</div><div class="k">Attempts</div></div>
+      <div class="stu-stat"><div class="v">${accuracy}%</div><div class="k">Accuracy</div></div>
+    </div>
+
+    <div id="recallRoot">
+      <button class="btn maize" id="recallStart">${due.length ? `Practice ${due.length} due question${due.length === 1 ? '' : 's'}` : 'Start practicing'}</button>
+      <p style="margin-top:14px;color:var(--ink-soft);font-size:14px;">Type your answer from memory. Click <b>Reveal</b> to compare. Then rate your confidence 1–5. The schedule adapts: low confidence = see again sooner, high confidence = longer interval.</p>
+    </div>
+  `;
+}
+
+let recallCurrent = null, recallSelf = '', recallRevealed = false, recallLastCorrect = null, recallLastGrade = 0;
+
+function wirePhysRecall() {
+  $('#recallStart').onclick = () => {
+    recallCurrent = getNextRecallQuestion();
+    if (!recallCurrent) { toast('No recall questions available'); return; }
+    recallSelf = ''; recallRevealed = false; recallLastCorrect = null; recallLastGrade = 0;
+    renderRecallQuestion();
+  };
+}
+function renderRecallQuestion() {
+  const qq = recallCurrent;
+  const state = loadRecallState()[qq.id] || {};
+  const dueDate = state.due ? new Date(state.due) : null;
+  const dueStr = dueDate ? dueDate.toLocaleString() : 'New';
+  const lastGrade = state.lastGrade ? `Last grade: ${state.lastGrade}/5` : 'Not seen yet';
+  const root2 = $('#recallRoot');
+  root2.innerHTML = `
+    <div class="recall-card">
+      <span class="recall-tag">Active Recall · Chapter ${qq.ch}</span>
+      <div class="recall-q">${qq.q}</div>
+      <div class="recall-meta">${lastGrade} · Next due: <strong>${dueStr}</strong></div>
+      <textarea class="recall-input" id="recallInput" placeholder="Type your answer from memory…"></textarea>
+      <div class="recall-actions">
+        <button class="btn primary" id="recallReveal">Reveal Answer</button>
+        <button class="btn" id="recallSkip">Skip →</button>
+      </div>
+      <div class="recall-feedback" id="recallFeedback"></div>
+      <div id="recallConfidence"></div>
+    </div>
+  `;
+  const input = $('#recallInput');
+  input.oninput = (e) => { recallSelf = e.target.value; };
+  input.focus();
+  $('#recallReveal').onclick = () => {
+    if (!recallRevealed) {
+      recallRevealed = true;
+      const expected = qq.a;
+      const similarity = compareRecall(recallSelf, expected);
+      const cls = similarity === 'match' ? 'correct' : similarity === 'partial' ? 'partial' : 'wrong';
+      recallLastCorrect = similarity === 'match';
+      $('#recallInput').classList.add(cls);
+      $('#recallFeedback').className = 'recall-feedback show';
+      $('#recallFeedback').innerHTML = `
+        <div class="${cls}">
+          <div class="col-head">${recallLastCorrect ? '✓ Looks right' : similarity === 'partial' ? '~ Partially right' : '✗ Not quite'}</div>
+          <div class="self-vs-answer">
+            <div class="col"><div class="col-head">Your answer</div><div class="col-body">${escapeHtml(recallSelf) || '<em style="color:var(--text-mute)">(blank — type your recall next time)</em>'}</div></div>
+            <div class="col"><div class="col-head">Expected</div><div class="col-body">${escapeHtml(expected)}</div></div>
+          </div>
+        </div>
+        <p style="margin-top:10px;color:var(--ink-soft);font-size:13px;">Now honestly rate how confident you felt <i>before</i> you revealed:</p>
+      `;
+      $('#recallConfidence').innerHTML = `
+        <div class="confidence-row">
+          <div class="conf-btn" data-grade="1"><div class="num">1</div><div class="label">Total blank</div><div class="days">~10 min</div></div>
+          <div class="conf-btn" data-grade="2"><div class="num">2</div><div class="label">Vague</div><div class="days">~1 day</div></div>
+          <div class="conf-btn" data-grade="3"><div class="num">3</div><div class="label">Right-ish</div><div class="days">~3 days</div></div>
+          <div class="conf-btn" data-grade="4"><div class="num">4</div><div class="label">Right + confident</div><div class="days">~7 days</div></div>
+          <div class="conf-btn" data-grade="5"><div class="num">5</div><div class="label">Locked in</div><div class="days">~21 days</div></div>
+        </div>
+        <div class="recall-actions" style="margin-top:10px;">
+          <button class="btn primary" id="recallNext" style="display:none;">Next question →</button>
+        </div>
+      `;
+      document.querySelectorAll('.conf-btn').forEach(b => {
+        b.onclick = () => {
+          const g = +b.dataset.grade;
+          recallLastGrade = g;
+          gradeRecall(qq.id, g, recallLastCorrect);
+          document.querySelectorAll('.conf-btn').forEach(x => x.classList.toggle('selected', +x.dataset.grade === g));
+          $('#recallNext').style.display = 'inline-block';
+          $('#recallNext').onclick = () => { recallCurrent = getNextRecallQuestion(); renderRecallQuestion(); };
+          streakRecord();
+        };
+      });
+    }
+  };
+  $('#recallSkip').onclick = () => { recallCurrent = getNextRecallQuestion(); renderRecallQuestion(); };
+}
+
+// Compare user's typed answer with expected. Tolerance-based.
+function compareRecall(self, expected) {
+  if (!self || !self.trim()) return 'wrong';
+  const s = self.trim().toLowerCase().replace(/[^a-z0-9 ]/g, '');
+  const e = expected.trim().toLowerCase().replace(/[^a-z0-9 ]/g, '');
+  if (s === e) return 'match';
+  // word-overlap similarity
+  const sw = new Set(s.split(/\s+/).filter(Boolean));
+  const ew = new Set(e.split(/\s+/).filter(Boolean));
+  if (!sw.size || !ew.size) return 'wrong';
+  let overlap = 0;
+  for (const w of sw) if (ew.has(w)) overlap++;
+  const ratio = overlap / Math.max(sw.size, ew.size);
+  if (ratio >= 0.7) return 'match';
+  if (ratio >= 0.35) return 'partial';
+  return 'wrong';
+}
+
+/* ================== PHYS-150 CARDS ================== */
 let physCardIdx = 0, physCardFlipped = false, physCardDeck = [];
 function renderPhysCards() {
   const ch = PHYS150.chapters.filter(c => c.verified);
-  physCardDeck = [];
-  for (const c of ch) for (const card of c.cards) physCardDeck.push({ ...card, ch: c.num });
+  physCardDeck = []; for (const c of ch) for (const card of c.cards) physCardDeck.push({ ...card, ch: c.num });
   const state = phys150_loadSR();
   if (Object.keys(state).length > 0) {
     physCardDeck.sort((a, b) => {
@@ -865,10 +1303,11 @@ function renderPhysCards() {
     });
   }
   physCardIdx = 0; physCardFlipped = false;
-  if (!physCardDeck.length) return `<div class="empty-state"><div class="ico">🃏</div><h3>No cards yet</h3><p>Cards will appear here once you upload more chapter notes.</p></div>`;
+  if (!physCardDeck.length) return `<div class="empty-state"><div class="ico">🃏</div><h3>No cards yet</h3></div>`;
   return `
     <div class="card-stage">
       <div class="card" id="physCard">
+        <div class="reveal-flash"></div>
         <div class="card-face front">
           <div class="tag" id="physCardTag">Question · tap to flip</div>
           <div class="term" id="physCardFront"></div>
@@ -885,10 +1324,10 @@ function renderPhysCards() {
       <button class="btn" id="physCardPrev">← Prev</button>
       <button class="btn" id="physCardShuffle">🔀 Shuffle</button>
       <div class="counter" id="physCardCounter">1 / ${physCardDeck.length}</div>
-      <button class="btn again" data-grade="0">Again</button>
-      <button class="btn hard"  data-grade="1">Hard</button>
-      <button class="btn good"  data-grade="2">Good</button>
-      <button class="btn easy"  data-grade="3">Easy</button>
+      <div class="grade-cell"><button class="btn again" data-grade="0">Again</button><div class="grade-label">10 min</div></div>
+      <div class="grade-cell"><button class="btn hard"  data-grade="1">Hard</button><div class="grade-label">1 day</div></div>
+      <div class="grade-cell"><button class="btn good"  data-grade="2">Good</button><div class="grade-label">3 days</div></div>
+      <div class="grade-cell"><button class="btn easy"  data-grade="3">Easy</button><div class="grade-label">7 days</div></div>
     </div>
   `;
 }
@@ -908,26 +1347,29 @@ function wirePhysCards() {
   $('#physCardPrev').onclick = () => { physCardIdx = (physCardIdx - 1 + physCardDeck.length) % physCardDeck.length; physCardFlipped = false; $('#physCard').classList.remove('flipped'); show(); };
   $('#physCardShuffle').onclick = () => { physCardDeck.sort(() => Math.random() - 0.5); physCardIdx = 0; physCardFlipped = false; $('#physCard').classList.remove('flipped'); show(); };
   document.querySelectorAll('.card-controls [data-grade]').forEach(b => {
-    b.onclick = () => {
+    b.onclick = (e) => {
+      e.stopPropagation();
       const c = physCardDeck[physCardIdx % physCardDeck.length];
       phys150_review(c, +b.dataset.grade);
+      rippleButton(b);
+      streakRecord();
       physCardIdx = (physCardIdx + 1) % physCardDeck.length;
       physCardFlipped = false;
       $('#physCard').classList.remove('flipped');
       show();
       const grades = ['again','hard','good','easy'];
-      toast(`Card graded: ${grades[+b.dataset.grade]}`);
+      toast(`Graded: ${grades[+b.dataset.grade]} — see in ${['10min','1day','3days','7days'][+b.dataset.grade]}`);
     };
   });
 }
 
-/* ----- Flash ----- */
+/* ================== PHYS-150 FLASH ================== */
 let physFlashOrder = [], physFlashI = 0, physFlashScore = 0, physFlashTotal = 0, physFlashQ = null, physFlashAns = null;
 function renderPhysFlash() {
   const ch = PHYS150.chapters.filter(c => c.verified);
   const allQ = [];
   for (const c of ch) for (const q of c.flash) allQ.push({ ...q, ch: c.num });
-  if (!allQ.length) return `<div class="flash-empty"><div style="font-size:48px;opacity:.4;">🎯</div><h3 style="margin-top:14px;color:var(--text);">No flash questions yet</h3></div>`;
+  if (!allQ.length) return `<div class="flash-empty"><div style="font-size:48px;opacity:.4;">🎯</div><h3 style="margin-top:14px;color:var(--ink);">No flash questions yet</h3></div>`;
   physFlashOrder = shuffle([...Array(allQ.length).keys()]);
   physFlashI = 0; physFlashScore = 0; physFlashTotal = 0;
   return `<div id="physFlashRoot"></div>`;
@@ -942,7 +1384,7 @@ function wirePhysFlash() {
       $('#physFlashRoot').innerHTML = `
         <div class="flash-stage" style="text-align:center;">
           <div class="flash-score">${pct}%</div>
-          <div style="color:var(--text-dim);">${physFlashScore} of ${physFlashTotal} correct</div>
+          <div style="color:var(--ink-soft);">${physFlashScore} of ${physFlashTotal} correct</div>
           <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
             <button class="btn primary" id="physFlashRestart">Practice again</button>
             <button class="btn" data-route="/u/dylan/PHYS-150/notes">Review notes →</button>
@@ -952,33 +1394,32 @@ function wirePhysFlash() {
       return;
     }
     const idx = physFlashOrder[physFlashI];
-    physFlashQ = allQ[idx];
-    physFlashAns = null;
+    physFlashQ = allQ[idx]; physFlashAns = null;
     const letters = ['A','B','C','D'];
     $('#physFlashRoot').innerHTML = `
       <div class="flash-stage">
         <div class="flash-progress"><div style="width:${((physFlashI) / physFlashOrder.length) * 100}%"></div></div>
-        <div style="font-size:11px;color:var(--text-mute);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Question ${physFlashI + 1} of ${physFlashOrder.length} · Chapter ${physFlashQ.ch}</div>
+        <div style="font-size:11px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Question ${physFlashI + 1} of ${physFlashOrder.length} · Chapter ${physFlashQ.ch}</div>
         <div class="flash-q">${physFlashQ.prompt}</div>
         ${physFlashQ.choices.map((o, i) => `<button class="flash-option" data-i="${i}"><span class="letter">${letters[i]}</span><span>${o}</span></button>`).join('')}
         <div id="physFlashFeedback"></div>
         <div id="physFlashNext" style="margin-top:14px;text-align:right;display:none;"><button class="btn primary" id="physFlashNextBtn">Next →</button></div>
       </div>`;
     document.querySelectorAll('.flash-option').forEach(o => {
-      o.onclick = () => {
+      o.onclick = (e) => {
+        e.stopPropagation();
         if (physFlashAns !== null) return;
         physFlashTotal++;
         const i = +o.dataset.i;
         if (i === physFlashQ.answer) {
           o.classList.add('correct');
-          physFlashScore++;
-          $('#physFlashFeedback').innerHTML = `<div class="flash-feedback good">✓ Correct! ${physFlashQ.explanation}</div>`;
+          physFlashScore++; rippleButton(o);
         } else {
           o.classList.add('wrong');
           document.querySelectorAll('.flash-option')[physFlashQ.answer].classList.add('correct');
-          $('#physFlashFeedback').innerHTML = `<div class="flash-feedback bad">✗ Not quite. ${physFlashQ.explanation}</div>`;
         }
         physFlashAns = i;
+        $('#physFlashFeedback').innerHTML = `<div class="flash-feedback ${i === physFlashQ.answer ? 'good' : 'bad'}">${i === physFlashQ.answer ? '✓' : '✗'} ${physFlashQ.explanation}</div>`;
         $('#physFlashNext').style.display = 'block';
         $('#physFlashNextBtn').onclick = () => { physFlashI++; show(); };
       };
@@ -987,21 +1428,21 @@ function wirePhysFlash() {
   show();
 }
 
-/* ----- Sheet (cheat sheets per chapter) ----- */
+/* ================== PHYS-150 SHEET ================== */
 function renderPhysSheet() {
   const ch = PHYS150.chapters.filter(c => c.verified);
   return ch.map(c => `
     <div class="cheat-sheet" style="margin-bottom:14px;">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
         <div>
-          <div style="font-weight:800;color:var(--maize);">📐 Chapter ${c.num} · ${c.title}</div>
-          <div style="color:var(--text-dim);font-size:13px;margin-top:4px;">${c.formulas.length} formulas · ✓ verified from ${c.source}</div>
+          <div style="font-weight:800;color:var(--blue);">📐 Chapter ${c.num} · ${c.title}</div>
+          <div style="color:var(--ink-soft);font-size:13px;margin-top:4px;">${c.formulas.length} formulas · ✓ verified from ${c.source}</div>
         </div>
       </div>
       ${c.formulas.map(f => `
         <div class="cheat-row">
           <div class="name">${escapeHtml(f.name)}</div>
-          <div class="tex">${escapeHtml(f.tex)}${f.desc ? `<div style="font-family:'Inter',sans-serif;font-weight:400;font-size:12px;color:var(--text-dim);margin-top:6px;">${escapeHtml(f.desc)}</div>` : ''}</div>
+          <div class="tex">${escapeHtml(f.tex)}${f.desc ? `<div style="font-family:'Inter',sans-serif;font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:6px;">${escapeHtml(f.desc)}</div>` : ''}</div>
         </div>`).join('')}
     </div>
   `).join('');
@@ -1018,12 +1459,17 @@ function shuffle(a) {
   }
   return a;
 }
+function rippleButton(btn) {
+  btn.classList.remove('ripple');
+  void btn.offsetWidth;
+  btn.classList.add('ripple');
+}
 function notFound() {
-  return `<div class="notes" style="text-align:center;padding:60px 20px;">
-    <div style="font-size:48px;">🔍</div>
+  return `<div class="empty-state" style="padding:60px 20px;">
+    <div class="ico">🔍</div>
     <h2>Page not found</h2>
-    <p style="margin-top:8px;">That URL doesn't match anything here.</p>
-    <a class="btn primary" onclick="go('/')" style="display:inline-block;margin-top:14px;cursor:pointer;">← Back to home</a>
+    <p>That URL doesn't match anything here.</p>
+    <button class="btn maize" onclick="go('/')">← Back to home</button>
   </div>`;
 }
 function toast(msg) {
@@ -1033,11 +1479,37 @@ function toast(msg) {
   document.body.appendChild(t);
   setTimeout(() => t.remove(), 1800);
 }
+function openShortcutsModal() {
+  if (document.getElementById('shortcutsModal')) return;
+  const m = document.createElement('div');
+  m.id = 'shortcutsModal';
+  m.className = 'modal-bg';
+  m.onclick = (e) => { if (e.target === m) closeShortcutsModal(); };
+  m.innerHTML = `
+    <div class="modal">
+      <h2>Keyboard Shortcuts</h2>
+      <div class="row"><span>Open this menu</span><span class="kbd">?</span></div>
+      <div class="row"><span>Search</span><span class="kbd">/</span></div>
+      <div class="row"><span>Home</span><span class="kbd">g</span></div>
+      <div class="row"><span>Flip flashcard</span><span class="kbd">Space</span></div>
+      <div class="row"><span>Next card</span><span class="kbd">→</span></div>
+      <div class="row"><span>Previous card</span><span class="kbd">←</span></div>
+      <div class="row"><span>Grade card (Again/Hard/Good/Easy)</span><span class="kbd">1</span> <span class="kbd">2</span> <span class="kbd">3</span> <span class="kbd">4</span></div>
+      <div class="row"><span>Clear / close</span><span class="kbd">Esc</span></div>
+      <div style="margin-top:14px;text-align:right;"><button class="btn" onclick="closeShortcutsModal()">Close</button></div>
+    </div>
+  `;
+  document.body.appendChild(m);
+}
+function closeShortcutsModal() {
+  const m = document.getElementById('shortcutsModal');
+  if (m) m.remove();
+}
 
 /* ================== SEARCH ================== */
 $('#globalSearch').addEventListener('input', (e) => {
   const q = e.target.value.trim().toLowerCase();
-  if (!q) return;
+  if (!q) { if (mode === 'home' || location.hash === '' || location.hash === '#') viewHome(); return; }
   const hits = [];
   if (typeof PHYS150 !== 'undefined') {
     for (const ch of PHYS150.chapters) {
@@ -1072,11 +1544,17 @@ $('#globalSearch').addEventListener('input', (e) => {
 
 /* ================== CLICK HANDLER ================== */
 document.addEventListener('click', (e) => {
+  // Ripple on any .btn click
+  if (e.target.closest('.btn') && !e.target.closest('.flash-option')) {
+    const b = e.target.closest('.btn');
+    if (b) rippleButton(b);
+  }
   const navTarget = e.target.closest('[data-route]');
   if (navTarget) { e.preventDefault(); go(navTarget.dataset.route); return; }
 });
 
 /* ================== KEYBOARD ================== */
+let mode = ''; // tracked just so search-input can re-show home when cleared
 document.addEventListener('keydown', (e) => {
   if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
     e.preventDefault(); $('#globalSearch').focus();
@@ -1084,11 +1562,14 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'g' && !e.metaKey && !e.ctrlKey && document.activeElement.tagName !== 'INPUT') {
     e.preventDefault(); go('/');
   }
+  if (e.key === '?' && document.activeElement.tagName !== 'INPUT') {
+    e.preventDefault(); openShortcutsModal();
+  }
   if (e.key === 'Escape') {
+    if (document.getElementById('shortcutsModal')) { closeShortcutsModal(); return; }
     document.activeElement.blur();
     $('#globalSearch').value = '';
   }
-  // Card navigation
   if ($('#physCard')) {
     if (e.key === ' ' && document.activeElement.tagName !== 'INPUT') {
       e.preventDefault();
@@ -1113,11 +1594,10 @@ document.addEventListener('keydown', (e) => {
       $('#physCardBack').innerHTML  = physCardDeck[physCardIdx].back;
       $('#physCardCounter').textContent = `${physCardIdx + 1} / ${physCardDeck.length}`;
     }
-    if (e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4') {
+    if (['1','2','3','4'].includes(e.key)) {
       if (document.activeElement.tagName !== 'INPUT') {
         e.preventDefault();
-        const i = +e.key - 1;
-        const b = document.querySelectorAll('.card-controls [data-grade]')[i];
+        const b = document.querySelectorAll('.card-controls [data-grade]')[+e.key - 1];
         if (b) b.click();
       }
     }
