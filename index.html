@@ -564,7 +564,7 @@ function go(path) {
 }
 function render(path) {
   const [pathOnly, qs] = path.split('?');
-  const params = new URLSearchParams(q || '');
+  const params = new URLSearchParams(qs || '');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
   if (pathOnly === '/' || pathOnly === '')       return viewHome();
   const u = pathOnly.match(/^\/u\/(\w+)$/);
