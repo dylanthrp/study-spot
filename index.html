@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PHYS-150 · Study Spot</title>
+<title>Study Spot — The Wolverines</title>
 <meta name="theme-color" content="#0b1118" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -92,79 +92,182 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ===== Home (chapter list) ===== */
-  .home-hero { padding: 24px 8px 4px; }
-  .home-hero h1 {
+  /* ===== Landing: Who's studying? ===== */
+  .who-pad { padding: 36px 8px 0; text-align: center; }
+  .who-tag {
+    display: inline-block;
+    background: rgba(255,203,5,.12);
+    border: 1px solid rgba(255,203,5,.3);
+    color: var(--maize);
+    font-size: 11px; font-weight: 800;
+    letter-spacing: .18em; text-transform: uppercase;
+    padding: 7px 14px; border-radius: 999px;
+  }
+  .who-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 9vw, 88px);
+    letter-spacing: .01em; line-height: 1;
+    background: linear-gradient(135deg, var(--maize-glow), #ffffff 50%, var(--maize));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin: 16px 0 10px;
+  }
+  .who-sub { color: var(--text-dim); font-size: 16px; max-width: 540px; margin: 0 auto 36px; }
+
+  .roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .roommate {
+    background: linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s ease, box-shadow .25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .roommate::before {
+    content: ""; position: absolute; inset: -1px; border-radius: 18px;
+    background: linear-gradient(135deg, var(--maize), var(--blue));
+    opacity: 0; transition: opacity .25s ease; pointer-events: none;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    padding: 1px;
+  }
+  .roommate:hover { transform: translateY(-4px); border-color: transparent; box-shadow: var(--shadow-hover); }
+  .roommate:hover::before { opacity: 1; }
+  .roommate .avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--card-2);
+    border: 2px solid var(--line);
+    display: grid; place-items: center; font-weight: 800; font-size: 22px;
+    margin-bottom: 14px;
+    color: var(--maize);
+    overflow: hidden;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .25s ease;
+  }
+  .roommate:hover .avatar { transform: scale(1.06); border-color: var(--maize); }
+  .roommate .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .roommate .name { font-weight: 800; font-size: 18px; letter-spacing: -.01em; }
+  .roommate .meta { color: var(--text-dim); font-size: 13px; margin-top: 2px; }
+  .roommate .tag {
+    display: inline-block; margin-top: 12px;
+    background: var(--card-2);
+    border: 1px solid var(--line);
+    color: var(--text-dim);
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  }
+  .roommate .tag.live { color: var(--maize); border-color: rgba(255,203,5,.35); background: rgba(255,203,5,.07); }
+
+  .house-cta {
+    margin-top: 48px;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .house-cta .txt { color: var(--text-dim); font-size: 14px; }
+  .house-cta .txt b { color: var(--text); }
+
+  /* ===== Student dashboard (class grid) ===== */
+  .stu-hero { padding: 24px 8px 4px; }
+  .stu-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(40px, 7vw, 64px);
     letter-spacing: .01em; line-height: 1;
     background: linear-gradient(135deg, var(--maize-glow), var(--maize));
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .home-hero .sub { color: var(--text-dim); margin-top: 6px; font-size: 14px; }
-  .home-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 22px 0 6px; }
-  .home-stat {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  .stu-hero .sub { color: var(--text-dim); margin-top: 6px; font-size: 14px; }
+  .stu-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 22px 0 6px; }
+  .stu-stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
     padding: 14px 16px;
   }
-  .home-stat .v { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--maize); }
-  .home-stat .k { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .stu-stat .v { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--maize); }
+  .stu-stat .k { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 
-  .chapter-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .class-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 14px; margin-top: 22px;
   }
-  .chapter-tile {
+  .class-tile {
     position: relative;
     background: linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%);
-    border: 1px solid var(--line); border-radius: 16px;
-    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 18px 18px;
     cursor: pointer;
-    transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s ease, box-shadow .25s ease;
     overflow: hidden;
+    transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s ease, box-shadow .25s ease;
   }
-  .chapter-tile::after {
+  .class-tile::after {
     content: ""; position: absolute; right: -40px; top: -40px;
     width: 140px; height: 140px; border-radius: 50%;
     background: radial-gradient(circle, rgba(255,203,5,.08), transparent 70%);
     opacity: 0; transition: opacity .3s ease;
   }
-  .chapter-tile:hover { transform: translateY(-3px); border-color: var(--maize); box-shadow: var(--shadow-hover); }
-  .chapter-tile:hover::after { opacity: 1; }
-  .chapter-tile .num {
+  .class-tile:hover { transform: translateY(-3px); border-color: var(--maize); box-shadow: var(--shadow-hover); }
+  .class-tile:hover::after { opacity: 1; }
+  .class-tile .code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px; font-weight: 600;
     color: var(--maize);
     background: rgba(255,203,5,.1);
     border: 1px solid rgba(255,203,5,.25);
     padding: 4px 8px; border-radius: 6px;
-    display: inline-block; margin-bottom: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
   }
-  .chapter-tile.verified .num { color: var(--good); background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.4); }
-  .chapter-tile .title { font-weight: 800; font-size: 17px; letter-spacing: -.01em; }
-  .chapter-tile .sub { color: var(--text-dim); font-size: 12.5px; margin-top: 6px; line-height: 1.45; }
-  .chapter-tile .meta { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-  .chapter-tile .pill { background: var(--card-2); border: 1px solid var(--line); color: var(--text-dim); padding: 3px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 700; }
-  .chapter-tile.verified .pill.live { color: var(--good); border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.08); }
+  .class-tile.has-hub .code { color: var(--good); background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.4); }
+  .class-tile .name { font-weight: 800; font-size: 17px; letter-spacing: -.01em; }
+  .class-tile .meta { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+  .class-tile .progress {
+    margin-top: 14px;
+    height: 6px; background: var(--line); border-radius: 999px; overflow: hidden;
+  }
+  .class-tile .progress > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--maize), var(--maize-glow));
+    border-radius: 999px;
+    transition: width .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .class-tile .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--text-dim); margin-top: 6px;
+    font-weight: 700; letter-spacing: .04em;
+  }
 
-  /* ===== Chapter view (overview) ===== */
-  .ch-hero { padding: 22px 8px 0; }
-  .ch-hero .top { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-  .ch-hero .badge {
-    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
-    color: var(--good);
-    background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.35);
+  /* ===== Class hub (mode tabs) ===== */
+  .hub-hero { padding: 22px 8px 0; }
+  .hub-hero .top {
+    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  }
+  .hub-hero .code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; font-weight: 700;
+    color: var(--maize);
+    background: rgba(255,203,5,.1);
+    border: 1px solid rgba(255,203,5,.3);
     padding: 6px 12px; border-radius: 8px;
   }
-  .ch-hero .badge.pending { color: var(--text-mute); background: var(--card-2); border-color: var(--line); }
-  .ch-hero h1 {
+  .hub-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(40px, 7vw, 60px);
-    letter-spacing: .01em; line-height: 1;
-    color: var(--text);
+    letter-spacing: .01em; line-height: 1; color: var(--text);
     margin: 8px 0 4px;
   }
-  .ch-hero .sub { color: var(--text-dim); }
+  .hub-hero .sub { color: var(--text-dim); }
+
   .mode-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0 16px; }
   .mode-tab {
     background: var(--card); border: 1px solid var(--line); color: var(--text-dim);
@@ -179,7 +282,34 @@
     box-shadow: 0 6px 18px rgba(255,203,5,.25);
   }
 
-  /* ===== Notes mode (markdown-ish) ===== */
+  .empty-state {
+    margin-top: 18px;
+    padding: 32px;
+    background: var(--card);
+    border: 1px dashed var(--line);
+    border-radius: 16px;
+    text-align: center;
+  }
+  .empty-state .ico {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: var(--card-2);
+    display: grid; place-items: center; margin: 0 auto 12px;
+    color: var(--maize);
+  }
+  .empty-state h3 { font-size: 18px; font-weight: 800; }
+  .empty-state p { color: var(--text-dim); margin-top: 6px; max-width: 460px; margin-left: auto; margin-right: auto; }
+  .empty-state .cta {
+    margin-top: 16px; display: inline-block;
+    background: var(--maize);
+    color: #1a1a1a;
+    padding: 10px 18px; border-radius: 10px;
+    font-weight: 800; font-size: 13.5px;
+    box-shadow: 0 6px 18px rgba(255,203,5,.25);
+    transition: transform .15s ease; cursor: pointer;
+  }
+  .empty-state .cta:hover { transform: translateY(-2px); }
+
+  /* ===== PHYS-150 study interface (per chapter) ===== */
   .notes {
     background: var(--card); border: 1px solid var(--line); border-radius: 16px;
     padding: 28px; line-height: 1.7;
@@ -201,7 +331,6 @@
     color: var(--maize); font-size: 13.5px;
   }
 
-  /* ===== Formulas mode ===== */
   .formula-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 12px; margin-top: 14px;
@@ -222,12 +351,7 @@
   }
   .formula-card .desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; }
 
-  /* ===== Cards mode ===== */
-  .card-stage {
-    perspective: 1200px;
-    margin: 14px 0;
-    min-height: 360px;
-  }
+  .card-stage { perspective: 1200px; margin: 14px 0; min-height: 360px; }
   .card {
     position: relative; width: 100%; min-height: 360px;
     transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2,.7,.2,1);
@@ -240,22 +364,14 @@
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; box-shadow: var(--shadow); border: 1px solid var(--line);
   }
-  .card-face.front {
-    background: linear-gradient(160deg, var(--card) 0%, #202633 100%);
-  }
+  .card-face.front { background: linear-gradient(160deg, var(--card) 0%, #202633 100%); }
   .card-face.front::before {
     content: ""; position: absolute; inset: 0; border-radius: 22px;
     background: radial-gradient(ellipse at 50% 0%, rgba(255,203,5,.18), transparent 60%);
     pointer-events: none;
   }
-  .card-face.back {
-    background: linear-gradient(160deg, #1a1f2c 0%, var(--card-2) 100%);
-    transform: rotateY(180deg);
-  }
-  .card-face .tag {
-    font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--maize); margin-bottom: 18px;
-  }
+  .card-face.back { background: linear-gradient(160deg, #1a1f2c 0%, var(--card-2) 100%); transform: rotateY(180deg); }
+  .card-face .tag { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--maize); margin-bottom: 18px; }
   .card-face .term { font-size: 26px; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; color: var(--text); }
   .card-face .defn { font-size: 17px; line-height: 1.55; color: #d9dde6; max-width: 700px; }
   .card-face .tap { font-size: 12px; color: var(--text-dim); margin-top: auto; opacity: .75; }
@@ -277,7 +393,6 @@
   .btn.good  { background: rgba(34,197,94,.15); color: #86efac; border-color: rgba(34,197,94,.4); }
   .btn.easy  { background: rgba(34,197,94,.22); color: #bbf7d0; border-color: rgba(34,197,94,.5); }
 
-  /* ===== Flash mode ===== */
   .flash-stage {
     background: var(--card); border: 1px solid var(--line); border-radius: 18px;
     padding: 28px;
@@ -314,7 +429,6 @@
     line-height: 1; margin-bottom: 8px;
   }
 
-  /* ===== Formula Sheet mode ===== */
   .cheat-sheet { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px; }
   .cheat-sheet h3 { color: var(--maize); margin-bottom: 12px; font-size: 16px; }
   .cheat-row {
@@ -331,7 +445,6 @@
     background: var(--card-2); padding: 8px 12px; border-radius: 6px;
   }
 
-  /* Toast */
   .toast {
     position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
     background: var(--card-2); border: 1px solid var(--line);
@@ -343,10 +456,11 @@
   @keyframes toastIn { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
 
   footer { text-align: center; padding: 20px 16px 32px; color: var(--text-mute); font-size: 12px; }
+  footer .go-blue { color: var(--maize); font-weight: 700; letter-spacing: .04em; }
 
   @media (max-width: 720px) {
-    .home-stats { grid-template-columns: repeat(2, 1fr); }
-    .chapter-grid { grid-template-columns: 1fr; }
+    .stu-stats { grid-template-columns: repeat(2, 1fr); }
+    .class-grid { grid-template-columns: 1fr; }
     .formula-grid { grid-template-columns: 1fr; }
     .search input { width: 150px; }
     .search input:focus { width: 170px; }
@@ -366,15 +480,15 @@
       </svg>
     </div>
     <div>
-      <div class="title">PHYS-150 · Study Spot</div>
-      <div class="sub">General Physics I · UM-Dearborn</div>
+      <div class="title">Study Spot</div>
+      <div class="sub">The Wolverines · UM-Dearborn</div>
     </div>
   </div>
   <div id="crumbs" class="crumbs"></div>
   <div class="toolbar">
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="globalSearch" placeholder="Search formulas… ( / )" />
+      <input id="globalSearch" placeholder="Search notes… ( / )" />
     </div>
     <span class="kbd-hint">/</span>
   </div>
@@ -382,13 +496,67 @@
 
 <main id="root" class="view"></main>
 
-<footer>Built from your class notes · <span style="color:var(--maize);">📚 3 verified chapters</span> · Go Blue 🐺</footer>
+<footer>The Wolverines · UM-Dearborn · <span class="go-blue">Go Blue</span></footer>
 
 <script src="phys150-data.js"></script>
 <script>
-/* ================== ROUTER ================== */
+/* ================== ROUTER + STATE ================== */
 const $ = (sel) => document.querySelector(sel);
 const root = $('#root');
+
+/* Student data (mirrors what we had in the original landing) */
+const STUDENTS = {
+  dylan: {
+    display: "Dylan Thorpe",
+    initials: "DT",
+    major: "Engineering · Pre-Med Track",
+    classes: [
+      { code: "ANTH-101",  name: "Introduction to Anthropology",      meta: "Section 001 · Fall 2026", progress: 12, count: "12 notes",  hasHub: false },
+      { code: "ENGR-250",  name: "Principles of Engineering Materials", meta: "Section 001 · Fall 2026", progress: 28, count: "8 notes",   hasHub: false },
+      { code: "ENGR-250R", name: "Prin of Eng Materials Recitation",  meta: "Section 003 · Fall 2026", progress: 14, count: "3 notes",   hasHub: false },
+      { code: "MATH-215",  name: "Calculus III",                       meta: "Section 001 · Fall 2026", progress: 41, count: "16 notes",  hasHub: false },
+      { code: "PHYS-150",  name: "General Physics I",                  meta: "Section 003 · Fall 2026", progress: 8,  count: "27 verified items · Ch 2/3/5", hasHub: true },
+      { code: "PHYS-150L", name: "General Physics I Lab/Disc",         meta: "Section 001 · Fall 2026", progress: 6,  count: "0 notes",   hasHub: false },
+    ],
+  },
+  charlie: {
+    display: "Charlie Woodcock",
+    initials: "CW",
+    major: "Mechanical Engineering",
+    classes: [
+      { code: "ENGR-250", name: "Principles of Engineering Materials", meta: "Section 001 · Fall 2026", progress: 22, count: "2 notes", hasHub: false },
+      { code: "MATH-216", name: "Differential Equations",             meta: "Section 002 · Fall 2026", progress: 30, count: "9 notes", hasHub: false },
+      { code: "ME-220",   name: "Statics",                            meta: "Section 001 · Fall 2026", progress: 18, count: "5 notes", hasHub: false },
+      { code: "PHYS-150", name: "General Physics I",                  meta: "Section 003 · Fall 2026", progress: 8,  count: "shared with Dylan", hasHub: true },
+    ],
+  },
+  cooper: {
+    display: "Cooper Hallwood",
+    initials: "CH",
+    major: "Accounting",
+    classes: [
+      { code: "ACC-289", name: "Financial Accounting", meta: "Section 001 · Fall 2026", progress: 50, count: "32 cards" },
+    ],
+    note: "Cooper already has his own full study app — ",
+    noteLink: { label: "coop-accounting-deck ↗", href: "https://dylanthrp.github.io/coop-accounting-deck/" },
+  },
+  wyatt: {
+    display: "Wyatt Potter",
+    initials: "WP",
+    major: "Lacrosse · Business",
+    classes: [
+      { code: "BUS-201", name: "Principles of Management", meta: "Fall 2026", progress: 15, count: "—" },
+    ],
+  },
+  christian: {
+    display: "Christian Van Tiem",
+    initials: "CV",
+    major: "Defense-first",
+    classes: [
+      { code: "DEF-101", name: "Lacrosse: Defense", meta: "Spring 2027", progress: 0, count: "0 notes" },
+    ],
+  },
+};
 
 function go(path) {
   if (location.hash !== '#' + path) { location.hash = path; return; }
@@ -398,149 +566,270 @@ function render(path) {
   const [pathOnly, qs] = path.split('?');
   const params = new URLSearchParams(q || '');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
-  if (pathOnly === '/' || pathOnly === '')        return viewHome();
-  const chMatch = pathOnly.match(/^\/c\/(\d+)(?:\/(notes|cards|flash|sheet))?$/);
-  if (chMatch) return viewChapter(+chMatch[1], chMatch[2] || 'overview', params);
+  if (pathOnly === '/' || pathOnly === '')       return viewHome();
+  const u = pathOnly.match(/^\/u\/(\w+)$/);
+  if (u) return viewStudent(u[1]);
+  const c = pathOnly.match(/^\/u\/(\w+)\/(\S+?)(?:\/(\w+))?$/);
+  if (c) return viewClass(c[1], c[2], c[3] || 'overview');
   root.innerHTML = notFound();
   window.scrollTo({top:0});
 }
 window.addEventListener('hashchange', () => render(location.hash.slice(1) || '/'));
 
 function crumbFor(path) {
-  if (path.startsWith('/c/')) {
-    const id = +path.split('/')[2].split('?')[0];
-    const ch = PHYS150.chapters.find(c => c.num === id);
-    return ch ? `Ch ${ch.num} · ${ch.title}` : 'Chapter';
+  const segs = path.split('/').filter(Boolean);
+  if (segs.length === 0) return null;
+  const out = [];
+  if (segs[0] === 'u') {
+    const s = STUDENTS[segs[1]];
+    if (!s) return 'Home';
+    out.push(s.display);
+    if (segs[2]) {
+      const cls = s.classes.find(c => c.code === segs[2]);
+      out.push(cls ? `${cls.code} · ${cls.name}` : segs[2]);
+    }
   }
-  return 'Home';
+  return out.join(' › ');
 }
-
 function updateCrumbs(path) {
   const c = $('#crumbs');
-  const pathOnly = path.split('?')[0];
-  if (pathOnly === '/' || pathOnly === '') {
+  if (path === '/' || path === '') {
     c.innerHTML = '';
     return;
   }
-  c.innerHTML = `
-    <span class="crumb" data-route="/">Home</span>
-    <span class="sep">›</span>
-    <span class="crumb current">${crumbFor(path)}</span>`;
+  const segs = path.split('/').filter(Boolean);
+  let html = `<span class="crumb" data-route="/">Home</span><span class="sep">›</span>`;
+  if (segs[0] === 'u' && segs[1]) {
+    html += `<span class="crumb" data-route="/u/${segs[1]}">${STUDENTS[segs[1]]?.display || segs[1]}</span><span class="sep">›</span>`;
+    if (segs[2]) {
+      html += `<span class="crumb current">${STUDENTS[segs[1]]?.classes.find(c => c.code === segs[2])?.code || segs[2]}</span>`;
+    } else {
+      html = html.replace('<span class="crumb current">', '<span class="crumb">').replace('›</span>›', '›</span>').replace(/›<\/span>$/, '</span>');
+    }
+  }
+  c.innerHTML = html;
 }
 
-/* ================== HOME ================== */
+/* ================== HOME: Who's studying? ================== */
 function viewHome() {
   updateCrumbs('/');
-  const ch = PHYS150.chapters;
-  const verified = ch.filter(c => c.verified);
-  const totalCards = verified.reduce((n, c) => n + (c.cards?.length || 0), 0);
-  const totalFormulas = verified.reduce((n, c) => n + (c.formulas?.length || 0), 0);
-  const totalFlash = verified.reduce((n, c) => n + (c.flash?.length || 0), 0);
-  const due = phys150_dueCount();
-
-  const tiles = ch.map(c => `
-    <div class="chapter-tile ${c.verified ? 'verified' : ''}" data-route="/c/${c.num}">
-      <span class="num">Ch ${c.num}</span>
-      <div class="title">${c.title}</div>
-      <div class="sub">${c.subtitle || ''}</div>
-      <div class="meta">
-        ${c.verified
-          ? `<span class="pill live">✓ Verified</span>
-             <span class="pill">${c.formulas.length} formulas</span>
-             <span class="pill">${c.cards.length} cards</span>
-             <span class="pill">${c.flash.length} flash</span>`
-          : `<span class="pill">⏳ Awaiting notes</span>
-             <span class="pill">${c.topics?.length || 0} topics scaffolded</span>
-             <span class="pill">${c.formulas.length} canonical formulas</span>`
-        }
-      </div>
-    </div>
-  `).join('');
-
   root.innerHTML = `
-    <div class="home-hero">
-      <h1>${PHYS150.meta.title}</h1>
-      <div class="sub">${PHYS150.meta.school} · ${PHYS150.meta.term} · ${PHYS150.meta.instructor} · ${PHYS150.meta.credits} credits</div>
-    </div>
+    <div class="who-pad">
+      <span class="who-tag">The Wolverines · Study Spot</span>
+      <h1 class="who-h1">Who's studying?</h1>
+      <p class="who-sub">Pick your name to drop into your dashboard. The other roommates are placeholder — we'll flesh theirs out as they want it.</p>
 
-    <div class="home-stats">
-      <div class="home-stat"><div class="v">${ch.length}</div><div class="k">Chapters scaffolded</div></div>
-      <div class="home-stat"><div class="v">${verified.length}</div><div class="k">Verified from your notes</div></div>
-      <div class="home-stat"><div class="v">${totalFormulas + totalCards + totalFlash}</div><div class="k">Study items ready</div></div>
-      <div class="home-stat"><div class="v">${due}</div><div class="k">Cards due today</div></div>
-    </div>
+      <div class="roster-grid">
+        ${Object.entries(STUDENTS).map(([key, s]) => `
+          <div class="roommate" data-route="/u/${key}">
+            <div class="avatar">${s.initials}</div>
+            <div class="name">${s.display}</div>
+            <div class="meta">${s.major}</div>
+            <span class="tag ${key === 'dylan' || key === 'charlie' ? 'live' : ''}">${key === 'dylan' || key === 'charlie' ? 'In progress' : s.classes.length + ' classes'}</span>
+          </div>
+        `).join('')}
+      </div>
 
-    <div class="chapter-grid">${tiles}</div>
-
-    <div class="cheat-sheet" style="margin-top:24px;">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-        <div>
-          <div style="font-weight:800;color:var(--maize);font-size:15px;">📚 Source material</div>
-          <div style="color:var(--text-dim);font-size:13px;margin-top:4px;">${PHYS150.meta.source_files.join(' · ')}</div>
-        </div>
-        <div style="color:var(--text-mute);font-size:12px;">
-          <kbd style="background:var(--card-2);border:1px solid var(--line);padding:3px 8px;border-radius:6px;font-family:monospace;">/</kbd> search
-          <kbd style="background:var(--card-2);border:1px solid var(--line);padding:3px 8px;border-radius:6px;font-family:monospace;margin-left:6px;">g</kbd> home
-          <kbd style="background:var(--card-2);border:1px solid var(--line);padding:3px 8px;border-radius:6px;font-family:monospace;margin-left:6px;">←→</kbd> cards
-        </div>
+      <div class="house-cta">
+        <div class="txt"><b>House shortcut:</b> Search with <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">/</span> &nbsp;·&nbsp; Navigate with <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">←</span> <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">→</span> &nbsp;·&nbsp; Press <span style="color:var(--maize);font-family:'JetBrains Mono',monospace;">g</span> to go home</div>
+        <span class="kbd-hint">try it</span>
       </div>
     </div>
   `;
   window.scrollTo({top:0});
 }
 
-/* ================== CHAPTER VIEW ================== */
-function viewChapter(num, mode, params) {
-  const ch = PHYS150.chapters.find(c => c.num === num);
-  if (!ch) { root.innerHTML = notFound(); return; }
-  updateCrumbs(`/c/${num}`);
-  if (mode === 'overview') mode = 'notes'; // default
-  if (!['notes','cards','flash','sheet'].includes(mode)) mode = 'notes';
+/* ================== STUDENT DASHBOARD ================== */
+function viewStudent(who) {
+  const s = STUDENTS[who];
+  if (!s) { root.innerHTML = notFound(); return; }
+  updateCrumbs(`/u/${who}`);
 
+  const totalNotes = s.classes.reduce((acc, c) => acc + (parseInt(c.count) || 0), 0);
+  const avgProgress = Math.round(s.classes.reduce((a, c) => a + c.progress, 0) / s.classes.length);
+
+  root.innerHTML = `
+    <div class="stu-hero">
+      <h1>${s.display.split(' ')[0]}'s dashboard</h1>
+      <div class="sub">${s.major} · Fall 2026 · ${s.classes.length} classes</div>
+    </div>
+
+    <div class="stu-stats">
+      <div class="stu-stat"><div class="v">${s.classes.length}</div><div class="k">Classes</div></div>
+      <div class="stu-stat"><div class="v">${totalNotes}</div><div class="k">Notes & Cards</div></div>
+      <div class="stu-stat"><div class="v">${avgProgress}%</div><div class="k">Avg progress</div></div>
+      <div class="stu-stat"><div class="v">${s.classes.filter(c => c.progress > 0).length}</div><div class="k">Active</div></div>
+    </div>
+
+    <div class="class-grid">
+      ${s.classes.map(c => `
+        <div class="class-tile ${c.hasHub ? 'has-hub' : ''}" data-route="/u/${who}/${c.code}">
+          <span class="code">${c.code}</span>
+          <div class="name">${c.name}</div>
+          <div class="meta">${c.meta}</div>
+          <div class="progress"><div style="width:${c.progress}%"></div></div>
+          <div class="progress-label">
+            <span>${c.progress}%</span>
+            <span>${c.count}</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    ${s.note ? `<div class="house-cta" style="margin-top:24px;">
+      <div class="txt">${s.note}<a href="${s.noteLink.href}" style="color:var(--maize);font-weight:700;">${s.noteLink.label}</a></div>
+    </div>` : ''}
+  `;
+  window.scrollTo({top:0});
+}
+
+/* ================== CLASS HUB ROUTER ================== */
+function viewClass(who, code, mode) {
+  const s = STUDENTS[who];
+  if (!s) { root.innerHTML = notFound(); return; }
+  const c = s.classes.find(x => x.code === code);
+  if (!c) { root.innerHTML = notFound(); return; }
+
+  // If this class has a dedicated hub (PHYS-150), render its full study interface
+  if (who === 'dylan' && code === 'PHYS-150') return viewPhys150(mode);
+  if (who === 'charlie' && code === 'PHYS-150') {
+    // Charlie is welcome to the same physics hub (read-only or shared)
+    return viewPhys150(mode);
+  }
+
+  // Otherwise: the empty placeholder hub (other classes waiting for notes)
+  updateCrumbs(`/u/${who}/${code}`);
+  if (mode === 'overview') mode = 'overview';
   const tabs = [
-    { id: 'notes', label: '📝 Notes',    n: ch.notes_md ? 1 : 0 },
-    { id: 'cards', label: '🃏 Cards',    n: ch.cards.length, badge: ch.cards.length },
-    { id: 'flash', label: '🎯 Flash',    n: ch.flash.length, badge: ch.flash.length },
-    { id: 'sheet', label: '📐 Sheet',    n: ch.formulas.length, badge: ch.formulas.length },
+    { id: 'overview', label: '📌 Overview' },
+    { id: 'notes',    label: '📝 Notes' },
+    { id: 'cards',    label: '🃏 Cards' },
+    { id: 'flash',    label: '🎯 Flash Test' },
   ];
   const tabsHTML = tabs.map(t =>
-    `<div class="mode-tab ${mode === t.id ? 'active' : ''}" data-mode="${t.id}">${t.label}${t.n > 0 ? ` <span style="opacity:.6;font-weight:600;margin-left:4px;">· ${t.n}</span>` : ''}</div>`
+    `<div class="mode-tab ${mode === t.id ? 'active' : ''}" data-mode="${t.id}">${t.label}</div>`
   ).join('');
 
   let body = '';
-  if (mode === 'notes')      body = renderNotes(ch);
-  else if (mode === 'cards') body = renderCards(ch);
-  else if (mode === 'flash') body = renderFlash(ch);
-  else if (mode === 'sheet') body = renderSheet(ch);
+  if (mode === 'overview') {
+    body = `
+      <div class="empty-state">
+        <div class="ico">📚</div>
+        <h3>${c.name}</h3>
+        <p>${c.meta} · This is your hub. Notes, cards, and practice will live here once you upload material for this class.</p>
+        <p style="margin-top:14px;font-size:12px;color:var(--text-mute);">⌘ Tip: drop photos, PDFs, or screenshots of your class notes into chat and say <code>add these to ${c.code}</code></p>
+      </div>
+    `;
+  } else {
+    body = `
+      <div class="empty-state">
+        <div class="ico">⏳</div>
+        <h3>${mode.charAt(0).toUpperCase() + mode.slice(1)} mode</h3>
+        <p>Auto-built from your notes once uploaded. Cards will use spaced repetition so the things you miss come back more often.</p>
+      </div>
+    `;
+  }
 
   root.innerHTML = `
-    <div class="ch-hero">
+    <div class="hub-hero">
       <div class="top">
-        <span class="badge ${ch.verified ? '' : 'pending'}">${ch.verified ? '✓ Verified' : '⏳ Scaffold'}</span>
-        <span style="color:var(--text-dim);">Chapter ${ch.num}</span>
-        ${ch.source ? `<span style="color:var(--text-mute);font-size:12px;">· ${ch.source}</span>` : ''}
+        <span class="code">${c.code}</span>
+        <span style="color:var(--text-dim);">·</span>
+        <span style="color:var(--text-dim);">${who.toUpperCase()}'s hub</span>
       </div>
-      <h1>${ch.title}</h1>
-      <div class="sub">${ch.subtitle || ''}</div>
+      <h1>${c.name}</h1>
+      <div class="sub">${c.meta} · ${c.progress}% complete · ${c.count}</div>
     </div>
 
     <div class="mode-tabs" id="modeTabs">${tabsHTML}</div>
-    <div id="modeBody">${body}</div>
+    ${body}
   `;
-  // Wire mode tabs
   document.querySelectorAll('.mode-tab').forEach(t => {
-    t.onclick = () => go(`/c/${ch.num}/${t.dataset.mode}`);
+    t.onclick = () => go(`/u/${who}/${code}/${t.dataset.mode}`);
   });
-  // Wire cards & flash logic
-  if (mode === 'cards') wireCards(ch);
-  if (mode === 'flash') wireFlash(ch);
   window.scrollTo({top:0});
 }
 
-/* ----- Notes (markdown-ish) ----- */
-function renderNotes(ch) {
-  const md = ch.notes_md || '';
-  // Tiny markdown converter (h2, h3, p, ul, ol, li, code, strong, table)
+/* ================== PHYS-150 STUDY INTERFACE ================== */
+function viewPhys150(mode) {
+  if (mode === 'overview' || mode === undefined) mode = 'notes';
+  if (!['notes','cards','flash','sheet'].includes(mode)) mode = 'notes';
+
+  const ch = PHYS150.chapters;
+  const tabs = [
+    { id: 'notes', label: '📝 Notes', n: 3 },
+    { id: 'cards', label: '🃏 Cards', n: 0 },
+    { id: 'flash', label: '🎯 Flash', n: 0 },
+    { id: 'sheet', label: '📐 Sheet', n: 0 },
+  ];
+  const tabsHTML = tabs.map(t =>
+    `<div class="mode-tab ${mode === t.id ? 'active' : ''}" data-mode="${t.id}">${t.label}</div>`
+  ).join('');
+
+  let body = '';
+  if (mode === 'notes')      body = renderPhysNotes();
+  else if (mode === 'cards') body = renderPhysCards();
+  else if (mode === 'flash') body = renderPhysFlash();
+  else if (mode === 'sheet') body = renderPhysSheet();
+
+  root.innerHTML = `
+    <div class="hub-hero">
+      <div class="top">
+        <span class="code">PHYS-150</span>
+        <span style="color:var(--text-dim);">·</span>
+        <span style="color:var(--text-dim);">Dylan &amp; Charlie's hub</span>
+        <span style="color:var(--good);font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.12);border-radius:6px;margin-left:4px;">3 CHAPTERS VERIFIED</span>
+      </div>
+      <h1>General Physics I</h1>
+      <div class="sub">${PHYS150.meta.school} · ${PHYS150.meta.term} · ${PHYS150.meta.instructor} · ${PHYS150.meta.credits} credits</div>
+    </div>
+
+    <div class="mode-tabs" id="modeTabs">${tabsHTML}</div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+      <button class="mode-tab" id="backToHub">← Back to hub</button>
+      <button class="mode-tab" id="backHome">← Home</button>
+    </div>
+
+    <div id="modeBody">${body}</div>
+  `;
+  // Wire breadcrumb + back
+  updateCrumbs('/u/dylan/PHYS-150');
+  document.querySelectorAll('.mode-tab').forEach(t => {
+    if (t.id === 'backToHub' || t.id === 'backHome') return;
+    t.onclick = () => go(`/u/dylan/PHYS-150/${t.dataset.mode}`);
+  });
+  $('#backToHub').onclick = () => go('/u/dylan');
+  $('#backHome').onclick   = () => go('/');
+  if (mode === 'cards') wirePhysCards();
+  if (mode === 'flash') wirePhysFlash();
+  window.scrollTo({top:0});
+}
+
+function renderPhysNotes() {
+  const ch = PHYS150.chapters.filter(c => c.verified);
+  let html = `
+    <div class="notes">
+      <h2>${PHYS150.meta.title}</h2>
+      <p style="color:var(--text);">${PHYS150.meta.school} · ${PHYS150.meta.term} · ${PHYS150.meta.instructor} · ${PHYS150.meta.credits} credits</p>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:6px;">Source: ${PHYS150.meta.source_files.join(' · ')}</p>
+      <div style="margin:18px 0 8px;display:flex;flex-wrap:wrap;gap:8px;">
+        ${ch.map(c => `<a class="btn" href="#/u/dylan/PHYS-150/sheet" data-ch="${c.num}" style="cursor:pointer;text-decoration:none;">📐 Ch ${c.num} formulas</a>`).join('')}
+      </div>
+      ${ch.map(c => renderPhysChapterNotes(c)).join('')}
+      ${PHYS150.chapters.filter(c => !c.verified).map(c => `
+        <h2>Chapter ${c.num} · ${c.title} <span style="font-size:13px;color:var(--text-mute);font-weight:400;">(scaffold — awaiting notes)</span></h2>
+        <p>${c.summary || ''}</p>
+        <div class="placeholder-callout">Topic list and canonical formulas are scaffolded. Detailed notes from your class will appear here once uploaded.</div>
+      `).join('')}
+    </div>
+  `;
+  return html;
+}
+
+function renderPhysChapterNotes(c) {
+  const md = c.notes_md || '';
+  // Tiny markdown converter
   const html = md
     .replace(/^## (.+)$/gm, '<h2>$1</h2>')
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
@@ -550,55 +839,52 @@ function renderNotes(ch) {
     .replace(/^• (.+)$/gm, '<li>$1</li>')
     .replace(/(<li>.+<\/li>\n?)+/g, m => '<ul>' + m + '</ul>')
     .replace(/<\/ul>\n<ul>/g, '')
-    .replace(/^(?!<h2|<h3|<ul|<li|<code|<strong|<\/p>|<\/ul>|<p>)/gm, '<p>')
-    .replace(/\n<\/p>/g, '</p>')
-    .replace(/<p><\/p>/g, '')
     .replace(/<\/p>\n<h2>/g, '</p>')
     .replace(/<\/p>\n<h3>/g, '</p>')
     .replace(/<p><h2>/g, '<h2>')
-    .replace(/<\/h2>/g, '</h2>')
     .replace(/<p><ul>/g, '<ul>')
-    .replace(/<\/ul>/g, '</ul>')
-    .replace(/<p><p>/g, '<p>');
-  const callout = ch.verified ? '' : '<div class="placeholder-callout">This chapter is a scaffold — the topic list and canonical formulas are filled in, but detailed notes from your class will appear here once you upload them. The cheat sheet already has the key equations.</div>';
-  return `<div class="notes">${callout}<p>${html}</p></div>`;
+    .replace(/<p><p>/g, '<p>')
+    .replace(/<p><\/p>/g, '');
+  return `<h2>Chapter ${c.num} · ${c.title}</h2>
+    <div style="font-size:11px;color:var(--good);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;">✓ Verified · from ${c.source || 'your class notes'}</div>
+    <p>${html}</p>`;
 }
 
-/* ----- Cards (flashcard + spaced repetition) ----- */
-let cardIdx = 0, cardFlipped = false, cardDeck = [];
-function renderCards(ch) {
-  // Filter to "due" cards first if SR state exists; else show all
+/* ----- Cards ----- */
+let physCardIdx = 0, physCardFlipped = false, physCardDeck = [];
+function renderPhysCards() {
+  const ch = PHYS150.chapters.filter(c => c.verified);
+  physCardDeck = [];
+  for (const c of ch) for (const card of c.cards) physCardDeck.push({ ...card, ch: c.num });
   const state = phys150_loadSR();
-  const now = Date.now();
-  cardDeck = ch.cards.slice();
   if (Object.keys(state).length > 0) {
-    cardDeck.sort((a, b) => {
+    physCardDeck.sort((a, b) => {
       const ad = state[a.front] ? new Date(state[a.front].due).getTime() : 0;
       const bd = state[b.front] ? new Date(state[b.front].due).getTime() : 0;
-      return (ad - now) - (bd - now); // due-soonest first
+      return (ad - Date.now()) - (bd - Date.now());
     });
   }
-  cardIdx = 0; cardFlipped = false;
-  if (!cardDeck.length) return '<div class="notes">No cards in this chapter yet.</div>';
+  physCardIdx = 0; physCardFlipped = false;
+  if (!physCardDeck.length) return `<div class="empty-state"><div class="ico">🃏</div><h3>No cards yet</h3><p>Cards will appear here once you upload more chapter notes.</p></div>`;
   return `
     <div class="card-stage">
-      <div class="card" id="card">
+      <div class="card" id="physCard">
         <div class="card-face front">
-          <div class="tag">Question · tap to flip</div>
-          <div class="term" id="cardFront"></div>
+          <div class="tag" id="physCardTag">Question · tap to flip</div>
+          <div class="term" id="physCardFront"></div>
           <div class="tap">click to reveal</div>
         </div>
         <div class="card-face back">
           <div class="tag">Answer</div>
-          <div class="defn" id="cardBack"></div>
+          <div class="defn" id="physCardBack"></div>
           <div class="tap">click to flip back</div>
         </div>
       </div>
     </div>
     <div class="card-controls">
-      <button class="btn" id="cardPrev">← Prev</button>
-      <button class="btn" id="cardShuffle">🔀 Shuffle</button>
-      <div class="counter" id="cardCounter">1 / ${cardDeck.length}</div>
+      <button class="btn" id="physCardPrev">← Prev</button>
+      <button class="btn" id="physCardShuffle">🔀 Shuffle</button>
+      <div class="counter" id="physCardCounter">1 / ${physCardDeck.length}</div>
       <button class="btn again" data-grade="0">Again</button>
       <button class="btn hard"  data-grade="1">Hard</button>
       <button class="btn good"  data-grade="2">Good</button>
@@ -606,27 +892,28 @@ function renderCards(ch) {
     </div>
   `;
 }
-function wireCards(ch) {
+function wirePhysCards() {
   const show = () => {
-    const c = cardDeck[cardIdx % cardDeck.length];
-    $('#cardFront').innerHTML = c.front;
-    $('#cardBack').innerHTML  = c.back;
-    $('#cardCounter').textContent = `${(cardIdx % cardDeck.length) + 1} / ${cardDeck.length}`;
+    const c = physCardDeck[physCardIdx % physCardDeck.length];
+    $('#physCardFront').innerHTML = c.front;
+    $('#physCardBack').innerHTML  = c.back;
+    $('#physCardCounter').textContent = `${(physCardIdx % physCardDeck.length) + 1} / ${physCardDeck.length}`;
+    $('#physCardTag').textContent = `Question · Ch ${c.ch} · tap to flip`;
   };
   show();
-  $('#card').onclick = () => {
-    cardFlipped = !cardFlipped;
-    $('#card').classList.toggle('flipped', cardFlipped);
+  $('#physCard').onclick = () => {
+    physCardFlipped = !physCardFlipped;
+    $('#physCard').classList.toggle('flipped', physCardFlipped);
   };
-  $('#cardPrev').onclick = () => { cardIdx = (cardIdx - 1 + cardDeck.length) % cardDeck.length; cardFlipped = false; $('#card').classList.remove('flipped'); show(); };
-  $('#cardShuffle').onclick = () => { cardDeck = cardDeck.slice().sort(() => Math.random() - 0.5); cardIdx = 0; cardFlipped = false; $('#card').classList.remove('flipped'); show(); };
+  $('#physCardPrev').onclick = () => { physCardIdx = (physCardIdx - 1 + physCardDeck.length) % physCardDeck.length; physCardFlipped = false; $('#physCard').classList.remove('flipped'); show(); };
+  $('#physCardShuffle').onclick = () => { physCardDeck.sort(() => Math.random() - 0.5); physCardIdx = 0; physCardFlipped = false; $('#physCard').classList.remove('flipped'); show(); };
   document.querySelectorAll('.card-controls [data-grade]').forEach(b => {
     b.onclick = () => {
-      const c = cardDeck[cardIdx % cardDeck.length];
+      const c = physCardDeck[physCardIdx % physCardDeck.length];
       phys150_review(c, +b.dataset.grade);
-      cardIdx = (cardIdx + 1) % cardDeck.length;
-      cardFlipped = false;
-      $('#card').classList.remove('flipped');
+      physCardIdx = (physCardIdx + 1) % physCardDeck.length;
+      physCardFlipped = false;
+      $('#physCard').classList.remove('flipped');
       show();
       const grades = ['again','hard','good','easy'];
       toast(`Card graded: ${grades[+b.dataset.grade]}`);
@@ -634,84 +921,90 @@ function wireCards(ch) {
   });
 }
 
-/* ----- Flash Test (multiple choice) ----- */
-let flashQ = null, flashOpts = [], flashAns = null, flashOrder = [], flashI = 0, flashScore = 0, flashTotal = 0;
-function renderFlash(ch) {
-  if (!ch.flash.length) return `<div class="flash-empty"><div style="font-size:48px;opacity:.4;">🎯</div><h3 style="margin-top:14px;color:var(--text);">No flash questions yet for this chapter</h3><p style="margin-top:8px;">Once your class notes have example problems with answers, I can auto-generate flash questions.</p></div>`;
-  flashOrder = shuffle([...Array(ch.flash.length).keys()]);
-  flashI = 0; flashScore = 0; flashTotal = 0;
-  return `<div id="flashRoot"></div>`;
+/* ----- Flash ----- */
+let physFlashOrder = [], physFlashI = 0, physFlashScore = 0, physFlashTotal = 0, physFlashQ = null, physFlashAns = null;
+function renderPhysFlash() {
+  const ch = PHYS150.chapters.filter(c => c.verified);
+  const allQ = [];
+  for (const c of ch) for (const q of c.flash) allQ.push({ ...q, ch: c.num });
+  if (!allQ.length) return `<div class="flash-empty"><div style="font-size:48px;opacity:.4;">🎯</div><h3 style="margin-top:14px;color:var(--text);">No flash questions yet</h3></div>`;
+  physFlashOrder = shuffle([...Array(allQ.length).keys()]);
+  physFlashI = 0; physFlashScore = 0; physFlashTotal = 0;
+  return `<div id="physFlashRoot"></div>`;
 }
-function wireFlash(ch) {
+function wirePhysFlash() {
+  const ch = PHYS150.chapters.filter(c => c.verified);
+  const allQ = [];
+  for (const c of ch) for (const q of c.flash) allQ.push({ ...q, ch: c.num });
   const show = () => {
-    if (flashI >= flashOrder.length) {
-      const pct = Math.round((flashScore / flashTotal) * 100) || 0;
-      $('#flashRoot').innerHTML = `
+    if (physFlashI >= physFlashOrder.length) {
+      const pct = Math.round((physFlashScore / physFlashTotal) * 100) || 0;
+      $('#physFlashRoot').innerHTML = `
         <div class="flash-stage" style="text-align:center;">
           <div class="flash-score">${pct}%</div>
-          <div style="color:var(--text-dim);">${flashScore} of ${flashTotal} correct</div>
+          <div style="color:var(--text-dim);">${physFlashScore} of ${physFlashTotal} correct</div>
           <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-            <button class="btn primary" id="flashRestart">Practice again</button>
-            <button class="btn" data-route="/c/${ch.num}/cards">Review cards →</button>
+            <button class="btn primary" id="physFlashRestart">Practice again</button>
+            <button class="btn" data-route="/u/dylan/PHYS-150/notes">Review notes →</button>
           </div>
         </div>`;
-      $('#flashRestart').onclick = () => { flashOrder = shuffle([...Array(ch.flash.length).keys()]); flashI = 0; flashScore = 0; flashTotal = 0; show(); };
+      $('#physFlashRestart').onclick = () => { physFlashOrder = shuffle([...Array(allQ.length).keys()]); physFlashI = 0; physFlashScore = 0; physFlashTotal = 0; show(); };
       return;
     }
-    const idx = flashOrder[flashI];
-    flashQ = ch.flash[idx];
-    flashOpts = flashQ.choices.slice();
-    flashAns = flashQ.answer;
+    const idx = physFlashOrder[physFlashI];
+    physFlashQ = allQ[idx];
+    physFlashAns = null;
     const letters = ['A','B','C','D'];
-    $('#flashRoot').innerHTML = `
+    $('#physFlashRoot').innerHTML = `
       <div class="flash-stage">
-        <div class="flash-progress"><div style="width:${((flashI) / flashOrder.length) * 100}%"></div></div>
-        <div style="font-size:11px;color:var(--text-mute);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Question ${flashI + 1} of ${flashOrder.length}</div>
-        <div class="flash-q">${flashQ.prompt}</div>
-        ${flashOpts.map((o, i) => `<button class="flash-option" data-i="${i}"><span class="letter">${letters[i]}</span><span>${o}</span></button>`).join('')}
-        <div id="flashFeedback"></div>
-        <div id="flashNext" style="margin-top:14px;text-align:right;display:none;"><button class="btn primary" id="flashNextBtn">Next →</button></div>
+        <div class="flash-progress"><div style="width:${((physFlashI) / physFlashOrder.length) * 100}%"></div></div>
+        <div style="font-size:11px;color:var(--text-mute);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Question ${physFlashI + 1} of ${physFlashOrder.length} · Chapter ${physFlashQ.ch}</div>
+        <div class="flash-q">${physFlashQ.prompt}</div>
+        ${physFlashQ.choices.map((o, i) => `<button class="flash-option" data-i="${i}"><span class="letter">${letters[i]}</span><span>${o}</span></button>`).join('')}
+        <div id="physFlashFeedback"></div>
+        <div id="physFlashNext" style="margin-top:14px;text-align:right;display:none;"><button class="btn primary" id="physFlashNextBtn">Next →</button></div>
       </div>`;
     document.querySelectorAll('.flash-option').forEach(o => {
       o.onclick = () => {
-        if (flashAns !== null) return;
-        flashTotal++;
+        if (physFlashAns !== null) return;
+        physFlashTotal++;
         const i = +o.dataset.i;
-        if (i === flashAns) {
+        if (i === physFlashQ.answer) {
           o.classList.add('correct');
-          flashScore++;
-          $('#flashFeedback').innerHTML = `<div class="flash-feedback good">✓ Correct! ${flashQ.explanation}</div>`;
+          physFlashScore++;
+          $('#physFlashFeedback').innerHTML = `<div class="flash-feedback good">✓ Correct! ${physFlashQ.explanation}</div>`;
         } else {
           o.classList.add('wrong');
-          document.querySelectorAll('.flash-option')[flashAns].classList.add('correct');
-          $('#flashFeedback').innerHTML = `<div class="flash-feedback bad">✗ Not quite. ${flashQ.explanation}</div>`;
+          document.querySelectorAll('.flash-option')[physFlashQ.answer].classList.add('correct');
+          $('#physFlashFeedback').innerHTML = `<div class="flash-feedback bad">✗ Not quite. ${physFlashQ.explanation}</div>`;
         }
-        flashAns = i;
-        $('#flashNext').style.display = 'block';
-        $('#flashNextBtn').onclick = () => { flashI++; show(); };
+        physFlashAns = i;
+        $('#physFlashNext').style.display = 'block';
+        $('#physFlashNextBtn').onclick = () => { physFlashI++; show(); };
       };
     });
   };
   show();
 }
 
-/* ----- Formula Sheet ----- */
-function renderSheet(ch) {
-  return `
-    <div class="cheat-sheet">
+/* ----- Sheet (cheat sheets per chapter) ----- */
+function renderPhysSheet() {
+  const ch = PHYS150.chapters.filter(c => c.verified);
+  return ch.map(c => `
+    <div class="cheat-sheet" style="margin-bottom:14px;">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
         <div>
-          <div style="font-weight:800;color:var(--maize);">📐 Cheat sheet — Chapter ${ch.num}</div>
-          <div style="color:var(--text-dim);font-size:13px;margin-top:4px;">Every formula, with the plain-English meaning.</div>
+          <div style="font-weight:800;color:var(--maize);">📐 Chapter ${c.num} · ${c.title}</div>
+          <div style="color:var(--text-dim);font-size:13px;margin-top:4px;">${c.formulas.length} formulas · ✓ verified from ${c.source}</div>
         </div>
-        <div style="font-size:11px;color:var(--text-mute);">${ch.formulas.length} formulas</div>
       </div>
-      ${ch.formulas.map(f => `
+      ${c.formulas.map(f => `
         <div class="cheat-row">
-          <div class="name">${f.name}</div>
+          <div class="name">${escapeHtml(f.name)}</div>
           <div class="tex">${escapeHtml(f.tex)}${f.desc ? `<div style="font-family:'Inter',sans-serif;font-weight:400;font-size:12px;color:var(--text-dim);margin-top:6px;">${escapeHtml(f.desc)}</div>` : ''}</div>
         </div>`).join('')}
-    </div>`;
+    </div>
+  `).join('');
 }
 
 /* ================== HELPERS ================== */
@@ -730,46 +1023,49 @@ function notFound() {
     <div style="font-size:48px;">🔍</div>
     <h2>Page not found</h2>
     <p style="margin-top:8px;">That URL doesn't match anything here.</p>
-    <a class="btn primary" onclick="go('/')" style="display:inline-block;margin-top:14px;">← Back to home</a>
+    <a class="btn primary" onclick="go('/')" style="display:inline-block;margin-top:14px;cursor:pointer;">← Back to home</a>
   </div>`;
+}
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 1800);
 }
 
 /* ================== SEARCH ================== */
 $('#globalSearch').addEventListener('input', (e) => {
   const q = e.target.value.trim().toLowerCase();
-  if (!q) {
-    document.querySelectorAll('[data-search-hit]').forEach(el => el.removeAttribute('data-search-hit'));
-    return;
-  }
-  // Find formulas containing the query anywhere across all verified chapters
+  if (!q) return;
   const hits = [];
-  for (const ch of PHYS150.chapters) {
-    for (const f of ch.formulas) {
-      if ((f.name + ' ' + f.tex + ' ' + f.desc).toLowerCase().includes(q)) {
-        hits.push({ ch: ch.num, name: f.name, tex: f.tex, desc: f.desc });
+  if (typeof PHYS150 !== 'undefined') {
+    for (const ch of PHYS150.chapters) {
+      for (const f of ch.formulas) {
+        if ((f.name + ' ' + f.tex + ' ' + f.desc).toLowerCase().includes(q))
+          hits.push({ ch: ch.num, kind: 'Formula', name: f.name, tex: f.tex, desc: f.desc });
       }
-    }
-    for (const card of ch.cards) {
-      if ((card.front + ' ' + card.back).toLowerCase().includes(q)) {
-        hits.push({ ch: ch.num, name: card.front, tex: card.back, desc: card.tags?.join(', ') });
+      for (const card of ch.cards) {
+        if ((card.front + ' ' + card.back).toLowerCase().includes(q))
+          hits.push({ ch: ch.num, kind: 'Card', name: card.front, tex: card.back, desc: (card.tags || []).join(', ') });
       }
     }
   }
   if (!hits.length) {
-    root.innerHTML = `<div class="notes"><h2 style="margin-top:0;">No results for "${escapeHtml(q)}"</h2><p>Try a different keyword — physics terms like "velocity", "energy", "Newton", or chapter names like "ch 5".</p></div>`;
+    root.innerHTML = `<div class="notes"><h2 style="margin-top:0;">No results for "${escapeHtml(q)}"</h2><p>Try physics terms like "velocity", "energy", "Newton", or chapter names.</p></div>`;
     return;
   }
   root.innerHTML = `
-    <div class="home-hero">
+    <div class="stu-hero">
       <h1>Search results</h1>
       <div class="sub">${hits.length} match${hits.length === 1 ? '' : 'es'} for "${escapeHtml(q)}"</div>
     </div>
     <div class="formula-grid">
       ${hits.slice(0, 30).map(h => `
-        <div class="formula-card" data-route="/c/${h.ch}">
-          <div class="name">${escapeHtml(h.name)}</div>
+        <div class="formula-card" data-route="/u/dylan/PHYS-150/sheet" style="cursor:pointer;">
+          <div class="name">${escapeHtml(h.name)} <span style="color:var(--text-mute);font-weight:400;font-size:11px;">· ${h.kind} · Ch ${h.ch}</span></div>
           <div class="tex">${escapeHtml(h.tex)}</div>
-          <div class="desc">${escapeHtml(h.desc || '')} · Chapter ${h.ch}</div>
+          <div class="desc">${escapeHtml(h.desc || '')}</div>
         </div>`).join('')}
     </div>`;
 });
@@ -793,29 +1089,29 @@ document.addEventListener('keydown', (e) => {
     $('#globalSearch').value = '';
   }
   // Card navigation
-  if ($('#card')) {
+  if ($('#physCard')) {
     if (e.key === ' ' && document.activeElement.tagName !== 'INPUT') {
       e.preventDefault();
-      cardFlipped = !cardFlipped;
-      $('#card').classList.toggle('flipped', cardFlipped);
+      physCardFlipped = !physCardFlipped;
+      $('#physCard').classList.toggle('flipped', physCardFlipped);
     }
     if (e.key === 'ArrowRight' && document.activeElement.tagName !== 'INPUT') {
       e.preventDefault();
-      cardIdx = (cardIdx + 1) % cardDeck.length;
-      cardFlipped = false;
-      $('#card').classList.remove('flipped');
-      $('#cardFront').innerHTML = cardDeck[cardIdx].front;
-      $('#cardBack').innerHTML  = cardDeck[cardIdx].back;
-      $('#cardCounter').textContent = `${cardIdx + 1} / ${cardDeck.length}`;
+      physCardIdx = (physCardIdx + 1) % physCardDeck.length;
+      physCardFlipped = false;
+      $('#physCard').classList.remove('flipped');
+      $('#physCardFront').innerHTML = physCardDeck[physCardIdx].front;
+      $('#physCardBack').innerHTML  = physCardDeck[physCardIdx].back;
+      $('#physCardCounter').textContent = `${physCardIdx + 1} / ${physCardDeck.length}`;
     }
     if (e.key === 'ArrowLeft' && document.activeElement.tagName !== 'INPUT') {
       e.preventDefault();
-      cardIdx = (cardIdx - 1 + cardDeck.length) % cardDeck.length;
-      cardFlipped = false;
-      $('#card').classList.remove('flipped');
-      $('#cardFront').innerHTML = cardDeck[cardIdx].front;
-      $('#cardBack').innerHTML  = cardDeck[cardIdx].back;
-      $('#cardCounter').textContent = `${cardIdx + 1} / ${cardDeck.length}`;
+      physCardIdx = (physCardIdx - 1 + physCardDeck.length) % physCardDeck.length;
+      physCardFlipped = false;
+      $('#physCard').classList.remove('flipped');
+      $('#physCardFront').innerHTML = physCardDeck[physCardIdx].front;
+      $('#physCardBack').innerHTML  = physCardDeck[physCardIdx].back;
+      $('#physCardCounter').textContent = `${physCardIdx + 1} / ${physCardDeck.length}`;
     }
     if (e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4') {
       if (document.activeElement.tagName !== 'INPUT') {
@@ -827,15 +1123,6 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
-
-/* ================== TOAST ================== */
-function toast(msg) {
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => t.remove(), 1800);
-}
 
 /* ================== INIT ================== */
 window.addEventListener('DOMContentLoaded', () => render(location.hash.slice(1) || '/'));
