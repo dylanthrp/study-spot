@@ -1,0 +1,11 @@
+{
+  "name": "study-spot",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "preview": "python -m http.server 4173 --bind 127.0.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

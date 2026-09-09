@@ -3,3 +3,6 @@ enable_pages.py
 *.py
 *.tmp
 .DS_Store
+node_modules/
+test-results/
+playwright-report/

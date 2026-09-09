@@ -1,0 +1,20 @@
+const { chromium } = require('@playwright/test');
+const fs = require('node:fs');
+const path = require('node:path');
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ viewport: { width: 1857, height: 918 }, deviceScaleFactor: 1 });
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  const out = path.resolve('.hermes/previews');
+  fs.mkdirSync(out, { recursive: true });
+  await page.goto('http://127.0.0.1:4173/#/u/dylan');
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: path.join(out, 'dashboard-desktop.png'), fullPage: false, animations: 'disabled' });
+  console.log('Desktop geometry:', await page.locator('.dash-resume').boundingBox());
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: path.join(out, 'dashboard-mobile.png'), fullPage: true, animations: 'disabled' });
+  console.log(JSON.stringify({ screenshots: out, errors }, null, 2));
+  await browser.close();
+  if (errors.length) process.exitCode = 1;
+})().catch(e => { console.error(e); process.exitCode = 1; });

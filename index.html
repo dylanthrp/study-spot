@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Study Spot — UM-Dearborn</title>
 <meta name="theme-color" content="#0b1118" />
+<link rel="stylesheet" href="dashboard.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -767,6 +768,7 @@
 <footer>UM-Dearborn · <span class="go-blue">Go Blue</span></footer>
 
 <script src="phys150-data.js"></script>
+<script src="dashboard.js"></script>
 <script>
 /* ================== ROUTER + STATE ================== */
 const $ = (sel) => document.querySelector(sel);
@@ -824,9 +826,10 @@ function go(path) { if (location.hash !== '#' + path) { location.hash = path; re
 function render(path) {
   const [pathOnly, qs] = path.split('?');
   const params = new URLSearchParams(qs || '');
+  document.body.classList.remove('dashboard-active');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
   if (pathOnly === '/' || pathOnly === '') return viewHome();
-  const u = pathOnly.match(/^\/u\/(\w+)$/); if (u) return viewStudent(u[1]);
+  const u = pathOnly.match(/^\/u\/(\w+)$/); if (u) return viewStudent(u[1], params);
   const c = pathOnly.match(/^\/u\/(\w+)\/(\S+?)(?:\/(\w+))?$/);
   if (c) return viewClass(c[1], c[2], c[3] || 'overview');
   root.innerHTML = notFound();
@@ -919,45 +922,9 @@ function viewHome() {
 }
 
 /* ================== STUDENT DASHBOARD ================== */
-function viewStudent(who) {
+function viewStudent(who, params = new URLSearchParams()) {
   const s = STUDENTS[who]; if (!s) { root.innerHTML = notFound(); return; }
-  updateCrumbs(`/u/${who}`);
-  const totalNotes = s.classes.reduce((acc, c) => acc + (parseInt(c.count) || 0), 0);
-  const avgProgress = Math.round(s.classes.reduce((a, c) => a + c.progress, 0) / s.classes.length);
-  const dueCount = typeof phys150_dueCount === 'function' ? phys150_dueCount() : 0;
-
-  root.innerHTML = `
-    <div class="stu-hero">
-      <h1>${s.display.split(' ')[0]}'s dashboard</h1>
-      <div class="sub">${s.major} · Fall 2026 · ${s.classes.length} classes</div>
-    </div>
-
-    <div class="stu-stats">
-      <div class="stu-stat"><div class="v">${s.classes.length}</div><div class="k">Classes</div></div>
-      <div class="stu-stat"><div class="v maize">${dueCount}</div><div class="k">Due today</div></div>
-      <div class="stu-stat"><div class="v">${avgProgress}%</div><div class="k">Avg progress</div></div>
-      <div class="stu-stat"><div class="v">${s.classes.filter(c => c.progress > 0).length}</div><div class="k">Active</div></div>
-    </div>
-
-    <div class="class-grid">
-      ${s.classes.map(c => `
-        <div class="class-tile ${c.hasHub ? 'has-hub' : ''}" data-route="/u/${who}/${c.code}">
-          <span class="code">${c.code}</span>
-          <div class="name">${c.name}</div>
-          <div class="meta">${c.meta}</div>
-          <div class="progress"><div style="width:${c.progress}%"></div></div>
-          <div class="progress-label">
-            <span>${c.progress}%</span>
-            <span>${c.count}</span>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-
-    ${s.note ? `<div class="house-cta" style="margin-top:24px;">
-      <div class="txt">${s.note}<a href="${s.noteLink.href}" style="color:var(--maize-deep);font-weight:700;">${s.noteLink.label}</a></div>
-    </div>` : ''}
-  `;
+  Dashboard.render(root, who, s, params);
   window.scrollTo({top:0});
 }
 
@@ -965,9 +932,9 @@ function viewStudent(who) {
 function viewClass(who, code, mode) {
   const s = STUDENTS[who]; if (!s) { root.innerHTML = notFound(); return; }
   const c = s.classes.find(x => x.code === code); if (!c) { root.innerHTML = notFound(); return; }
+  Dashboard.recordVisit(who, code, mode);
 
-  if (who === 'dylan' && code === 'PHYS-150') return viewPhys150(mode);
-  if (who === 'charlie' && code === 'PHYS-150') return viewPhys150(mode);
+  if ((who === 'dylan' || who === 'charlie') && code === 'PHYS-150') return viewPhys150(mode, who);
 
   updateCrumbs(`/u/${who}/${code}`);
   const tabs = [
@@ -1014,7 +981,7 @@ function viewClass(who, code, mode) {
 }
 
 /* ================== PHYS-150 HUB ================== */
-function viewPhys150(mode) {
+function viewPhys150(mode, who = 'dylan') {
   if (mode === 'overview' || mode === undefined) mode = 'notes';
   if (!['notes','cards','flash','sheet','recall'].includes(mode)) mode = 'notes';
 
@@ -1055,16 +1022,16 @@ function viewPhys150(mode) {
 
     <div id="modeBody">${body}</div>
   `;
-  updateCrumbs('/u/dylan/PHYS-150');
+  updateCrumbs(`/u/${who}/PHYS-150`);
   document.querySelectorAll('.mode-tab').forEach(t => {
     if (t.id === 'backToHub' || t.id === 'backHome') return;
-    t.onclick = () => go(`/u/dylan/PHYS-150/${t.dataset.mode}`);
+    t.onclick = () => go(`/u/${who}/PHYS-150/${t.dataset.mode}`);
   });
-  $('#backToHub').onclick = () => go('/u/dylan');
+  $('#backToHub').onclick = () => go(`/u/${who}`);
   $('#backHome').onclick   = () => go('/');
   if (mode === 'recall') wirePhysRecall();
   if (mode === 'cards')  wirePhysCards();
-  if (mode === 'flash')  wirePhysFlash();
+  if (mode === 'flash')  wirePhysFlash(who);
   window.scrollTo({top:0});
 }
 
@@ -1374,7 +1341,7 @@ function renderPhysFlash() {
   physFlashI = 0; physFlashScore = 0; physFlashTotal = 0;
   return `<div id="physFlashRoot"></div>`;
 }
-function wirePhysFlash() {
+function wirePhysFlash(who = 'dylan') {
   const ch = PHYS150.chapters.filter(c => c.verified);
   const allQ = [];
   for (const c of ch) for (const q of c.flash) allQ.push({ ...q, ch: c.num });
@@ -1387,7 +1354,7 @@ function wirePhysFlash() {
           <div style="color:var(--ink-soft);">${physFlashScore} of ${physFlashTotal} correct</div>
           <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
             <button class="btn primary" id="physFlashRestart">Practice again</button>
-            <button class="btn" data-route="/u/dylan/PHYS-150/notes">Review notes →</button>
+            <button class="btn" data-route="/u/${who}/PHYS-150/notes">Review notes →</button>
           </div>
         </div>`;
       $('#physFlashRestart').onclick = () => { physFlashOrder = shuffle([...Array(allQ.length).keys()]); physFlashI = 0; physFlashScore = 0; physFlashTotal = 0; show(); };
@@ -1556,6 +1523,10 @@ document.addEventListener('click', (e) => {
 /* ================== KEYBOARD ================== */
 let mode = ''; // tracked just so search-input can re-show home when cleared
 document.addEventListener('keydown', (e) => {
+  if (document.body.classList.contains('dashboard-active')) {
+    Dashboard.handleKeydown(e);
+    return;
+  }
   if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
     e.preventDefault(); $('#globalSearch').focus();
   }
