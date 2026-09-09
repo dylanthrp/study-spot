@@ -1,0 +1,5 @@
+.hermes/
+enable_pages.py
+*.py
+*.tmp
+.DS_Store
