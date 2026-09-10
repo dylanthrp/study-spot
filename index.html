@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Study Spot — UM-Dearborn</title>
 <meta name="theme-color" content="#0b1118" />
+<script src="settings.js"></script>
 <link rel="stylesheet" href="dashboard.css" />
+<link rel="stylesheet" href="calc3.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -736,6 +738,8 @@
     .recall-feedback .self-vs-answer { grid-template-columns: 1fr; }
   }
 </style>
+<link rel="stylesheet" href="dark-theme.css" />
+<link rel="stylesheet" href="settings.css" />
 </head>
 <body>
 
@@ -761,6 +765,7 @@
     <span class="kbd-hint">·</span>
     <span class="kbd">?</span>
   </div>
+  <button type="button" class="site-settings-button" data-open-settings aria-label="Settings" aria-haspopup="dialog" aria-controls="siteSettings"><span aria-hidden="true">⚙</span></button>
 </div>
 
 <main id="root" class="view"></main>
@@ -769,6 +774,8 @@
 
 <script src="phys150-data.js"></script>
 <script src="dashboard.js"></script>
+<script src="calc3-data.js"></script>
+<script src="calc3.js"></script>
 <script>
 /* ================== ROUTER + STATE ================== */
 const $ = (sel) => document.querySelector(sel);
@@ -790,12 +797,8 @@ const STUDENTS = {
   charlie: {
     display: "Charlie Woodcock", initials: "CW",
     major: "Mechanical Engineering",
-    classes: [
-      { code: "ENGR-250", name: "Principles of Engineering Materials", meta: "Section 001 · Fall 2026", progress: 22, count: "2 notes", hasHub: false },
-      { code: "MATH-216", name: "Differential Equations",             meta: "Section 002 · Fall 2026", progress: 30, count: "9 notes", hasHub: false },
-      { code: "ME-220",   name: "Statics",                            meta: "Section 001 · Fall 2026", progress: 18, count: "5 notes", hasHub: false },
-      { code: "PHYS-150", name: "General Physics I",                  meta: "Section 003 · Fall 2026", progress: 8,  count: "shared with Dylan", hasHub: true },
-    ],
+    // Same schedule and course materials; dashboard history remains student-scoped.
+    get classes() { return STUDENTS.dylan.classes; },
   },
   cooper: {
     display: "Cooper Hallwood", initials: "CH",
@@ -826,7 +829,7 @@ function go(path) { if (location.hash !== '#' + path) { location.hash = path; re
 function render(path) {
   const [pathOnly, qs] = path.split('?');
   const params = new URLSearchParams(qs || '');
-  document.body.classList.remove('dashboard-active');
+  document.body.classList.remove('dashboard-active', 'calc-active');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
   if (pathOnly === '/' || pathOnly === '') return viewHome();
   const u = pathOnly.match(/^\/u\/(\w+)$/); if (u) return viewStudent(u[1], params);
@@ -933,6 +936,11 @@ function viewClass(who, code, mode) {
   const s = STUDENTS[who]; if (!s) { root.innerHTML = notFound(); return; }
   const c = s.classes.find(x => x.code === code); if (!c) { root.innerHTML = notFound(); return; }
   Dashboard.recordVisit(who, code, mode);
+
+  if (code === 'MATH-215') {
+    updateCrumbs(`/u/${who}/${code}`);
+    return Calc3.render(root, who, mode);
+  }
 
   if ((who === 'dylan' || who === 'charlie') && code === 'PHYS-150') return viewPhys150(mode, who);
 
@@ -1523,6 +1531,8 @@ document.addEventListener('click', (e) => {
 /* ================== KEYBOARD ================== */
 let mode = ''; // tracked just so search-input can re-show home when cleared
 document.addEventListener('keydown', (e) => {
+  // The classroom owns its controls; legacy global shortcuts must not eat notes.
+  if (document.body.classList.contains('calc-active')) return;
   if (document.body.classList.contains('dashboard-active')) {
     Dashboard.handleKeydown(e);
     return;

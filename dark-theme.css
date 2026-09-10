@@ -1,0 +1,197 @@
+/* Global dark palette. Loaded last; no layout changes and no light-mode rules.
+   Navy remains the brand/diagram ink, not the general text token. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-warm: #0f1115;
+  --bg-soft: #1f2531;
+  --line-soft: #2a3140;
+  --ink: #e7eaf0;
+  --ink-soft: #9aa3b2;
+  --text-dim: #9aa3b2;
+  --text-mute: #9aa3b2;
+  --blue: #00274c;
+  --blue-light: #1a3a6b;
+  --blue-glow: #ffcb05;
+  --maize: #ffcb05;
+  --maize-glow: #ffe45c;
+  --maize-deep: #ffcb05;
+  --good: #86d9a1;
+  --good-soft: #182d24;
+  --bad: #ffaaa6;
+  --bad-soft: #342125;
+  --warn: #ffc083;
+  --shadow-sm: 0 1px 3px #00000020, 0 4px 12px #00000015;
+  --shadow: 0 4px 12px #00000030, 0 12px 28px #00000025;
+  --shadow-hover: 0 6px 18px #00000040, 0 20px 40px #00000030;
+  --dark-card: #181c24;
+  --dark-raised: #1f2531;
+}
+html[data-theme="dark"] body,
+html[data-theme="dark"] body.dashboard-active,
+html[data-theme="dark"] body.calc-active {
+  background: #0f1115;
+  color: #e7eaf0;
+}
+html[data-theme="dark"] .topbar { background: #181c24; border-color: #2a3140; }
+
+/* Landing and legacy course engines. */
+html[data-theme="dark"] :is(.roommate, .house-cta, .stu-stat, .class-tile,
+  .class-tile.has-hub, .notes, .formula-card, .recall-card, .flash-stage,
+  .cheat-sheet, .empty-state, .modal) {
+  background: #181c24;
+  border-color: #2a3140;
+}
+html[data-theme="dark"] .who-h1 {
+  background: none;
+  color: #ffcb05;
+  -webkit-text-fill-color: #ffcb05;
+}
+html[data-theme="dark"] :is(.who-tag, .class-tile .code, .hub-hero .code) {
+  background: #1f2531;
+  color: #ffcb05;
+  border-color: #2a3140;
+}
+html[data-theme="dark"] :is(.notes h2, .notes code, .formula-card .name,
+  .recall-q code, .recall-due strong, .flash-q code, .cheat-sheet h3,
+  .modal h2, .stu-stat .v, .conf-btn .num, footer .go-blue) { color: #e7eaf0; }
+/* The sheet's chapter title is emitted with an inline legacy navy declaration. */
+html[data-theme="dark"] .cheat-sheet { --blue: #e7eaf0; }
+html[data-theme="dark"] .crumbs .crumb:hover { color: #ffcb05; background: #1f2531; }
+html[data-theme="dark"] :is(.search input, .search input:focus, .recall-input) {
+  background: #1f2531;
+  color: #e7eaf0;
+  border-color: #2a3140;
+}
+html[data-theme="dark"] :is(.search input:focus, .recall-input:focus) { border-color: #ffcb05; }
+html[data-theme="dark"] :is(.btn, .mode-tab, .conf-btn, .flash-option) {
+  background: #1f2531;
+  border-color: #2a3140;
+  color: #e7eaf0;
+}
+html[data-theme="dark"] :is(.btn:hover, .mode-tab:hover, .conf-btn:hover, .flash-option:hover) {
+  background: #2a3140;
+  border-color: #ffcb05;
+  color: #e7eaf0;
+}
+html[data-theme="dark"] :is(.btn.primary, .btn.maize) {
+  background: #ffcb05;
+  color: #00274c;
+  border-color: #ffcb05;
+}
+html[data-theme="dark"] :is(.btn.primary:hover, .btn.maize:hover) {
+  background: #ffe45c;
+  color: #00274c;
+  border-color: #ffe45c;
+}
+html[data-theme="dark"] :is(.mode-tab.active, .mode-tab.active:hover, .conf-btn.selected, .conf-btn.selected:hover) {
+  background: #1f2531;
+  border-color: #ffcb05;
+  color: #ffcb05;
+}
+html[data-theme="dark"] .conf-btn.selected :is(.num, .label, .days) { color: #ffcb05; }
+html[data-theme="dark"] :is(.roommate:hover, .class-tile:hover, .formula-card:hover) { border-color: #ffcb05; }
+html[data-theme="dark"] .roommate .avatar { background: #1f2531; }
+html[data-theme="dark"] .card-face.front { background: #181c24; }
+html[data-theme="dark"] .card-face.front::before { background: none; }
+html[data-theme="dark"] .card-face.back { background: #1f2531; }
+html[data-theme="dark"] .card-face .tap { opacity: 1; }
+html[data-theme="dark"] .recall-feedback .col { background: #181c24; }
+html[data-theme="dark"] :is(.recall-input.correct, .recall-feedback .correct,
+  .flash-option.correct, .flash-option.correct:hover, .flash-feedback.good,
+  .btn.good, .btn.good:hover, .btn.easy, .btn.easy:hover) {
+  background: var(--good-soft);
+  color: var(--good);
+  border-color: var(--good);
+}
+html[data-theme="dark"] :is(.recall-input.wrong, .recall-feedback .wrong,
+  .flash-option.wrong, .flash-option.wrong:hover, .flash-feedback.bad,
+  .btn.again, .btn.again:hover) {
+  background: var(--bad-soft);
+  color: var(--bad);
+  border-color: var(--bad);
+}
+html[data-theme="dark"] :is(.recall-input.partial, .recall-feedback .partial, .btn.hard, .btn.hard:hover) {
+  background: #30271e;
+  color: var(--warn);
+  border-color: var(--warn);
+}
+html[data-theme="dark"] :is(.flash-option.correct .letter, .flash-option.wrong .letter) { color: #0f1115; }
+html[data-theme="dark"] .modal-bg { background: #00000099; }
+html[data-theme="dark"] .toast { background: #1f2531; color: #ffcb05; }
+
+/* Dashboard chrome, cards, empty states, and folder form. */
+html[data-theme="dark"] .dash-shell { --dash-border: #2a3140; --dash-muted: #9aa3b2; color: #e7eaf0; }
+html[data-theme="dark"] :is(.dash-header, .dash-sidebar) { background: #181c24; border-color: #2a3140; }
+html[data-theme="dark"] :is(.dash-resume, .dash-personalize, .dash-course,
+  .dash-profile-card, .dash-empty-panel, .dash-folder-dialog) {
+  background: #181c24;
+  color: #e7eaf0;
+  border-color: #2a3140;
+}
+html[data-theme="dark"] :is(.dash-search, .dash-search:focus-within,
+  .dash-avatar, .dash-recent-icon, .dash-empty-inline > .dash-icon,
+  .dash-secondary, .dash-folder-dialog input[type="text"]) {
+  background: #1f2531;
+  color: #e7eaf0;
+  border-color: #2a3140;
+}
+html[data-theme="dark"] .dash-search input { color: #e7eaf0; }
+html[data-theme="dark"] .dash-search input::placeholder { color: #9aa3b2; opacity: 1; }
+html[data-theme="dark"] .dash-search:focus-within { border-color: #ffcb05; }
+html[data-theme="dark"] :is(.dash-search kbd, .dash-profile-term) { border-color: #2a3140; }
+html[data-theme="dark"] :is(.dash-mark, .dash-mark > span, .dash-school-icon,
+  .dash-sidebar-foot span, .dash-course-foot) { color: #ffcb05; }
+html[data-theme="dark"] :is(.dash-nav-link, .dash-empty-inline) { color: #e7eaf0; }
+html[data-theme="dark"] :is(.dash-nav-label, .dash-sidebar-foot, .dash-section-title a,
+  .dash-eyebrow, .dash-resume p, .dash-recent-copy p, .dash-empty-inline p,
+  .dash-section-label, .dash-personalize p, .dash-course-top, .dash-course p,
+  .dash-muted, .dash-profile-school, .dash-profile-card p, .dash-profile-term,
+  .dash-local-note, .dash-page-sub, .dash-empty-panel p, .dash-data-note,
+  .dash-folder-dialog legend) { color: #9aa3b2; }
+html[data-theme="dark"] :is(.dash-icon-button:hover, .dash-nav-link:hover,
+  .dash-recent:hover, .dash-secondary:hover, .dash-course:hover) { background: #1f2531; color: #e7eaf0; }
+html[data-theme="dark"] .dash-course:hover { border-color: #ffcb05; }
+html[data-theme="dark"] :is(.dash-nav-link.is-active, .dash-nav-link.is-active:hover) { background: #1f2531; color: #ffcb05; }
+html[data-theme="dark"] .dash-nav-link.is-active .dash-icon { color: #ffcb05; }
+html[data-theme="dark"] .dash-section-title a:hover { color: #ffcb05; }
+html[data-theme="dark"] :is(.dash-primary, .dash-add, .dash-switch) { background: #ffcb05; color: #00274c; }
+html[data-theme="dark"] :is(.dash-primary:hover, .dash-add:hover, .dash-switch:hover) { background: #ffe45c; color: #00274c; }
+html[data-theme="dark"] .dash-profile-avatar { background: #1f2531; color: #ffcb05; }
+html[data-theme="dark"] .dash-paper-back { background: #2a3140; }
+html[data-theme="dark"] .dash-paper-front { background: #1f2531; color: #e7eaf0; box-shadow: 0 0 0 2px #2a3140; }
+html[data-theme="dark"] .dash-paper-front > span { color: #ffcb05; }
+html[data-theme="dark"] .dash-folder-dialog::backdrop { background: #00000099; }
+html[data-theme="dark"] .dash-folder-dialog input[type="checkbox"] { accent-color: #ffcb05; }
+html[data-theme="dark"] .dash-form-error { color: #ffaaa6; }
+
+/* Calculus classroom: readable lessons, controls, notes, and practice states. */
+html[data-theme="dark"] .calc-shell { color: #e7eaf0; }
+html[data-theme="dark"] :is(.calc-top, .calc-sidebar-note, .calc-compare > div + div,
+  .calc-example-step, .calc-review, .calc-source, .calc-sidebar nav a) { border-color: #2a3140; }
+html[data-theme="dark"] :is(.calc-top b, .calc-eyebrow, .calc-sidebar-note,
+  .calc-intro > p:not(.calc-eyebrow), .calc-muted, .calc-lead, .calc-checks p,
+  .calc-metrics small, .calc-metrics span, .calc-reference figcaption,
+  #calcSaveStatus, .calc-source) { color: #9aa3b2; }
+html[data-theme="dark"] .calc-card { background: #181c24; border-color: #2a3140; }
+html[data-theme="dark"] :is(.calc-button, .calc-option, #calcNotes, .calc-scratch textarea) {
+  background: #1f2531;
+  color: #e7eaf0;
+  border-color: #2a3140;
+}
+html[data-theme="dark"] :is(.calc-button:hover, .calc-option:hover) { background: #2a3140; border-color: #ffcb05; }
+html[data-theme="dark"] .calc-button.primary { background: #ffcb05; color: #00274c; border-color: #ffcb05; }
+html[data-theme="dark"] .calc-button.primary:hover { background: #ffe45c; color: #00274c; border-color: #ffe45c; }
+html[data-theme="dark"] .calc-sidebar nav a:hover { background: #1f2531; color: #e7eaf0; }
+html[data-theme="dark"] :is(.calc-sidebar nav a.selected, .calc-sidebar nav a.selected:hover) { background: #1f2531; color: #ffcb05; }
+html[data-theme="dark"] .calc-option:has(input:checked) { background: #1f2531; color: #ffcb05; border-color: #ffcb05; }
+html[data-theme="dark"] :is(.calc-slider input, .calc-option input) { accent-color: #ffcb05; }
+html[data-theme="dark"] :is(.calc-formula, .calc-example-step > span) { background: #1f2531; color: #e7eaf0; }
+html[data-theme="dark"] :is(.calc-symbol, .calc-trigger, .calc-lab-insight) { background: #1f2531; color: #ffcb05; }
+html[data-theme="dark"] :is(.calc-answer, .calc-feedback.correct) { background: var(--good-soft); color: var(--good); }
+html[data-theme="dark"] .calc-feedback.incorrect { background: #30271e; color: var(--warn); }
+html[data-theme="dark"] :is(#calcNotes, .calc-scratch textarea)::placeholder { color: #9aa3b2; opacity: 1; }
+html[data-theme="dark"] .calc-text-link { color: #ffcb05; }
+html[data-theme="dark"] :is(.dash-shell, .calc-shell) :focus-visible { outline-color: #ffcb05; }
+/* Reference art is intentionally NOT darkened. Its original navy strokes,
+   grid labels, and supplied images must retain their light drawing surface. */
+html[data-theme="dark"] #calcVectorDiagram { background: #f6f2e9; color: #00274c; color-scheme: light; }

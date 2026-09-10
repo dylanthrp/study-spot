@@ -1,0 +1,24 @@
+const {chromium,expect}=require('@playwright/test');
+const fs=require('node:fs');
+(async()=>{
+  fs.mkdirSync('.hermes/previews',{recursive:true});
+  const browser=await chromium.launch();
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('http://127.0.0.1:4173/#/u/dylan');
+  await page.getByRole('button',{name:'Settings',exact:true}).click();
+  await page.getByRole('dialog').getByRole('radio',{name:'Dark',exact:true}).check();
+  await expect(page.locator('body')).toHaveCSS('background-color','rgb(15, 17, 21)');
+  await page.keyboard.press('Escape');
+  await page.screenshot({path:'.hermes/previews/dark-dashboard.png',fullPage:true,animations:'disabled'});
+  await page.goto('http://127.0.0.1:4173/#/u/dylan/MATH-215/cross');
+  await page.getByRole('heading',{name:'Cross products and unit normals',exact:true}).waitFor();
+  await page.screenshot({path:'.hermes/previews/dark-classroom.png',fullPage:true,animations:'disabled'});
+  await page.setViewportSize({width:375,height:812});
+  await page.goto('http://127.0.0.1:4173/#/u/dylan');
+  await page.getByRole('button',{name:'Settings',exact:true}).click();
+  await page.screenshot({path:'.hermes/previews/dark-settings-mobile.png',animations:'disabled'});
+  await browser.close();
+  if(errors.length) throw new Error(errors.join('\n'));
+  console.log('Captured dark dashboard, classroom, and mobile Settings; no page errors.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

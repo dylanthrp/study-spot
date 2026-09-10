@@ -43,8 +43,11 @@ const Dashboard = (() => {
   };
   const courseURL = (who, course, mode = 'notes') => course.code === 'ACC-289' && who === 'cooper'
     ? STUDENTS.cooper.noteLink.href
+    : course.code === 'MATH-215'
+    ? `#/u/${who}/MATH-215${['flash','recall'].includes(mode) ? '/practice' : mode === 'sheet' ? '/sheet' : ''}`
     : `#/u/${who}/${course.code}${course.hasHub ? '/' + mode : ''}`;
   function availability(course) {
+    if (course.code === 'MATH-215') return 'Guided lessons · vector diagrams · quiz practice';
     if (course.hasHub) return 'Physics materials · content review pending';
     if (course.code === 'ACC-289') return 'Accounting deck · opens separate study app';
     return 'Awaiting course materials';
@@ -71,7 +74,7 @@ const Dashboard = (() => {
           <div class="dash-brand-group"><button class="dash-icon-button" id="dashToggle" aria-label="Toggle sidebar" aria-controls="dashSidebar" aria-expanded="true">${icon('menu')}</button>
             <a class="dash-brand" href="${dashboardURL(who)}" aria-label="Study Spot home"><span class="dash-mark">S<span>·</span></span><span>Study Spot</span></a></div>
           <form class="dash-search" role="search" id="dashSearchForm">${icon('search')}<input id="dashSearch" type="search" aria-label="Search your courses and materials" placeholder="Search your courses and materials" value="${escape(params.get('q') || '')}"><kbd>/</kbd></form>
-          <div class="dash-header-actions"><button class="dash-icon-button dash-add" data-new-folder aria-label="Create a folder">${icon('plus')}</button><a class="dash-switch" href="#/">Switch student</a><a class="dash-avatar" href="#/" aria-label="${escape(student.display)} — switch student">${student.initials}</a></div>
+          <div class="dash-header-actions"><button class="dash-icon-button dash-add" data-new-folder aria-label="Create a folder">${icon('plus')}</button><a class="dash-switch" href="#/">Switch student</a>${SiteSettings.buttonHTML()}<a class="dash-avatar" href="#/" aria-label="${escape(student.display)} — switch student">${student.initials}</a></div>
         </header>
         <aside class="dash-sidebar" id="dashSidebar">
           <nav aria-label="Student navigation">
@@ -190,10 +193,10 @@ const Dashboard = (() => {
     const modes = { cards: 'cards', guides: 'notes', tests: 'flash' };
     const query = (params.get('q') || '').trim().toLowerCase();
     const folder = tab === 'folder' ? foldersFor(who).find(item => item.id === params.get('folder')) : null;
-    const courses = student.classes.filter(c => (tab !== 'folder' || folder?.courses.includes(c.code)) && (!modes[tab] || c.hasHub || c.code === 'ACC-289') && (!query || (c.code + ' ' + c.name).toLowerCase().includes(query)));
+    const courses = student.classes.filter(c => (tab !== 'folder' || folder?.courses.includes(c.code)) && (!modes[tab] || c.hasHub || c.code === 'ACC-289' || (c.code === 'MATH-215' && tab !== 'cards')) && (!query || (c.code + ' ' + c.name).toLowerCase().includes(query)));
     return `<section class="dash-section"><h1>${escape(folder?.name || names[tab] || 'Your library')}</h1><p class="dash-page-sub">${tab === 'library' ? 'Your course collection. Pick up wherever you left off.' : tab === 'folder' ? (folder ? 'Your saved course collection · stored in this browser.' : 'This folder is not available for this student.') : 'Choose a course to open its study materials.'}</p>
       ${tab === 'games' ? '<div class="dash-empty-panel"><h2>Room for a little friendly practice.</h2><p>Study games are not available yet. Your existing materials are in Your library.</p></div>' : `<div class="dash-course-grid dash-library-grid">${courses.map(c => courseTile(who, c, modes[tab] || 'notes')).join('') || '<div class="dash-empty-panel"><h2>No matching materials yet</h2><p>Try another course name, or browse Your library.</p></div>'}</div>`}
-      ${who !== 'dylan' && who !== 'cooper' ? '<p class="dash-data-note">Existing course list carried over from the first version; schedule confirmation is still needed.</p>' : ''}
+      ${who !== 'dylan' && who !== 'charlie' && who !== 'cooper' ? '<p class="dash-data-note">Existing course list carried over from the first version; schedule confirmation is still needed.</p>' : ''}
       <p class="dash-data-note">Study tools are from the existing site. Physics content and grading still need the repair pass identified in our audit.</p>
     </section>`;
   }

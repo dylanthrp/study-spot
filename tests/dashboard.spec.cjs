@@ -1,5 +1,16 @@
 const { test, expect } = require('@playwright/test');
 
+test('Charlie has the same course collection as Dylan', async ({ page }) => {
+  await page.goto('/#/u/dylan?tab=library');
+  const courses = await page.locator('.dash-course').allTextContents();
+  await page.goto('/#/u/charlie?tab=library');
+  await expect(page.locator('.dash-course')).toHaveCount(courses.length);
+  expect(await page.locator('.dash-course').allTextContents()).toEqual(courses);
+  await expect(page.getByText(/schedule confirmation is still needed/)).toHaveCount(0);
+  await page.locator('.dash-course').filter({ hasText: 'MATH-215' }).click();
+  await expect(page).toHaveURL(/#\/u\/charlie\/MATH-215$/);
+});
+
 test('all five student dashboards and study navigation render without script errors', async ({ page }) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
