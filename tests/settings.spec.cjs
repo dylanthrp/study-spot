@@ -30,7 +30,7 @@ test('mobile settings stays on screen and preserves the current quiz answer',asy
   await dialog.getByRole('radio',{name:'Dark',exact:true}).check();
   await page.keyboard.press('Escape');
   await expect(page.locator('#calcQuiz input[type="radio"]').first()).toBeChecked();
-  await expect(page.locator('#calcQuestionCount')).toHaveText('Question 1 of 12');
+  await expect(page.locator('#calcQuestionCount')).toHaveText('Question 1 of 20');
 });
 
 test('settings remains usable when browser storage is blocked',async({page})=>{
