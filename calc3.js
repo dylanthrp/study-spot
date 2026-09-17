@@ -10,7 +10,7 @@ const Calc3 = (() => {
     root.innerHTML = `<div class="calc-shell">
       <div class="calc-top"><a href="#/u/${who}">← Your dashboard</a><span>MATH-215 <b>/</b> THE VECTOR CLASSROOM</span><span>${esc(STUDENTS[who].display.split(' ')[0])}'s workspace</span></div>
       <div class="calc-layout"><aside class="calc-sidebar" aria-label="Classroom navigation">
-        <p class="calc-eyebrow">YOUR QUIZ COMPANION</p><h2>Calculus III</h2><p class="calc-muted">Stewart §§12.3–12.4</p>
+        <p class="calc-eyebrow">YOUR QUIZ COMPANION</p><h2>Calculus III</h2><p class="calc-muted">Stewart §§12.3–12.6</p>
         <nav>${link(who,'overview','Your study plan',mode === 'overview' ? 'selected':'')}
         <p class="calc-eyebrow">LEARN THE IDEAS</p>${lessons.map((l,i) => link(who,l.id,`${String(i+1).padStart(2,'0')}  ${l.title}`,lesson?.id === l.id ? 'selected':'')).join('')}
         <p class="calc-eyebrow">MAKE IT STICK</p>${link(who,'lab','Vector playground',mode === 'lab'?'selected':'')}${link(who,'practice','Quiz practice',mode === 'practice'?'selected':'')}${link(who,'sheet','Formula sheet',mode === 'sheet'?'selected':'')}${link(who,'notebook','My notebook',mode === 'notebook'?'selected':'')}</nav>
