@@ -49,7 +49,7 @@ test('dashboard study guides and practice tests include the Calc III classroom',
 test('formula sheet collects every lesson rule in printable form', async ({ page }) => {
   await page.goto('/#/u/dylan/MATH-215/sheet');
   await expect(page.getByRole('heading',{name:'Your formula sheet',exact:true})).toBeVisible();
-  await expect(page.locator('.calc-formula')).toHaveCount(8);
+  await expect(page.locator('.calc-formula')).toHaveCount(13);
   await expect(page.getByRole('button',{name:'Print formula sheet',exact:true})).toBeVisible();
   await page.emulateMedia({ media:'print' });
   await expect(page.locator('.calc-sidebar')).toBeHidden();

@@ -214,6 +214,140 @@ const CALC3_DATA = {
       },
       watch: "F × r reverses torque. Negative work is allowed when force opposes displacement. Although both involve N·m, torque is conventionally labeled N·m, not joules, because it is not energy.",
       check: "A force perpendicular to displacement does zero work. A force parallel to r does zero torque. For nonzero torque, its vector must be perpendicular to both r and F."
+    },
+    {
+      id: "lineeq",
+      title: "Lines in space: vector, parametric, and symmetric equations",
+      section: "§12.5 · Equations of a line",
+      intro: "A line in three dimensions is pinned down by one point it passes through and one direction vector parallel to it. The vector equation r = r₀ + t v sweeps every point on the line as t runs over the real numbers. The same line written one component at a time is the parametric form; dividing each nonzero component out of its parameter is the symmetric form. A line is a one-dimensional object: infinitely many points, one parameter, two pieces of geometric data (point + direction).",
+      trigger: "Point and direction? Use the vector or parametric form. To isolate each variable, write the symmetric form by dividing out the direction components.",
+      formula: "Line through P = (x₀, y₀, z₀) with direction v = ⟨a, b, c⟩ (v ≠ 0). Vector: r = ⟨x₀, y₀, z₀⟩ + t⟨a, b, c⟩. Parametric: x = x₀ + at, y = y₀ + bt, z = z₀ + ct. Symmetric: (x − x₀)/a = (y − y₀)/b = (z − z₀)/c, valid only when a, b, c are all nonzero.",
+      recipe: [
+        "Identify one point P on the line and one nonzero direction vector v parallel to it. Two given points give v as end minus start.",
+        "Write the vector equation as r = r₀ + t v. This single expression describes the whole line.",
+        "Expand into three parametric equations by matching components. Each is linear in t.",
+        "If every component of v is nonzero, divide each parametric equation out of its parameter to obtain the symmetric form. A zero component means the symmetric form cannot be written for that variable."
+      ],
+      example: {
+        prompt: "Write the line through P = (1, 2, 3) with direction v = ⟨4, −1, 2⟩ in vector, parametric, and symmetric form.",
+        steps: [
+          "Vector equation: r = ⟨1, 2, 3⟩ + t⟨4, −1, 2⟩.",
+          "Parametric: x = 1 + 4t, y = 2 − t, z = 3 + 2t.",
+          "Every direction component is nonzero, so the symmetric form exists.",
+          "Divide each component equation by its direction component: (x − 1)/4 = (y − 2)/(−1) = (z − 3)/2.",
+          "Check t = 0 gives back P; t = 1 gives ⟨5, 1, 5⟩, which satisfies all three parametric forms."
+        ],
+        answer: "Vector: r = ⟨1, 2, 3⟩ + t⟨4, −1, 2⟩. Parametric: x = 1 + 4t, y = 2 − t, z = 3 + 2t. Symmetric: (x − 1)/4 = (y − 2)/(−1) = (z − 3)/2."
+      },
+      watch: "The zero direction vector gives no line. A zero component of v blocks only the symmetric form; parametric still works. Two distinct lines sharing one point and one direction are the same line, regardless of which point is called r₀.",
+      check: "Substituting t = 0 always recovers r₀. Swapping a and b in the symmetric form changes the equation but not the geometric line."
+    },
+    {
+      id: "planeeq",
+      title: "Planes in space: scalar and normal equations",
+      section: "§12.5 · Equations of a plane",
+      intro: "A plane in three dimensions is pinned down by one point it passes through and one normal vector perpendicular to it. The scalar equation a(x − x₀) + b(y − y₀) + c(z − z₀) = 0 expands to ax + by + cz = D, where D = a x₀ + b y₀ + c z₀. Every vector in the plane is orthogonal to the normal; the normal itself points off the plane. A plane is a two-dimensional object: infinitely many points, two parameters, three pieces of geometric data (point + normal, where the normal carries two independent directions).",
+      trigger: "Point and a perpendicular? Write a(x − x₀) + b(y − y₀) + c(z − z₀) = 0. Parallel planes share a normal; planes that are not parallel must intersect in a line.",
+      formula: "Plane through P = (x₀, y₀, z₀) with normal n = ⟨a, b, c⟩. Scalar: a(x − x₀) + b(y − y₀) + c(z − z₀) = 0, or ax + by + cz = D with D = a x₀ + b y₀ + c z₀. The normal ⟨a, b, c⟩ can be scaled by any nonzero scalar without changing the plane.",
+      recipe: [
+        "Identify a point P on the plane and a nonzero normal n perpendicular to it. Two nonparallel direction vectors in the plane give n = v₁ × v₂.",
+        "Write the point-normal form: a(x − x₀) + b(y − y₀) + c(z − z₀) = 0.",
+        "Expand to the scalar form ax + by + cz = D by computing D = a x₀ + b y₀ + c z₀.",
+        "Rescale (a, b, c, D) by any nonzero scalar to put the equation in a preferred form, such as making one of a, b, c equal to 1 when possible."
+      ],
+      example: {
+        prompt: "Write the equation of the plane through P = (1, 2, 3) with normal n = ⟨2, −1, 4⟩.",
+        steps: [
+          "Point-normal form: 2(x − 1) − 1(y − 2) + 4(z − 3) = 0.",
+          "Expand: 2x − 2 − y + 2 + 4z − 12 = 0, which gives 2x − y + 4z = 12.",
+          "Check P satisfies: 2(1) − 1(2) + 4(3) = 2 − 2 + 12 = 12.",
+          "Any nonzero scalar multiple of (a, b, c, D) describes the same plane; here dividing by 2 would give x − (1/2)y + 2z = 6."
+        ],
+        answer: "Scalar equation: 2x − y + 4z = 12 (equivalently 2(x − 1) − (y − 2) + 4(z − 3) = 0)."
+      },
+      watch: "The normal ⟨a, b, c⟩ and the constant D scale together. A zero normal does not define a plane. Three collinear points or two parallel direction vectors cannot define a unique plane.",
+      check: "Substituting P must satisfy the scalar equation. The plane and the line of intersection with the xy-plane are perpendicular to n, which gives n · v = 0 for any direction v in the plane."
+    },
+    {
+      id: "distangle",
+      title: "Distance and angle: point to line, point to plane, plane to plane",
+      section: "§12.5 · Distances and angles",
+      intro: "Distance from a point to a line uses the cross product: |PQ × v| / |v|, where Q is any point on the line and v is its direction. The numerator is twice the area of the triangle PQR; dividing by the base |v| leaves the height, which is the perpendicular distance. Distance from a point to a plane uses a normal projection: |a x₀ + b y₀ + c z₀ − D| / √(a² + b² + c²). The angle between two planes equals the acute angle between their normals, found by inverse cosine of |n₁ · n₂| / (|n₁||n₂|).",
+      trigger: "Point-to-line distance? Build a triangle, take |PQ × v|/(|v|). Point-to-plane distance? Absolute value of (ax₀ + by₀ + cz₀ − D) divided by |n|. Plane-to-plane angle? Acute angle between the two normals.",
+      formula: "Point-to-line distance: d = |PQ × v| / |v|. Point-to-plane distance: d = |a x₀ + b y₀ + c z₀ − D| / √(a² + b² + c²). Angle between two planes with normals n₁ and n₂: cos θ = |n₁ · n₂| / (|n₁||n₂|), giving the acute angle θ ∈ [0°, 90°].",
+      recipe: [
+        "Identify the geometric object: a line has a direction, a plane has a normal, two planes share no single direction.",
+        "For point-to-line, choose a point Q on the line, form PQ = P − Q, and compute |PQ × v| / |v|. The cross product handles arbitrary slanted lines in three dimensions.",
+        "For point-to-plane, read a, b, c, D from the scalar equation ax + by + cz = D and substitute the test point into the absolute-value formula.",
+        "For plane-to-plane angle, take the dot product of the two normals, divide by the product of their magnitudes, take absolute value, then arccos. The acute answer lies in [0°, 90°]."
+      ],
+      example: {
+        prompt: "Compute (a) the distance from the origin to the line through P = (1, 2, 3) with direction v = ⟨4, −1, 2⟩, and (b) the distance from Q = (5, 1, 0) to the plane 2x − y + 4z = 12.",
+        steps: [
+          "For (a), take Q = (1, 2, 3); the vector from this Q to the origin O is PQ = ⟨−1, −2, −3⟩.",
+          "Compute PQ × v = ⟨(−2)(2) − (−3)(−1), (−3)(4) − (−1)(2), (−1)(−1) − (−2)(4)⟩ = ⟨−7, −10, 9⟩.",
+          "Its magnitude is √(49 + 100 + 81) = √230; |v| = √(16 + 1 + 4) = √21.",
+          "Distance = √230 / √21 = √(230/21) ≈ 3.309.",
+          "For (b), substitute Q = (5, 1, 0): |2(5) − 1(1) + 4(0) − 12| = |10 − 1 − 12| = 3.",
+          "Denominator √(4 + 1 + 16) = √21; distance = 3/√21 ≈ 0.655."
+        ],
+        answer: "(a) √230 / √21 ≈ 3.309. (b) 3/√21 ≈ 0.655."
+      },
+      watch: "Point-to-plane uses the absolute value of (ax₀ + by₀ + cz₀ − D). A negative value still measures a positive distance. For two planes, the angle between their normals and its supplement are the same angle between the planes; take the acute value.",
+      check: "Distance is nonnegative. Moving the test point onto the line or plane gives distance zero. Reversing a normal direction on a plane does not change the plane-to-plane angle."
+    },
+    {
+      id: "quadricid",
+      title: "Recognizing the six quadric surfaces",
+      section: "§12.6 · Quadric surfaces",
+      intro: "A quadric surface is a graph of a second-degree equation in x, y, and z. Six canonical types appear constantly in calculus and physics: the ellipsoid, the (circular or elliptical) cone, the two-hyperboloid forms (one sheet and two sheets), the two-paraboloid forms (elliptic and hyperbolic), and the elliptic cylinder. The sign pattern of the squared terms decides which one. Traces — the curves obtained by slicing with a coordinate plane — give the same answer visually: they are ellipses, parabolas, or hyperbolas.",
+      trigger: "Two positive squared terms and a constant equals 1? Ellipsoid. Zero on the right-hand side? Cone. Two positive and one negative? Hyperboloid of one sheet. One positive and two negative? Hyperboloid of two sheets. Linear in one variable and positive sum of squares in the other two? Elliptic paraboloid. Linear in one variable and signed squares in the other two? Hyperbolic paraboloid. No linear variable? Cylinder.",
+      formula: "Ellipsoid: x²/a² + y²/b² + z²/c² = 1. Cone: x²/a² + y²/b² = z²/c². Hyperboloid of one sheet: x²/a² + y²/b² − z²/c² = 1. Hyperboloid of two sheets: −x²/a² − y²/b² + z²/c² = 1. Elliptic paraboloid: z = x²/a² + y²/b². Hyperbolic paraboloid: z = x²/a² − y²/b². Cylinder: one missing variable, two squared variables on the left.",
+      recipe: [
+        "Identify which variables appear with squared terms. The variables that do not appear at all turn the surface into a cylinder along that axis.",
+        "Look at the sign pattern: all positive plus a constant equals 1 is an ellipsoid; all positive plus zero is a cone; two positive and one negative is a one-sheet hyperboloid; one positive and two negative is a two-sheet hyperboloid.",
+        "If one variable appears linearly and the other two appear as positive squares, it is an elliptic paraboloid. A sign difference between those two squares turns it hyperbolic.",
+        "Cross-check with a trace: a quadric surface's intersection with a coordinate plane is always a conic (ellipse, parabola, hyperbola, line pair, or a single point)."
+      ],
+      example: {
+        prompt: "Identify each surface: (a) x²/4 + y²/9 + z²/16 = 1, (b) x²/4 + y²/9 − z²/16 = 1, (c) x²/4 + y²/9 = z²/16.",
+        steps: [
+          "All three squared terms positive, right-hand side 1: ellipsoid. Semi-axes a = 2, b = 3, c = 4.",
+          "Two squared terms positive, one negative, right-hand side 1: hyperboloid of one sheet. The negative variable (z) is the axis of the holes.",
+          "Two squared terms on the left equal the third squared term on the right: cone. Cross-sections at z = ±c are ellipses whose size grows with |z|.",
+          "Trace check for (a): plane z = 0 gives the ellipse x²/4 + y²/9 = 1 with semi-axes 2 and 3, bounded in space."
+        ],
+        answer: "(a) Ellipsoid. (b) Hyperboloid of one sheet. (c) Cone."
+      },
+      watch: "Ellipsoid and hyperboloid of two sheets are closed-or-bounded; the one-sheet hyperboloid, the two paraboloids, the cone, and the cylinders are unbounded. A cone x² + y² = z² is not the same surface as a sphere x² + y² + z² = 1; the sign or absence of the z² term changes the geometry.",
+      check: "Hypersurface always contains the equation's symmetry. Replace x by −x or rotate the coordinate axes and the surface should not change classification. A trace parallel to the axis of a cylinder produces the same ellipse at every height."
+    },
+    {
+      id: "tracescyl",
+      title: "Traces and cylinders: reading the cross-sections",
+      section: "§12.6 · Traces and cylinders",
+      intro: "A trace is the curve where a surface meets a coordinate plane or a plane parallel to one. Quadric surfaces can usually be identified by examining just two traces. A cylinder in this context means the surface generated by translating a plane curve along a line perpendicular to its plane: x² + y² = 1 has no z term, so every horizontal slice gives the same circle. The cross-sections become recognizable conics: ellipses for bounded quadrics, parabolas for paraboloids, hyperbolas for hyperboloids and cones.",
+      trigger: "Surface has no z term? It's a cylinder along the z-axis; use x and y to see the curve and let z run free. Otherwise pick a constant-z slice to see the trace, then rotate to a constant-x or constant-y slice if needed.",
+      formula: "Trace in the plane z = k: substitute z = k into the surface equation, keeping the x and y terms. Trace in y = k and x = k follow the same idea. Cylinder test: if a variable is absent from the equation, the surface is a cylinder along that variable's axis.",
+      recipe: [
+        "Check whether one of x, y, z is absent from the equation. If so, that variable is the axis of the cylinder, and the remaining equation in the other two variables describes the cross-sectional curve.",
+        "If all three variables appear, take three traces: one at z = 0, one at y = 0, one at x = 0. Read each as a conic in the remaining two variables.",
+        "Match the three traces to the right quadric. For example, all three traces are ellipses on an ellipsoid; an ellipse plus two hyperbolas on a one-sheet hyperboloid.",
+        "For paraboloids, at least one trace is a parabola. A hyperbolic paraboloid (saddle) has one trace that is a parabola opening up, another opening down."
+      ],
+      example: {
+        prompt: "Identify and describe the traces of x²/4 + y²/9 − z²/16 = 1.",
+        steps: [
+          "At z = 0: x²/4 + y²/9 = 1, an ellipse in the xy-plane with semi-axes 2 and 3.",
+          "At y = 0: x²/4 − z²/16 = 1, a hyperbola in the xz-plane opening along the x-axis.",
+          "At x = 0: y²/9 − z²/16 = 1, a hyperbola in the yz-plane opening along the y-axis.",
+          "Two traces are hyperbolas and one is an ellipse: this is the hyperboloid of one sheet.",
+          "The hole around the z-axis shrinks as z increases, consistent with the negative sign on z²/16."
+        ],
+        answer: "Traces: ellipse in z = 0, hyperbolas in y = 0 and x = 0. Surface is the hyperboloid of one sheet."
+      },
+      watch: "Traces at z = 0, z = 1, z = 2 of a hyperboloid look like nested ellipses, but a hyperboloid of one sheet is not an ellipsoid — the absence of an enclosing cap is the giveaway. A cone x² + y² = z² collapses to a point at z = 0 and grows linearly with |z|; an ellipsoid shrinks to a point at z = a as well, but bounded between −a and a.",
+      check: "Traces must match the canonical equation for that surface family. Cylinders, paraboloids, and cones each have at least one trace that is a parabola or hyperbola, not an ellipse."
     }
   ],
   questions: [
@@ -312,6 +446,90 @@ const CALC3_DATA = {
       options: ["⟨0, 0, 6⟩ N·m", "⟨0, 0, −6⟩ N·m", "6 N·m", "0 N·m"],
       correct: 1,
       explanation: "Torque is r × F = ⟨0, 0, 2(−3) − 0(0)⟩ = ⟨0, 0, −6⟩ N·m. Reversing the order changes the sign. The scalar 6 is the torque magnitude, not the requested vector; the dot product zero is not the torque."
+    },
+    {
+      id: "q13",
+      lesson: "lineeq",
+      prompt: "Which is the symmetric equation of the line through (−2, 1, 0) and (3, 4, −1)?",
+      options: [
+        "(x − 3)/5 = (y − 4)/3 = (z + 1)/(−1)",
+        "(x + 2)/5 = (y − 1)/3 = z/(−1)",
+        "(x + 2)/(−5) = (y − 1)/(−3) = z/1",
+        "(x − 3)/(−2) = (y − 4)/1 = (z + 1)/0"
+      ],
+      correct: 1,
+      explanation: "Direction is end minus start: ⟨3 − (−2), 4 − 1, −1 − 0⟩ = ⟨5, 3, −1⟩. Both points work in (x + 2)/5 = (y − 1)/3 = z/(−1). The first option used the wrong base point. Negating the direction reverses the line's sign but gives the same geometric line; substituting x = −2 gives z = 0, which matches (3, 4, −1) only when t = −1, not for general t."
+    },
+    {
+      id: "q14",
+      lesson: "lineeq",
+      prompt: "A line is given parametrically by x = 2 − t, y = 1 + 3t, z = −1 + 2t. Which ordered pair (point, direction) defines the same line?",
+      options: [
+        "Point (2, 1, −1), direction ⟨−1, 3, 2⟩",
+        "Point (2, 1, −1), direction ⟨1, 3, 2⟩",
+        "Point (1, 4, 1), direction ⟨−1, 3, 2⟩",
+        "Point (0, −2, −3), direction ⟨1, −3, −2⟩"
+      ],
+      correct: 0,
+      explanation: "Setting t = 0 gives the point (2, 1, −1). The direction comes from the coefficients of t: ⟨−1, 3, 2⟩. The third option picks a point on the line at t = 1 but reverses the sign of the direction's y-component; the resulting line is geometrically the same line, but the direction vector alone doesn't match the parameterized coefficients. The fourth option reverses and rescales the direction; the point is also on the line but the answer key requires the parameter values to match exactly."
+    },
+    {
+      id: "q15",
+      lesson: "planeeq",
+      prompt: "Find the equation of the plane through (1, 0, 0), (0, 2, 0), and (0, 0, 3).",
+      options: [
+        "6x + 3y + 2z = 6",
+        "x + y + z = 1",
+        "6x + 3y + 2z = 1",
+        "x/1 + y/2 + z/3 = 0"
+      ],
+      correct: 0,
+      explanation: "Use the cross product of two in-plane vectors from (1, 0, 0): u = (−1, 2, 0) and w = (−1, 0, 3). Their cross product is ⟨6, 3, 2⟩. Substitute (1, 0, 0): 6(1) + 3(0) + 2(0) = 6, so the plane is 6x + 3y + 2z = 6. The intercept form x/1 + y/2 + z/3 = 1 is equivalent after dividing by 6 — option D has a zero on the right, which would pass through the origin, but our points don't include (0, 0, 0), so the plane cannot contain it."
+    },
+    {
+      id: "q16",
+      lesson: "distangle",
+      prompt: "What is the distance from the point (1, 2, 3) to the plane 2x − 2y + z = 4?",
+      options: ["1", "3/3 = 1", "1/3", "9"],
+      correct: 1,
+      explanation: "The formula is |a x₀ + b y₀ + c z₀ − D| / √(a² + b² + c²). Numerator: |2(1) − 2(2) + 1(3) − 4| = |2 − 4 + 3 − 4| = |−3| = 3. Denominator: √(4 + 4 + 1) = √9 = 3. Distance = 3/3 = 1. The number 9 is the squared denominator; forgetting the absolute value or square root gives the wrong answer."
+    },
+    {
+      id: "q17",
+      lesson: "quadricid",
+      prompt: "Which surface is x²/4 + y²/9 = z²/16?",
+      options: ["Ellipsoid", "Cone", "Elliptic paraboloid", "Hyperboloid of one sheet"],
+      correct: 1,
+      explanation: "Two squared terms on the left equal a third squared term on the right (no constant). That sign pattern — every variable squared, no constant — is the canonical cone. The hyperboloid of one sheet requires a nonzero constant on the right; replacing it with zero collapses the surface into a cone."
+    },
+    {
+      id: "q18",
+      lesson: "quadricid",
+      prompt: "Which surface is x² + y² + z² = 4?",
+      options: ["Ellipsoid (sphere)", "Cone", "Hyperboloid of two sheets", "Circular cylinder"],
+      correct: 0,
+      explanation: "All three squared coefficients are positive and equal, and the right-hand side is a positive constant. This is an ellipsoid; with equal coefficients it is the special case of a sphere of radius √4 = 2. A hyperboloid of two sheets would have two negative squared terms; a circular cylinder would be missing one variable entirely."
+    },
+    {
+      id: "q19",
+      lesson: "quadricid",
+      prompt: "Which surface is z = 2x² + y²?",
+      options: ["Elliptic paraboloid", "Hyperbolic paraboloid", "Cone", "Hyperboloid of one sheet"],
+      correct: 0,
+      explanation: "One variable (z) is linear, the other two appear as positive squares — that is an elliptic paraboloid. A hyperbolic paraboloid (saddle) requires a sign difference between the two squared terms, such as z = x² − y². Cross-section at z = 1 gives the ellipse 2x² + y² = 1, confirming elliptic shape at every horizontal slice above the vertex."
+    },
+    {
+      id: "q20",
+      lesson: "tracescyl",
+      prompt: "Identify the surface −x² − y² + z² = 1 and name the trace at z = 0.",
+      options: [
+        "Hyperboloid of one sheet; trace at z = 0 is the ellipse x² + y² = −1",
+        "Hyperboloid of two sheets; trace at z = 0 is the single point (0, 0, 0)",
+        "Hyperboloid of two sheets; trace at z = 0 is no real points",
+        "Cone; trace at z = 0 is no real points"
+      ],
+      correct: 1,
+      explanation: "One positive squared term (z²) and two negative terms define the hyperboloid of two sheets. Setting z = 0 gives −x² − y² = 1, or x² + y² = −1, which has no real solutions — but rewriting the equation shows the only solution is x = y = 0, so the trace is the single point (0, 0, 0). The cross-section is empty except at the origin, which is the geometric signature of the two-sheet hyperboloid."
     }
   ],
   sources: [
@@ -330,6 +548,14 @@ const CALC3_DATA = {
     {
       title: "LibreTexts Stewart map — 12.4 The Cross Product (open aligned explanations)",
       url: "https://math.libretexts.org/Bookshelves/Calculus/Map%3A_Calculus__Early_Transcendentals_(Stewart)/12%3A_Vectors_and_The_Geometry_of_Space/12.04%3A_The_Cross_Product"
+    },
+    {
+      title: "LibreTexts Stewart map — 12.5 Equations of Lines and Planes (open aligned explanations)",
+      url: "https://math.libretexts.org/Bookshelves/Calculus/Map%3A_Calculus__Early_Transcendentals_(Stewart)/12%3A_Vectors_and_The_Geometry_of_Space/12.05%3A_Equations_of_Lines_and_Planes"
+    },
+    {
+      title: "LibreTexts Stewart map — 12.6 Cylinders and Quadric Surfaces (open aligned explanations)",
+      url: "https://math.libretexts.org/Bookshelves/Calculus/Map%3A_Calculus__Early_Transcendentals_(Stewart)/12%3A_Vectors_and_The_Geometry_of_Space/12.06%3A_Cylinders_and_Quadric_Surfaces"
     }
   ]
 };
