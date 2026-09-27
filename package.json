@@ -2,7 +2,7 @@
   "name": "study-spot",
   "private": true,
   "scripts": {
-    "test": "playwright test",
+    "test": "node tests/exam1-content-check.cjs && playwright test",
     "preview": "python -m http.server 4173 --bind 127.0.0.1"
   },
   "devDependencies": {

@@ -1,0 +1,999 @@
+{
+  "title": "ACC-298 · Exam 1 Cram Room · Lars Cleaners",
+  "course": "ACC-298",
+  "topics": [
+    {
+      "id": "journal",
+      "title": "Journalize March transactions",
+      "cue": "What changed? Did cash actually move?",
+      "rule": "Debit increases in assets, expenses, and dividends; credit increases in liabilities, stock, and revenue. Every entry balances.",
+      "steps": [
+        "Identify accounts using the source chart.",
+        "Decide which increased or decreased.",
+        "Record equal debit and credit amounts."
+      ],
+      "pitfall": "Borrowing, issuing stock, and collecting existing receivables do not create new revenue.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 1
+    },
+    {
+      "id": "adjust",
+      "title": "Make March 31 adjustments",
+      "cue": "Earned, used, expired, or owed by month-end?",
+      "rule": "Recognize March revenue and expenses regardless of cash timing; reduce prepaid assets as benefits expire.",
+      "steps": [
+        "Identify the amount earned, used, expired, or owed.",
+        "Compute only the March adjustment.",
+        "Pair the expense or revenue with the related asset, contra-asset, or payable."
+      ],
+      "pitfall": "None of these seven adjustments uses Cash. Supplies on hand are not supplies used.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 5
+    },
+    {
+      "id": "statements",
+      "title": "Build the financial statements",
+      "cue": "Income → retained earnings → balance sheet.",
+      "rule": "Net income = revenue − expenses; ending retained earnings = beginning retained earnings + income − dividends; assets = liabilities + equity.",
+      "steps": [
+        "Check adjusted trial-balance totals.",
+        "Compute net income from adjusted revenue and expenses.",
+        "Carry income into retained earnings and subtract dividends.",
+        "Carry ending retained earnings into equity; deduct accumulated depreciation from equipment."
+      ],
+      "pitfall": "Dividends are not expenses. Trial-balance totals are not total assets.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 7
+    }
+  ],
+  "problems": [
+    {
+      "id": "stock",
+      "topic": "journal",
+      "title": "Issue common stock",
+      "statement": "Issued 10,000 shares of common stock for $15,000 cash.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "10,000 shares; $15,000 cash proceeds"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Cash and contributed capital increase.",
+        "Debit Cash $15,000.",
+        "Credit Common Stock $15,000; total debits equal total credits."
+      ],
+      "answer": "Debit Cash $15,000; credit Common Stock $15,000.",
+      "number": null,
+      "debit": "Cash",
+      "credit": "Common Stock",
+      "amount": 15000,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Use cash proceeds, not share count. Stock issuance is not revenue."
+    },
+    {
+      "id": "borrow",
+      "topic": "journal",
+      "title": "Borrow on a note",
+      "statement": "Borrowed $6,000 cash by signing a 6-month, 6%, $6,000 note payable. Interest will be\n    1\n           paid the first day of each subsequent month.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "$6,000 borrowed; six-month note; 6% annual interest"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Borrowing increases cash and an obligation to repay.",
+        "Debit Cash $6,000.",
+        "Credit Notes Payable $6,000; total debits equal total credits."
+      ],
+      "answer": "Debit Cash $6,000; credit Notes Payable $6,000.",
+      "number": null,
+      "debit": "Cash",
+      "credit": "Notes Payable",
+      "amount": 6000,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Borrowing is not revenue. Accrue interest separately at month-end."
+    },
+    {
+      "id": "truck",
+      "topic": "journal",
+      "title": "Purchase the truck",
+      "statement": "Purchased used truck for $8,000 cash.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "Truck purchased for $8,000 cash"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "The truck is a long-lived asset, recorded as Equipment.",
+        "Debit Equipment $8,000.",
+        "Credit Cash $8,000; total debits equal total credits."
+      ],
+      "answer": "Debit Equipment $8,000; credit Cash $8,000.",
+      "number": null,
+      "debit": "Equipment",
+      "credit": "Cash",
+      "amount": 8000,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Do not expense the purchase; record depreciation separately."
+    },
+    {
+      "id": "prepayrent",
+      "topic": "journal",
+      "title": "Prepay rent",
+      "statement": "Paid $1,500 cash to cover rent from March 1 through May 31.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "$1,500 covers March through May"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Future rental coverage is initially an asset.",
+        "Debit Prepaid Rent $1,500.",
+        "Credit Cash $1,500; total debits equal total credits."
+      ],
+      "answer": "Debit Prepaid Rent $1,500; credit Cash $1,500.",
+      "number": null,
+      "debit": "Prepaid Rent",
+      "credit": "Cash",
+      "amount": 1500,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Do not expense all three months immediately."
+    },
+    {
+      "id": "prepayinsurance",
+      "topic": "journal",
+      "title": "Prepay insurance",
+      "statement": "Paid $2,400 cash on a 6-month insurance policy effective March 1.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "$2,400; six-month policy effective March 1"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Future insurance coverage is initially an asset.",
+        "Debit Prepaid Insurance $2,400.",
+        "Credit Cash $2,400; total debits equal total credits."
+      ],
+      "answer": "Debit Prepaid Insurance $2,400; credit Cash $2,400.",
+      "number": null,
+      "debit": "Prepaid Insurance",
+      "credit": "Cash",
+      "amount": 2400,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Only one month expires in March; do not expense the full payment."
+    },
+    {
+      "id": "buysupplies",
+      "topic": "journal",
+      "title": "Buy supplies on account",
+      "statement": "Purchased cleaning supplies for $2,000 on account.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "$2,000 of supplies purchased on account"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Supplies increase along with the amount owed to the supplier.",
+        "Debit Supplies $2,000.",
+        "Credit Accounts Payable $2,000; total debits equal total credits."
+      ],
+      "answer": "Debit Supplies $2,000; credit Accounts Payable $2,000.",
+      "number": null,
+      "debit": "Supplies",
+      "credit": "Accounts Payable",
+      "amount": 2000,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "On account means Accounts Payable, not a cash payment."
+    },
+    {
+      "id": "billfirst",
+      "topic": "journal",
+      "title": "Bill March 14 services",
+      "statement": "Billed customers $3,700 for cleaning services performed.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "Completed services billed: $3,700"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Recognize earned revenue and the customer receivable.",
+        "Debit Accounts Receivable $3,700.",
+        "Credit Service Revenue $3,700; total debits equal total credits."
+      ],
+      "answer": "Debit Accounts Receivable $3,700; credit Service Revenue $3,700.",
+      "number": null,
+      "debit": "Accounts Receivable",
+      "credit": "Service Revenue",
+      "amount": 3700,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Revenue is earned before collection; do not debit Cash here."
+    },
+    {
+      "id": "paysupplier",
+      "topic": "journal",
+      "title": "Pay the supplier",
+      "statement": "Paid $500 on amount owed on cleaning supplies.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "$500 paid toward the existing supplier balance"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Reduce the liability already recorded when supplies were purchased.",
+        "Debit Accounts Payable $500.",
+        "Credit Cash $500; total debits equal total credits."
+      ],
+      "answer": "Debit Accounts Payable $500; credit Cash $500.",
+      "number": null,
+      "debit": "Accounts Payable",
+      "credit": "Cash",
+      "amount": 500,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Do not record Supplies or Supplies Expense a second time."
+    },
+    {
+      "id": "paysalaries",
+      "topic": "journal",
+      "title": "Pay employee salaries",
+      "statement": "Paid $1,750 cash for employee salaries.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "Employee salaries paid: $1,750"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Employee work creates an expense; payment reduces cash.",
+        "Debit Salaries and Wages Expense $1,750.",
+        "Credit Cash $1,750; total debits equal total credits."
+      ],
+      "answer": "Debit Salaries and Wages Expense $1,750; credit Cash $1,750.",
+      "number": null,
+      "debit": "Salaries and Wages Expense",
+      "credit": "Cash",
+      "amount": 1750,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "The unpaid $1,080 at month-end is a separate adjustment."
+    },
+    {
+      "id": "collect",
+      "topic": "journal",
+      "title": "Collect from customers",
+      "statement": "Collected $1,600 cash from customers billed on March 14.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "$1,600 collected on a previously recorded receivable"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Cash increases and the amount customers owe decreases.",
+        "Debit Cash $1,600.",
+        "Credit Accounts Receivable $1,600; total debits equal total credits."
+      ],
+      "answer": "Debit Cash $1,600; credit Accounts Receivable $1,600.",
+      "number": null,
+      "debit": "Cash",
+      "credit": "Accounts Receivable",
+      "amount": 1600,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Do not count this collection as new revenue."
+    },
+    {
+      "id": "billsecond",
+      "topic": "journal",
+      "title": "Bill March 28 services",
+      "statement": "Billed customers $4,200 for cleaning services performed.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "Completed services billed: $4,200"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Recognize additional earned revenue and receivables.",
+        "Debit Accounts Receivable $4,200.",
+        "Credit Service Revenue $4,200; total debits equal total credits."
+      ],
+      "answer": "Debit Accounts Receivable $4,200; credit Service Revenue $4,200.",
+      "number": null,
+      "debit": "Accounts Receivable",
+      "credit": "Service Revenue",
+      "amount": 4200,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Billing does not mean cash was collected."
+    },
+    {
+      "id": "maintenance",
+      "topic": "journal",
+      "title": "Pay truck operating costs",
+      "statement": "Paid $350 for gas and oil used in truck during month (use Maintenance and Repairs\n   31\n          Expense).",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "Gas and oil used during March: $350"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Use the source-specified Maintenance and Repairs Expense account.",
+        "Debit Maintenance and Repairs Expense $350.",
+        "Credit Cash $350; total debits equal total credits."
+      ],
+      "answer": "Debit Maintenance and Repairs Expense $350; credit Cash $350.",
+      "number": null,
+      "debit": "Maintenance and Repairs Expense",
+      "credit": "Cash",
+      "amount": 350,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Operating gas and oil costs do not increase Equipment."
+    },
+    {
+      "id": "dividend",
+      "topic": "journal",
+      "title": "Pay the dividend",
+      "statement": "Declared and paid a $900 cash dividend.",
+      "prompt": "What is the journal entry?",
+      "given": [
+        "Cash dividend declared and paid: $900"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Record the distribution to shareholders separately from operating expenses.",
+        "Debit Dividends $900.",
+        "Credit Cash $900; total debits equal total credits."
+      ],
+      "answer": "Debit Dividends $900; credit Cash $900.",
+      "number": null,
+      "debit": "Dividends",
+      "credit": "Cash",
+      "amount": 900,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 1,
+      "pitfall": "Dividends reduce retained earnings, not net income."
+    },
+    {
+      "id": "unbilled",
+      "topic": "adjust",
+      "title": "Accrue unbilled revenue",
+      "statement": "Services performed but unbilled and uncollected at March 31 were $200.",
+      "prompt": "What is the March 31 adjusting entry?",
+      "given": [
+        "Services performed but not billed or collected: $200"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Recognize March earnings and a receivable even without a bill.",
+        "Debit Accounts Receivable $200.",
+        "Credit Service Revenue $200; total debits equal total credits."
+      ],
+      "answer": "Debit Accounts Receivable $200; credit Service Revenue $200.",
+      "number": null,
+      "debit": "Accounts Receivable",
+      "credit": "Service Revenue",
+      "amount": 200,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 5,
+      "pitfall": "Unbilled does not mean unearned; no Cash account belongs here."
+    },
+    {
+      "id": "depreciation",
+      "topic": "adjust",
+      "title": "Record depreciation",
+      "statement": "Depreciation on equipment for the month was $250.",
+      "prompt": "What is the March 31 adjusting entry?",
+      "given": [
+        "Monthly depreciation provided: $250"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Allocate $250 of equipment cost to March expense.",
+        "Debit Depreciation Expense $250.",
+        "Credit Accumulated Depreciation—Equipment $250; total debits equal total credits."
+      ],
+      "answer": "Debit Depreciation Expense $250; credit Accumulated Depreciation—Equipment $250.",
+      "number": null,
+      "debit": "Depreciation Expense",
+      "credit": "Accumulated Depreciation—Equipment",
+      "amount": 250,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 5,
+      "pitfall": "Credit the contra-asset, not Equipment. The consistent amount is $250, not the extracted $2,500 on solution page 3."
+    },
+    {
+      "id": "expireinsurance",
+      "topic": "adjust",
+      "title": "Expense expired insurance",
+      "statement": "One month’s worth of the insurance expired.",
+      "prompt": "What is the March 31 adjusting entry?",
+      "given": [
+        "Policy cost $2,400; six-month coverage; one month expired"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Monthly insurance = $2,400 ÷ 6 = $400; the remaining prepaid asset is $2,000.",
+        "Debit Insurance Expense $400.",
+        "Credit Prepaid Insurance $400; total debits equal total credits."
+      ],
+      "answer": "Debit Insurance Expense $400; credit Prepaid Insurance $400.",
+      "number": null,
+      "debit": "Insurance Expense",
+      "credit": "Prepaid Insurance",
+      "amount": 400,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 5,
+      "pitfall": "Credit Prepaid Insurance, not Cash: cash was paid earlier."
+    },
+    {
+      "id": "usesupplies",
+      "topic": "adjust",
+      "title": "Expense supplies used",
+      "statement": "An inventory count shows $280 of cleaning supplies on hand at March 31.",
+      "prompt": "What is the March 31 adjusting entry?",
+      "given": [
+        "Supplies purchased $2,000; supplies still on hand $280"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Supplies used = $2,000 − $280 = $1,720. Leave $280 as the asset.",
+        "Debit Supplies Expense $1,720.",
+        "Credit Supplies $1,720; total debits equal total credits."
+      ],
+      "answer": "Debit Supplies Expense $1,720; credit Supplies $1,720.",
+      "number": null,
+      "debit": "Supplies Expense",
+      "credit": "Supplies",
+      "amount": 1720,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 5,
+      "pitfall": "The inventory count is the remaining asset, not the expense."
+    },
+    {
+      "id": "accruesalaries",
+      "topic": "adjust",
+      "title": "Accrue unpaid salaries",
+      "statement": "Unpaid employee salaries were $1,080 at the end of March.",
+      "prompt": "What is the March 31 adjusting entry?",
+      "given": [
+        "Salaries earned but unpaid: $1,080"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Recognize unpaid March work. Total salary expense = $1,750 + $1,080 = $2,830.",
+        "Debit Salaries and Wages Expense $1,080.",
+        "Credit Salaries and Wages Payable $1,080; total debits equal total credits."
+      ],
+      "answer": "Debit Salaries and Wages Expense $1,080; credit Salaries and Wages Payable $1,080.",
+      "number": null,
+      "debit": "Salaries and Wages Expense",
+      "credit": "Salaries and Wages Payable",
+      "amount": 1080,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 5,
+      "pitfall": "Credit Salaries and Wages Payable, not Cash, before payment."
+    },
+    {
+      "id": "expirerent",
+      "topic": "adjust",
+      "title": "Expense expired rent",
+      "statement": "One month of the prepaid rent has expired.",
+      "prompt": "What is the March 31 adjusting entry?",
+      "given": [
+        "Rent prepaid $1,500; March through May; one month expired"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Monthly rent = $1,500 ÷ 3 = $500; prepaid rent remaining = $1,000.",
+        "Debit Rent Expense $500.",
+        "Credit Prepaid Rent $500; total debits equal total credits."
+      ],
+      "answer": "Debit Rent Expense $500; credit Prepaid Rent $500.",
+      "number": null,
+      "debit": "Rent Expense",
+      "credit": "Prepaid Rent",
+      "amount": 500,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 5,
+      "pitfall": "March through May is three months, not two."
+    },
+    {
+      "id": "accrueinterest",
+      "topic": "adjust",
+      "title": "Accrue interest",
+      "statement": "One month of interest expense related to the note payable has accrued and will be paid April 1.",
+      "prompt": "What is the March 31 adjusting entry?",
+      "given": [
+        "Principal $6,000; annual interest rate 6%; one month accrued"
+      ],
+      "find": "Debit account, credit account, and dollar amount.",
+      "steps": [
+        "Interest = $6,000 × 0.06 × 1/12 = $30.",
+        "Debit Interest Expense $30.",
+        "Credit Interest Payable $30; total debits equal total credits."
+      ],
+      "answer": "Debit Interest Expense $30; credit Interest Payable $30.",
+      "number": null,
+      "debit": "Interest Expense",
+      "credit": "Interest Payable",
+      "amount": 30,
+      "source_file": "Review for Exam One.pdf",
+      "page": 2,
+      "solution_page": 5,
+      "pitfall": "Use one month, not the six-month term; credit Interest Payable, not Cash or Notes Payable."
+    },
+    {
+      "id": "unadjustedtotal",
+      "topic": "statements",
+      "title": "Unadjusted trial balance total",
+      "statement": "Cash ...................................................... $ 7,200\nAccounts Receivable ...........................    6,300\nSupplies ...............................................    2,000\nPrepaid Rent ........................................    1,500\nPrepaid Insurance ................................    2,400\nEquipment ............................................    8,000\nAccumulated Depreciation—\n  Equipment .........................................\nNotes Payable ......................................         $ 6,000\nAccounts Payable ................................            1,500\nSalaries and Wages Payable ...............\nInterest Payable ...................................\nCommon Stock ....................................           15,000\nDividends .............................................     900\nService Revenue ..................................            7,900\nMaintenance and Repairs Expense ....     350\nSalaries and Wages Expense .............    1,750\nDepreciation Expense .........................\nInsurance Expense ..............................\nSupplies Expense ................................\nRent Expense .......................................\nInterest Expense ..................................\n                                    $30,400 $30,400",
+      "prompt": "Unadjusted trial balance total?",
+      "given": [
+        "Unadjusted debit balances: Cash $7,200; Accounts Receivable $6,300; Supplies $2,000; Prepaid Rent $1,500; Prepaid Insurance $2,400.",
+        "Other debit balances: Equipment $8,000; Dividends $900; Maintenance and Repairs Expense $350; Salaries and Wages Expense $1,750.",
+        "Credit balances: Notes Payable $6,000; Accounts Payable $1,500; Common Stock $15,000; Service Revenue $7,900."
+      ],
+      "find": "The dollar amount of unadjusted trial balance total.",
+      "steps": [
+        "Add debit balances: $7,200 + $6,300 + $2,000 + $1,500 + $2,400 + $8,000 + $900 + $350 + $1,750 = $30,400.",
+        "Add credit balances: $6,000 + $1,500 + $15,000 + $7,900 = $30,400."
+      ],
+      "answer": "$30,400",
+      "number": 30400,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 4,
+      "solution_page": 4,
+      "pitfall": "Add ending account balances, not transaction amounts. Report one column total."
+    },
+    {
+      "id": "adjustedtotal",
+      "topic": "statements",
+      "title": "Adjusted trial balance total",
+      "statement": "Cash ......................................................   $ 7,200\nAccounts Receivable ...........................     6,500\nSupplies ...............................................      280\nPrepaid Rent ........................................     1,000\nPrepaid Insurance ................................     2,000\nEquipment ............................................     8,000\nAccumulated Depreciation—\n  Equipment .........................................           $   250\nNotes Payable ......................................              6,000\nAccounts Payable ................................              1,500\nSalaries and Wages Payable ...............              1,080\nInterest Payable ...................................               30\nCommon Stock ....................................             15,000\nDividends .............................................      900\nService Revenue ..................................              8,100\nMaintenance and Repairs Expense ....      350\nSalaries and Wages Expense .............     2,830\nDepreciation Expense .........................      250\nInsurance Expense ..............................      400\nSupplies Expense ................................     1,720\nRent Expense .......................................      500\nInterest Expense ..................................       30\n                                     $31,960  $31,960",
+      "prompt": "Adjusted trial balance total?",
+      "given": [
+        "Post all transactions and seven adjustments."
+      ],
+      "find": "The dollar amount of adjusted trial balance total.",
+      "steps": [
+        "Sum adjusted debits: $7,200 + $6,500 + $280 + $1,000 + $2,000 + $8,000 + $900 + $350 + $2,830 + $250 + $400 + $1,720 + $500 + $30 = $31,960.",
+        "Sum adjusted credits: $250 + $6,000 + $1,500 + $1,080 + $30 + $15,000 + $8,100 = $31,960."
+      ],
+      "answer": "$31,960",
+      "number": 31960,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 6,
+      "solution_page": 6,
+      "pitfall": "Some adjustments transfer between debit-balance accounts; do not add every adjustment amount to $30,400."
+    },
+    {
+      "id": "endingcash",
+      "topic": "statements",
+      "title": "Ending cash balance",
+      "statement": "Cash ...................................................... $ 7,200",
+      "prompt": "Ending cash balance?",
+      "given": [
+        "Inflows $15,000, $6,000, $1,600",
+        "Outflows $8,000, $1,500, $2,400, $500, $1,750, $350, $900"
+      ],
+      "find": "The dollar amount of ending cash balance.",
+      "steps": [
+        "Inflows = $22,600; outflows = $15,400.",
+        "Ending cash = $22,600 − $15,400 = $7,200; none of these seven adjustments changes Cash."
+      ],
+      "answer": "$7,200",
+      "number": 7200,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 4,
+      "solution_page": 4,
+      "pitfall": "Billed revenue and accrued expenses do not move cash."
+    },
+    {
+      "id": "adjustedrevenue",
+      "topic": "statements",
+      "title": "Adjusted service revenue",
+      "statement": "Service revenue    .............................................           $8,100",
+      "prompt": "Adjusted service revenue?",
+      "given": [
+        "Billed services $3,700 and $4,200; unbilled services $200"
+      ],
+      "find": "The dollar amount of adjusted service revenue.",
+      "steps": [
+        "Billed revenue = $3,700 + $4,200 = $7,900.",
+        "Add accrued revenue: $7,900 + $200 = $8,100."
+      ],
+      "answer": "$8,100",
+      "number": 8100,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 7,
+      "solution_page": 7,
+      "pitfall": "Do not add collections, borrowing, or stock proceeds to revenue."
+    },
+    {
+      "id": "totalexpenses",
+      "topic": "statements",
+      "title": "Total March expenses",
+      "statement": "Maintenance and repairs expense ...................    $ 350\n         Salaries and wages expense ...........................    2,830\n        Depreciation expense .......................................      250\n        Insurance expense ...........................................      400\n        Supplies expense .............................................    1,720\n        Rent expense ....................................................      500\n         Interest expense ...............................................       30\n             Total expenses ..........................................           6,080",
+      "prompt": "Total March expenses?",
+      "given": [
+        "Maintenance $350; salaries $2,830; depreciation $250",
+        "Insurance $400; supplies $1,720; rent $500; interest $30"
+      ],
+      "find": "The dollar amount of total march expenses.",
+      "steps": [
+        "Use the seven adjusted expense balances.",
+        "Expenses = $350 + $2,830 + $250 + $400 + $1,720 + $500 + $30 = $6,080."
+      ],
+      "answer": "$6,080",
+      "number": 6080,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 7,
+      "solution_page": 7,
+      "pitfall": "Exclude dividends and unexpired prepayments; depreciation is $250."
+    },
+    {
+      "id": "netincome",
+      "topic": "statements",
+      "title": "March net income",
+      "statement": "Revenues\n        Service revenue    .............................................           $8,100\n    Expenses\n        Maintenance and repairs expense ...................    $ 350\n         Salaries and wages expense ...........................    2,830\n        Depreciation expense .......................................      250\n        Insurance expense ...........................................      400\n        Supplies expense .............................................    1,720\n        Rent expense ....................................................      500\n         Interest expense ...............................................       30\n             Total expenses ..........................................           6,080\n    Net income ................................................................          $2,020",
+      "prompt": "March net income?",
+      "given": [
+        "Adjusted revenue $8,100; expenses $6,080"
+      ],
+      "find": "The dollar amount of march net income.",
+      "steps": [
+        "Match March revenue with March expenses.",
+        "Net income = $8,100 − $6,080 = $2,020."
+      ],
+      "answer": "$2,020",
+      "number": 2020,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 7,
+      "solution_page": 7,
+      "pitfall": "Do not subtract dividends when computing net income."
+    },
+    {
+      "id": "retainedearnings",
+      "topic": "statements",
+      "title": "Ending retained earnings",
+      "statement": "Retained earnings, March 1 ...................................          $    0\n    Add:  Net income ..................................................            2,020\n                                                              2,020\n    Less: Dividends .....................................................             900\n    Retained earnings, March 31 .................................           $1,120",
+      "prompt": "Ending retained earnings?",
+      "given": [
+        "Beginning retained earnings $0; net income $2,020; dividends $900"
+      ],
+      "find": "The dollar amount of ending retained earnings.",
+      "steps": [
+        "Beginning retained earnings + net income = $0 + $2,020.",
+        "Subtract dividends: $2,020 − $900 = $1,120."
+      ],
+      "answer": "$1,120",
+      "number": 1120,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 7,
+      "solution_page": 7,
+      "pitfall": "Common Stock is separate contributed capital, not retained earnings."
+    },
+    {
+      "id": "totalassets",
+      "topic": "statements",
+      "title": "Total assets",
+      "statement": "Cash .................................................................    $7,200\n        Accounts receivable .......................................     6,500\n        Supplies ..........................................................      280\n        Prepaid rent .....................................................     1,000\n        Prepaid insurance...........................................     2,000\n       Equipment .............................................. 8,000\n        Less: Accumulated depreciation—\n               equipment .............................   250     7,750\n             Total assets .............................................   $24,730",
+      "prompt": "Total assets?",
+      "given": [
+        "Cash $7,200; receivables $6,500; supplies $280",
+        "Prepaid rent $1,000; prepaid insurance $2,000; equipment $8,000; accumulated depreciation $250"
+      ],
+      "find": "The dollar amount of total assets.",
+      "steps": [
+        "Net equipment = $8,000 − $250 = $7,750.",
+        "Assets = $7,200 + $6,500 + $280 + $1,000 + $2,000 + $7,750 = $24,730."
+      ],
+      "answer": "$24,730",
+      "number": 24730,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 8,
+      "solution_page": 8,
+      "pitfall": "Accumulated depreciation reduces equipment; it is not a liability."
+    },
+    {
+      "id": "totalliabilities",
+      "topic": "statements",
+      "title": "Total current liabilities",
+      "statement": "Notes payable ................................................   $ 6,000\n        Accounts payable ..........................................     1,500\n          Salaries and wages payable .........................     1,080\n          Interest payable .............................................       30\n             Total current liabilities ............................     8,610",
+      "prompt": "Total current liabilities?",
+      "given": [
+        "Notes payable $6,000; accounts payable $1,500; salaries payable $1,080; interest payable $30"
+      ],
+      "find": "The dollar amount of total current liabilities.",
+      "steps": [
+        "Include supplier balances, the six-month note, and month-end accruals.",
+        "Liabilities = $6,000 + $1,500 + $1,080 + $30 = $8,610."
+      ],
+      "answer": "$8,610",
+      "number": 8610,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 8,
+      "solution_page": 8,
+      "pitfall": "The six-month note is current; do not omit accrued payables."
+    },
+    {
+      "id": "totalequity",
+      "topic": "statements",
+      "title": "Total stockholders’ equity",
+      "statement": "Common stock .................................... 15,000\n         Retained earnings .............................   1,120    16,120",
+      "prompt": "Total stockholders’ equity?",
+      "given": [
+        "Common stock $15,000; ending retained earnings $1,120"
+      ],
+      "find": "The dollar amount of total stockholders’ equity.",
+      "steps": [
+        "Equity = $15,000 + $1,120 = $16,120.",
+        "Check: liabilities $8,610 + equity $16,120 = assets $24,730."
+      ],
+      "answer": "$16,120",
+      "number": 16120,
+      "debit": null,
+      "credit": null,
+      "amount": null,
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 8,
+      "solution_page": 8,
+      "pitfall": "Use ending retained earnings, not net income; dividends already reduced retained earnings."
+    }
+  ],
+  "balances": [
+    {
+      "account": "Cash",
+      "debit": 7200,
+      "credit": 0
+    },
+    {
+      "account": "Accounts Receivable",
+      "debit": 6500,
+      "credit": 0
+    },
+    {
+      "account": "Supplies",
+      "debit": 280,
+      "credit": 0
+    },
+    {
+      "account": "Prepaid Rent",
+      "debit": 1000,
+      "credit": 0
+    },
+    {
+      "account": "Prepaid Insurance",
+      "debit": 2000,
+      "credit": 0
+    },
+    {
+      "account": "Equipment",
+      "debit": 8000,
+      "credit": 0
+    },
+    {
+      "account": "Accumulated Depreciation—Equipment",
+      "debit": 0,
+      "credit": 250
+    },
+    {
+      "account": "Notes Payable",
+      "debit": 0,
+      "credit": 6000
+    },
+    {
+      "account": "Accounts Payable",
+      "debit": 0,
+      "credit": 1500
+    },
+    {
+      "account": "Salaries and Wages Payable",
+      "debit": 0,
+      "credit": 1080
+    },
+    {
+      "account": "Interest Payable",
+      "debit": 0,
+      "credit": 30
+    },
+    {
+      "account": "Common Stock",
+      "debit": 0,
+      "credit": 15000
+    },
+    {
+      "account": "Dividends",
+      "debit": 900,
+      "credit": 0
+    },
+    {
+      "account": "Service Revenue",
+      "debit": 0,
+      "credit": 8100
+    },
+    {
+      "account": "Maintenance and Repairs Expense",
+      "debit": 350,
+      "credit": 0
+    },
+    {
+      "account": "Salaries and Wages Expense",
+      "debit": 2830,
+      "credit": 0
+    },
+    {
+      "account": "Depreciation Expense",
+      "debit": 250,
+      "credit": 0
+    },
+    {
+      "account": "Insurance Expense",
+      "debit": 400,
+      "credit": 0
+    },
+    {
+      "account": "Supplies Expense",
+      "debit": 1720,
+      "credit": 0
+    },
+    {
+      "account": "Rent Expense",
+      "debit": 500,
+      "credit": 0
+    },
+    {
+      "account": "Interest Expense",
+      "debit": 30,
+      "credit": 0
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "stockcard",
+      "front": "Does issuing stock create revenue?",
+      "back": "No. Debit Cash $15,000; credit Common Stock $15,000.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 1
+    },
+    {
+      "id": "borrowcard",
+      "front": "Does the $6,000 loan create revenue?",
+      "back": "No. Debit Cash and credit Notes Payable: the loan must be repaid.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 1
+    },
+    {
+      "id": "billcard",
+      "front": "What is debited when completed services are billed?",
+      "back": "Accounts Receivable; credit Service Revenue when work is performed, even before collection.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 1
+    },
+    {
+      "id": "collectcard",
+      "front": "Why is the $1,600 collection not new revenue?",
+      "back": "Revenue was recorded at billing. Collection debits Cash and credits Accounts Receivable.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 1
+    },
+    {
+      "id": "insurancecard",
+      "front": "How much insurance expires in March?",
+      "back": "$2,400 ÷ 6 = $400. Debit Insurance Expense; credit Prepaid Insurance. Unexpired insurance is $2,000.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 5
+    },
+    {
+      "id": "suppliescard",
+      "front": "Is the $280 count the supplies expense?",
+      "back": "No, it is the remaining asset. Supplies used = $2,000 − $280 = $1,720; debit Supplies Expense and credit Supplies.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 5
+    },
+    {
+      "id": "depreciationcard",
+      "front": "How is depreciation shown with equipment?",
+      "back": "Equipment remains $8,000; accumulated depreciation of $250 is deducted, leaving net equipment of $7,750.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 8
+    },
+    {
+      "id": "salarycard",
+      "front": "How do unpaid salaries affect March?",
+      "back": "Debit Salaries and Wages Expense $1,080; credit Salaries and Wages Payable $1,080. Total salary expense is $2,830.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 5
+    },
+    {
+      "id": "rentcard",
+      "front": "How much prepaid rent expires?",
+      "back": "March through May is three months: $1,500 ÷ 3 = $500. Debit Rent Expense; credit Prepaid Rent.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 5
+    },
+    {
+      "id": "interestcard",
+      "front": "How much interest accrues in one month?",
+      "back": "$6,000 × 6% × 1/12 = $30. Debit Interest Expense; credit Interest Payable.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 5
+    },
+    {
+      "id": "dividendcard",
+      "front": "Where does the $900 dividend belong?",
+      "back": "It reduces retained earnings, not net income: $0 + $2,020 − $900 = $1,120 ending retained earnings.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 7
+    },
+    {
+      "id": "equationcard",
+      "front": "What is the final balance-sheet check?",
+      "back": "Assets $24,730 = liabilities $8,610 + equity $16,120. Equity = common stock $15,000 + retained earnings $1,120.",
+      "source_file": "Review for Exam One Solution.pdf",
+      "page": 8
+    }
+  ],
+  "source_notes": [
+    "Professor-provided practice review, not a live assessment. The source course is ACC 298, rendered as ACC-298; keep separate from existing ACC-289 material.",
+    "Facts: Review for Exam One.pdf page 2. Solutions: journal entries page 1; unadjusted trial balance page 4; adjustments page 5; adjusted trial balance page 6; income and retained earnings page 7; balance sheet page 8. Page references are one-based PDF pages.",
+    "Statements preserve relevant extracted text verbatim, including whitespace and displaced dates on wrapped lines. Given, steps, prompts, and pitfalls are study annotations derived from those facts. No extra transactions are invented.",
+    "Account names use the full source chart-of-accounts spelling, normalizing solution abbreviations such as & to and.",
+    "Verified source typo: the solution page 3 image shows a Depreciation Expense balance of 2,500, while its posting and pages 5, 6, and 7 show 250. Use $250; visually checked against the supplied PDF page.",
+    "Balances are the pre-closing adjusted trial balance, so Dividends and revenue/expense accounts remain present. Ending retained earnings of $1,120 belongs to the retained earnings statement and balance sheet, not this pre-closing trial balance.",
+    "Lars Cleaners opened March 1, 2024. Statements cover March or are dated March 31, 2024. Beginning retained earnings of $0 is explicitly supplied on solution page 7.",
+    "The review covers Chapters 1, 2, and 3; this comprehensive numerical problem practices Chapters 2 and 3."
+  ]
+}

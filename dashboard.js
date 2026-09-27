@@ -41,12 +41,15 @@ const Dashboard = (() => {
     const query = new URLSearchParams({ ...(tab === 'home' ? {} : { tab }), ...extra });
     return `#/u/${who}${query.size ? '?' + query : ''}`;
   };
-  const courseURL = (who, course, mode = 'notes') => course.code === 'ACC-289' && who === 'cooper'
+  const courseURL = (who, course, mode = 'notes') => course.examReview
+    ? `#/u/${who}/ACC-298/${mode === 'cards' ? 'cards' : ['flash','recall'].includes(mode) ? 'practice' : mode === 'sheet' ? 'sheet' : 'overview'}`
+    : course.code === 'ACC-289' && who === 'cooper'
     ? STUDENTS.cooper.noteLink.href
     : course.code === 'MATH-215'
     ? `#/u/${who}/MATH-215${['flash','recall'].includes(mode) ? '/practice' : mode === 'sheet' ? '/sheet' : ''}`
     : `#/u/${who}/${course.code}${course.hasHub ? '/' + mode : ''}`;
   function availability(course) {
+    if (course.examReview) return 'Exam 1 · quick reps · worked steps · retry missed';
     if (course.code === 'MATH-215') return 'Guided lessons · vector diagrams · quiz practice';
     if (course.hasHub) return 'Physics materials · content review pending';
     if (course.code === 'ACC-289') return 'Accounting deck · opens separate study app';
@@ -66,7 +69,7 @@ const Dashboard = (() => {
     const tab = ['home', 'library', 'cards', 'guides', 'games', 'tests', 'folder'].includes(params.get('tab')) ? params.get('tab') : 'home';
     const activeTab = tab || 'home';
     const recent = readList(who, 'recent').filter(item => student.classes.some(c => c.code === item.code));
-    const first = student.classes.find(c => c.code === recent[0]?.code) || student.classes.find(c => c.hasHub || c.code === 'ACC-289') || student.classes[0];
+    const first = student.classes.find(c => c.code === recent[0]?.code) || student.classes.find(c => c.examReview) || student.classes.find(c => c.hasHub || c.code === 'ACC-289') || student.classes[0];
     const navLink = (id, label) => `<a class="dash-nav-link ${activeTab === id ? 'is-active' : ''}" href="${dashboardURL(who, id)}" ${activeTab === id ? 'aria-current="page"' : ''}>${icon(id)}<span>${label}</span></a>`;
     root.innerHTML = `
       <div class="dash-shell">
@@ -193,7 +196,7 @@ const Dashboard = (() => {
     const modes = { cards: 'cards', guides: 'notes', tests: 'flash' };
     const query = (params.get('q') || '').trim().toLowerCase();
     const folder = tab === 'folder' ? foldersFor(who).find(item => item.id === params.get('folder')) : null;
-    const courses = student.classes.filter(c => (tab !== 'folder' || folder?.courses.includes(c.code)) && (!modes[tab] || c.hasHub || c.code === 'ACC-289' || (c.code === 'MATH-215' && tab !== 'cards')) && (!query || (c.code + ' ' + c.name).toLowerCase().includes(query)));
+    const courses = student.classes.filter(c => (tab !== 'folder' || folder?.courses.includes(c.code)) && (!modes[tab] || c.examReview || c.hasHub || c.code === 'ACC-289' || (c.code === 'MATH-215' && tab !== 'cards')) && (!query || (c.code + ' ' + c.name).toLowerCase().includes(query)));
     return `<section class="dash-section"><h1>${escape(folder?.name || names[tab] || 'Your library')}</h1><p class="dash-page-sub">${tab === 'library' ? 'Your course collection. Pick up wherever you left off.' : tab === 'folder' ? (folder ? 'Your saved course collection · stored in this browser.' : 'This folder is not available for this student.') : 'Choose a course to open its study materials.'}</p>
       ${tab === 'games' ? '<div class="dash-empty-panel"><h2>Room for a little friendly practice.</h2><p>Study games are not available yet. Your existing materials are in Your library.</p></div>' : `<div class="dash-course-grid dash-library-grid">${courses.map(c => courseTile(who, c, modes[tab] || 'notes')).join('') || '<div class="dash-empty-panel"><h2>No matching materials yet</h2><p>Try another course name, or browse Your library.</p></div>'}</div>`}
       ${who !== 'dylan' && who !== 'charlie' && who !== 'cooper' ? '<p class="dash-data-note">Existing course list carried over from the first version; schedule confirmation is still needed.</p>' : ''}
