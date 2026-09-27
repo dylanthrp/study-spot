@@ -1,0 +1,379 @@
+{
+  "title": "Exam One — Conceptual Flashcards",
+  "scope_note": "Original conceptual study prompts for Chapters 1–3, based on the existing Chapters 1–2 deck and the supplied Chapters 2–3 review and solution. These are not professor exam questions or a confirmed chapter-by-chapter outline; cards are grouped by topic. Chapter 4 material is excluded. Some prompts apply source concepts to new situations rather than repeat source wording.",
+  "groups": [
+    {"id": "foundations", "title": "Foundations"},
+    {"id": "recording", "title": "Recording Transactions"},
+    {"id": "timing", "title": "Timing and Adjustments"}
+  ],
+  "sources": [
+    {"id": "deck", "label": "Existing Chapters 1–2 vocabulary and financial statements deck", "url": "https://dylanthrp.github.io/coop-accounting-deck/"},
+    {"id": "review", "label": "Supplied review — Chapters 2–3 problem, page 2", "url": "assets/exam1-review.pdf#page=2"},
+    {"id": "entries", "label": "Supplied solution — transaction entries, page 1", "url": "assets/exam1-solution.pdf#page=1"},
+    {"id": "adjustments", "label": "Supplied solution — adjusting entries, page 5", "url": "assets/exam1-solution.pdf#page=5"},
+    {"id": "statements", "label": "Supplied solution — income and retained earnings statements, page 7", "url": "assets/exam1-solution.pdf#page=7"},
+    {"id": "balancesheet", "label": "Supplied solution — balance sheet, page 8", "url": "assets/exam1-solution.pdf#page=8"}
+  ],
+  "cards": [
+    {
+      "id": "assets",
+      "term": "Assets",
+      "match": "Resources controlled by a business with future economic benefits.",
+      "group": "foundations",
+      "front": "What makes something an asset?",
+      "back": "An asset is a resource the business controls that is expected to provide future economic benefits. Cash, receivables, supplies, and equipment are examples.",
+      "trap": "An asset does not have to be cash or immediately convertible to cash.",
+      "source": "deck"
+    },
+    {
+      "id": "liabilities",
+      "term": "Liabilities",
+      "match": "Present obligations owed to other parties.",
+      "group": "foundations",
+      "front": "What does a liability represent?",
+      "back": "A liability is a present obligation the business owes to another party. Accounts payable and notes payable are examples.",
+      "trap": "An unpaid obligation can exist even before cash is paid.",
+      "source": "deck"
+    },
+    {
+      "id": "equity",
+      "term": "Stockholders’ equity",
+      "match": "Owners’ residual claim after liabilities are subtracted from assets.",
+      "group": "foundations",
+      "front": "How is equity different from an asset?",
+      "back": "Equity is the owners' residual claim on assets after liabilities are deducted. It is not a separate pool of cash.",
+      "trap": "Equity and cash are not interchangeable amounts.",
+      "source": "deck"
+    },
+    {
+      "id": "equation",
+      "term": "Accounting equation",
+      "match": "Assets = Liabilities + Stockholders’ Equity.",
+      "group": "foundations",
+      "front": "What does the accounting equation express?",
+      "back": "Assets = Liabilities + Stockholders' Equity. The business's resources equal creditors' and owners' claims on those resources.",
+      "trap": "A transaction can change two assets without changing total liabilities or equity.",
+      "source": "deck"
+    },
+    {
+      "id": "statementpurposes",
+      "term": "Statement of cash flows",
+      "match": "Reports operating, investing, and financing cash movements.",
+      "group": "foundations",
+      "front": "What does each main financial statement explain?",
+      "back": "The income statement explains profit; the balance sheet reports assets, liabilities, and equity. The equity statement explains changes in equity, while the cash flow statement explains operating, investing, and financing cash flows.",
+      "trap": "No single statement answers every question about the business.",
+      "source": "deck"
+    },
+    {
+      "id": "reportingdates",
+      "term": "Balance sheet",
+      "match": "Reports financial position at a specific date, not over a period.",
+      "group": "foundations",
+      "front": "Which statements cover a period versus a date?",
+      "back": "The balance sheet reports balances at a specific date. Income, equity changes, and cash flows are reported over a period.",
+      "trap": "A balance sheet is a snapshot, not a report of the entire period's activity.",
+      "source": "deck"
+    },
+    {
+      "id": "netincome",
+      "term": "Net income",
+      "match": "The excess of revenues over expenses for a period.",
+      "group": "foundations",
+      "front": "What determines net income or net loss?",
+      "back": "Revenues minus expenses determine the period's net income. If expenses exceed revenues, the result is a net loss.",
+      "trap": "Cash receipts minus cash payments do not necessarily equal net income.",
+      "source": "deck"
+    },
+    {
+      "id": "dividends",
+      "term": "Dividends",
+      "match": "Shareholder distributions that reduce retained earnings, not net income.",
+      "group": "foundations",
+      "front": "Why are dividends not expenses?",
+      "back": "Dividends distribute earnings to shareholders rather than represent costs of earning revenue. They reduce retained earnings, not net income.",
+      "trap": "A cash payment is not automatically an expense.",
+      "source": "statements"
+    },
+    {
+      "id": "retainedearnings",
+      "term": "Retained earnings rollforward",
+      "match": "Beginning retained earnings + net income − dividends.",
+      "group": "foundations",
+      "front": "How does retained earnings change during a period?",
+      "back": "Ending retained earnings equals beginning retained earnings plus net income minus dividends. A net loss reduces retained earnings instead of increasing it.",
+      "trap": "Retained earnings is not the amount of cash available for spending.",
+      "source": "statements"
+    },
+    {
+      "id": "contributedcapital",
+      "term": "Issuing common stock",
+      "match": "Increases contributed capital without earning revenue.",
+      "group": "foundations",
+      "front": "Is issuing common stock the same as earning revenue?",
+      "back": "No: issuing stock increases contributed capital, while earning revenue affects net income and retained earnings. Both can increase equity, but for different reasons.",
+      "trap": "Owner investment does not belong on the income statement as revenue.",
+      "source": "entries"
+    },
+    {
+      "id": "gaap",
+      "term": "GAAP",
+      "match": "Generally Accepted Accounting Principles used in U.S. financial reporting.",
+      "group": "foundations",
+      "front": "What does GAAP provide?",
+      "back": "Generally Accepted Accounting Principles provide the standards and conventions used in United States financial accounting. They guide how financial information is recognized and reported.",
+      "trap": "GAAP is not simply a company's preferred bookkeeping method.",
+      "source": "deck"
+    },
+    {
+      "id": "separateentity",
+      "term": "Separate-entity concept",
+      "match": "Keeps business accounting records distinct from owners’ personal finances.",
+      "group": "foundations",
+      "front": "Why keep business and owner finances separate?",
+      "back": "The separate-entity concept treats the business's accounting records as distinct from its owner's personal finances. Personal spending is not automatically a business expense.",
+      "trap": "Ownership of a business does not make every personal transaction its transaction.",
+      "source": "deck"
+    },
+    {
+      "id": "debitcredit",
+      "term": "Debit and credit",
+      "match": "Left and right sides of an account—not universal increase and decrease.",
+      "group": "recording",
+      "front": "Do debit and credit mean increase and decrease?",
+      "back": "Debit means left and credit means right. Whether either increases an account depends on the account type.",
+      "trap": "A credit does not always decrease an account.",
+      "source": "deck"
+    },
+    {
+      "id": "normalbalances",
+      "term": "Debit-increase accounts",
+      "match": "Assets, expenses, and dividends normally increase on this side.",
+      "group": "recording",
+      "front": "Which basic accounts normally increase with a debit?",
+      "back": "Assets, expenses, and dividends normally increase with debits. Liabilities, common stock, retained earnings, and revenues normally increase with credits.",
+      "trap": "Contra accounts are exceptions to their related account category's usual balance.",
+      "source": "deck"
+    },
+    {
+      "id": "doubleentry",
+      "term": "Double-entry accounting",
+      "match": "Each transaction affects at least two accounts; total debits equal credits.",
+      "group": "recording",
+      "front": "What makes an entry double-entry accounting?",
+      "back": "Each transaction affects at least two accounts, with total debits equal to total credits. An entry may involve more than two accounts.",
+      "trap": "Double-entry does not require exactly one debit and one credit.",
+      "source": "entries"
+    },
+    {
+      "id": "journalledger",
+      "term": "Journal versus ledger",
+      "match": "Chronological transaction entries versus activity organized by account.",
+      "group": "recording",
+      "front": "How do the journal and ledger differ?",
+      "back": "The journal records transactions in chronological order. Posting transfers those entries to the ledger, which organizes activity by account.",
+      "trap": "Posting an entry does not create a second transaction.",
+      "source": "deck"
+    },
+    {
+      "id": "chartofaccounts",
+      "term": "Chart of accounts",
+      "match": "The business’s list of account titles and identifying numbers.",
+      "group": "recording",
+      "front": "What is the chart of accounts?",
+      "back": "It is the organized list of account titles and identifying numbers used by a business. It guides which accounts are available for recording transactions.",
+      "trap": "The chart of accounts is not a list of current account balances.",
+      "source": "deck"
+    },
+    {
+      "id": "trialbalance",
+      "term": "Trial balance",
+      "match": "Lists ledger balances to check total debit and credit equality.",
+      "group": "recording",
+      "front": "What does a trial balance check?",
+      "back": "It lists ledger account balances and checks whether total debit balances equal total credit balances. It is prepared from account balances, not a list of individual transactions.",
+      "trap": "A trial balance is not the same report as a balance sheet.",
+      "source": "deck"
+    },
+    {
+      "id": "balancederrors",
+      "term": "Trial balance limitation",
+      "match": "An omitted transaction or equal-sided wrong entry may remain undetected.",
+      "group": "recording",
+      "front": "Can a balanced trial balance still contain errors?",
+      "back": "Yes: omitting an entire transaction or using the wrong accounts with equal debits and credits can leave it balanced. Equality alone does not establish accuracy.",
+      "trap": "Equal totals do not prove every transaction was recorded correctly.",
+      "source": "deck"
+    },
+    {
+      "id": "equipmentpurchase",
+      "term": "Cash purchase of equipment",
+      "match": "Exchanges cash for a long-lived asset rather than expensing all its cost.",
+      "group": "recording",
+      "front": "Why is buying a truck not immediately all expense?",
+      "back": "A truck used over future periods is recorded as equipment because it provides future benefits. Paying cash exchanges one asset for another.",
+      "trap": "Paying for a long-lived asset does not make its entire cost a current expense.",
+      "source": "entries"
+    },
+    {
+      "id": "borrowing",
+      "term": "Borrowing cash",
+      "match": "Increases cash and a repayment obligation—not revenue.",
+      "group": "recording",
+      "front": "Why is borrowed cash not revenue?",
+      "back": "Borrowing increases cash and creates a repayment obligation, such as notes payable. It does not represent earnings from providing goods or services.",
+      "trap": "A cash inflow can increase liabilities rather than income.",
+      "source": "entries"
+    },
+    {
+      "id": "receivablecollection",
+      "term": "Collecting a receivable",
+      "match": "Debit Cash; credit Accounts Receivable. Do not recognize revenue again.",
+      "group": "recording",
+      "front": "Does collecting an existing receivable create revenue?",
+      "back": "No: debit Cash and credit Accounts Receivable. Revenue was recognized when the service was performed, so collection only changes the form of an asset.",
+      "trap": "Recording revenue again at collection would count the same service twice.",
+      "source": "entries"
+    },
+    {
+      "id": "purchaseonaccount",
+      "term": "Unused supplies on account",
+      "match": "Increases Supplies and Accounts Payable without paying cash yet.",
+      "group": "recording",
+      "front": "What happens when unused supplies are bought on account?",
+      "back": "Supplies increase and Accounts Payable increases. The purchase creates both an asset and an obligation without an immediate cash payment.",
+      "trap": "On account means payment is owed, not that cash has already changed hands.",
+      "source": "entries"
+    },
+    {
+      "id": "payingpayable",
+      "term": "Paying an existing payable",
+      "match": "Debit Accounts Payable; credit Cash to settle a recorded obligation.",
+      "group": "recording",
+      "front": "What happens when an existing payable is paid?",
+      "back": "Debit Accounts Payable and credit Cash to reduce the liability and cash. Paying for previously recorded supplies does not record their purchase again.",
+      "trap": "Settling a payable does not automatically create a new expense.",
+      "source": "entries"
+    },
+    {
+      "id": "accrualcash",
+      "term": "Accrual basis",
+      "match": "Recognizes revenue when earned and expenses when incurred, not by cash timing.",
+      "group": "timing",
+      "front": "How do accrual and cash accounting differ?",
+      "back": "Accrual accounting recognizes revenue when earned and expenses when incurred. Cash accounting instead ties recognition to cash receipts and payments.",
+      "trap": "The timing of cash movement does not control accrual-basis income.",
+      "source": "deck"
+    },
+    {
+      "id": "earnedrevenue",
+      "term": "Service revenue recognition",
+      "match": "Earning occurs when the service is performed, regardless of collection timing.",
+      "group": "timing",
+      "front": "When is service revenue earned?",
+      "back": "Service revenue is earned when the service is performed. Billing and cash collection can occur at different times without changing when the service was earned.",
+      "trap": "Sending an invoice is not always the event that earns revenue.",
+      "source": "review"
+    },
+    {
+      "id": "prepaidexpense",
+      "term": "Prepaid expense",
+      "match": "A payment recorded as an asset until its future benefits are consumed.",
+      "group": "timing",
+      "front": "Why is prepaid insurance initially an asset?",
+      "back": "It represents insurance coverage that will benefit future periods. As coverage expires, debit Insurance Expense and credit Prepaid Insurance.",
+      "trap": "Expense the expired portion, not all remaining coverage.",
+      "source": "adjustments"
+    },
+    {
+      "id": "unearnedrevenue",
+      "term": "Unearned revenue",
+      "match": "A customer advance recorded as a liability until promised service is performed.",
+      "group": "timing",
+      "front": "What if a customer pays before service is performed?",
+      "back": "Applying the earned-revenue rule, the advance is initially a liability called unearned revenue because service is still owed. As service is performed, reduce that liability and recognize revenue.",
+      "trap": "Receiving cash alone does not mean revenue has been earned.",
+      "source": "deck"
+    },
+    {
+      "id": "accruedrevenue",
+      "term": "Accrued revenue",
+      "match": "Earned but unbilled service: debit Receivable and credit Revenue.",
+      "group": "timing",
+      "front": "How are earned but unbilled services recorded?",
+      "back": "Debit Accounts Receivable and credit Service Revenue. This recognizes the amount earned even though it has not yet been billed or collected.",
+      "trap": "Unbilled does not necessarily mean unearned.",
+      "source": "adjustments"
+    },
+    {
+      "id": "accruedexpense",
+      "term": "Accrued wage expense",
+      "match": "Work incurred but unpaid: debit Wage Expense and credit Wages Payable.",
+      "group": "timing",
+      "front": "How are incurred but unpaid wages recorded?",
+      "back": "Debit Salaries and Wages Expense and credit Salaries and Wages Payable. The expense belongs to the period when employees performed the work.",
+      "trap": "Waiting until payday would put the expense in the wrong period.",
+      "source": "adjustments"
+    },
+    {
+      "id": "adjustmentpurpose",
+      "term": "Period-end adjustments",
+      "match": "Update timing and usage so earned revenue and incurred expenses reach the right period.",
+      "group": "timing",
+      "front": "Why are period-end adjustments needed?",
+      "back": "They recognize earned revenue, incurred expenses, and changes in related assets or liabilities not yet reflected in the accounts. The review's adjustments do not involve Cash because they update timing or usage, not current cash movements.",
+      "trap": "A normal period-end adjustment is not another cash receipt or payment.",
+      "source": "adjustments"
+    },
+    {
+      "id": "suppliesused",
+      "term": "Supplies consumed",
+      "match": "Debit Supplies Expense and credit Supplies for the cost used up.",
+      "group": "timing",
+      "front": "What does a supplies adjustment recognize?",
+      "back": "The cost of supplies used becomes Supplies Expense, while the unused supplies remain an asset. Debit Supplies Expense and credit Supplies for the amount consumed.",
+      "trap": "Supplies still on hand are not the amount used.",
+      "source": "adjustments"
+    },
+    {
+      "id": "depreciation",
+      "term": "Depreciation",
+      "match": "Allocates depreciable cost over useful life; does not measure market-price changes.",
+      "group": "timing",
+      "front": "What does depreciation expense represent?",
+      "back": "Depreciation allocates a long-lived asset's depreciable cost over its useful life. It is not a measurement of that period's change in market price.",
+      "trap": "Depreciation does not require a new cash payment each period.",
+      "source": "adjustments"
+    },
+    {
+      "id": "contraasset",
+      "term": "Accumulated depreciation",
+      "match": "A credit-balance contra asset that offsets equipment cost—not a liability.",
+      "group": "timing",
+      "front": "Why is accumulated depreciation a contra asset?",
+      "back": "Its credit balance offsets the related equipment asset while leaving the equipment's recorded cost visible. It is not a liability or cash reserve.",
+      "trap": "A credit balance does not automatically make an account a liability.",
+      "source": "balancesheet"
+    },
+    {
+      "id": "bookvalue",
+      "term": "Equipment book value",
+      "match": "Recorded equipment cost minus accumulated depreciation.",
+      "group": "timing",
+      "front": "How is equipment's book value determined?",
+      "back": "For the review's equipment, book value equals recorded cost minus accumulated depreciation. That net amount is presented among assets on the balance sheet.",
+      "trap": "Book value is not necessarily resale or market value.",
+      "source": "balancesheet"
+    },
+    {
+      "id": "statementflow",
+      "term": "Statement preparation order",
+      "match": "Income statement → retained earnings statement → balance sheet.",
+      "group": "timing",
+      "front": "How do income, retained earnings, and the balance sheet connect?",
+      "back": "Net income flows from the income statement into the retained earnings statement, where dividends are deducted. Ending retained earnings then appears in stockholders' equity on the balance sheet.",
+      "trap": "Dividends reduce retained earnings without reducing income-statement net income.",
+      "source": "statements"
+    }
+  ]
+}

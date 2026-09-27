@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "node tests/exam1-content-check.cjs && playwright test",
-    "preview": "python -m http.server 4173 --bind 127.0.0.1"
+    "preview": "python -c \"import http.server; http.server.ThreadingHTTPServer.request_queue_size = 128; http.server.test(HandlerClass=http.server.SimpleHTTPRequestHandler, port=4173, bind='127.0.0.1')\""
   },
   "devDependencies": {
     "@playwright/test": "1.63.0"

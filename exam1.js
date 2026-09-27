@@ -11,7 +11,7 @@ const Exam1 = (() => {
     return `<header class="ex-hero"><p class="ex-eyebrow">LESS REREADING. MORE RETRIEVAL.</p><h1>Exam 1. Make every rep count.</h1><p>Journal entries. Adjustments. Financial statements.<br>A short path through the professor’s Lars Cleaners review.</p>${link(who,'practice','Start quick reps →','ex-button primary')} ${link(who,'cards','Warm up with cards')}</header><section class="ex-card"><h2>Your last-night plan</h2><div class="ex-plan"><div><b>01 / 10 MIN</b><h3>Recall the moves</h3><p>Say the rule before turning the card. Don’t just recognize the answer.</p></div><div><b>02 / 25 MIN</b><h3>Work the entries</h3><p>Choose debit, credit, and amount. Check the reasoning, then retry misses.</p></div><div><b>03 / 15 MIN</b><h3>Build the statements</h3><p>Use the adjusted trial balance. Work income → retained earnings → balance sheet.</p></div></div><p class="ex-muted">Suggested study blocks, not a countdown or a promise. Take a short break between rounds.</p></section><section class="ex-card"><h2>The professor’s shortcut</h2><p>Complete the journal entries first. Then use the supplied adjusted trial balance instead of repeating every posting, and prepare the financial statements without notes.</p><p class="ex-muted">Review p. 1. This tool covers the supplied Chapters 2–3 comprehensive problem. The exam review says Chapters 1–3: also revisit Chapter 1 notes, quizzes, and the recommended Adaptive Practice.</p></section>${who==='wyatt'?'<section class="ex-card"><h2>A quieter way to practice</h2><p>Focus view is an optional prototype: shorter chunks, more space, and one step at a time. Same accounting, no reduced expectations. Try it and keep only what helps.</p></section>':''}`;
   }
   const memory = {};
-  let dataPromise;
+  let dataPromise, conceptsPromise;
   function load(who) {
     if (memory[who]) return memory[who];
     let saved;
@@ -132,6 +132,63 @@ const Exam1 = (() => {
     }
     paint();
   }
+  function concepts(el,who,data) {
+    const state=load(who);
+    if(!state.concepts)state.concepts={history:{},round:null};
+    const study=state.concepts;
+    const byId=id=>data.cards.find(c=>c.id===id);
+    const header=()=>`<header class="ex-hero"><p class="ex-eyebrow">CHAPTERS 1–3 · CONCEPTS FIRST</p><h1>Know the why.</h1><p>Say your answer. Flip the card. Be honest about what needs another rep.</p></header>`;
+    function start(ids) {
+      study.round={ids:[...ids],index:0,missed:[]};save(who);paint();
+    }
+    function setup() {
+      stopReading();
+      const known=data.cards.filter(c=>study.history[c.id]===true).length;
+      const missed=data.cards.filter(c=>study.history[c.id]===false).length;
+      el.innerHTML=`${header()}<section class="ex-card"><h2>Your concept deck</h2><p>${data.cards.length} cards · ${known} marked “Got it” · ${missed} need another look</p><div class="ex-fields"><label for="exConceptTopic">Concept topic</label><select id="exConceptTopic"><option value="all">All Chapters 1–3 topics</option>${data.groups.map(g=>`<option value="${esc(g.id)}">${esc(g.title)}</option>`).join('')}</select><label for="exConceptPool">Practice pool</label><select id="exConceptPool"><option value="all">All cards · unseen and missed first</option><option value="missed">Only cards marked Again</option></select><label for="exConceptLength">Concept round length</label><select id="exConceptLength"><option value="10">10 quick cards</option><option value="all">All selected cards</option></select></div><button id="exConceptStart" class="ex-button primary">Start concept cards</button><p id="exConceptEmpty" role="status"></p><p class="ex-muted">No timer. “Got it” is your self-rating, not proof of exam readiness.</p></section><details class="ex-card"><summary>What this deck covers</summary><p>${esc(data.scope_note)}</p><p>Use your instructor’s notes to confirm exact chapter coverage. This set excludes Chapter 4 drills.</p></details>`;
+      el.querySelector('.ex-fields').classList.add('ex-concept-fields');
+      el.querySelector('#exConceptStart').onclick=()=>{
+        const topic=el.querySelector('#exConceptTopic').value;
+        const onlyMissed=el.querySelector('#exConceptPool').value==='missed';
+        let pool=data.cards.filter(c=>(topic==='all'||c.group===topic)&&(!onlyMissed||study.history[c.id]===false));
+        if(!pool.length){el.querySelector('#exConceptEmpty').textContent='No cards marked Again in this topic yet. Try all cards first.';return;}
+        pool=pool.filter(c=>study.history[c.id]!==true).concat(pool.filter(c=>study.history[c.id]===true));
+        const length=el.querySelector('#exConceptLength').value;
+        start(pool.slice(0,length==='all'?pool.length:Number(length)).map(c=>c.id));
+      };
+    }
+    function paint(moveFocus=false) {
+      const round=study.round;
+      if(!round||!round.ids.length||round.ids.some(id=>!byId(id))){setup();return;}
+      if(round.index>=round.ids.length) {
+        el.innerHTML=`${header()}<section class="ex-card"><h2>Concept round complete</h2><p>${round.ids.length-round.missed.length} / ${round.ids.length} marked “Got it.” Now explain the rules without looking.</p>${round.missed.length?`<button class="ex-button primary" id="exConceptRetry">Retry concept misses (${round.missed.length})</button>`:'<p>No misses marked in this round. Try another topic or shuffle for a fresh recall order.</p>'}<button class="ex-button" id="exConceptNew">Choose concept round</button></section>`;
+        if(round.missed.length)el.querySelector('#exConceptRetry').onclick=()=>start(round.missed);
+        el.querySelector('#exConceptNew').onclick=()=>{study.round=null;save(who);setup();};return;
+      }
+      const c=byId(round.ids[round.index]),source=data.sources.find(s=>s.id===c.source);
+      let revealed=false;
+      el.innerHTML=`<div class="ex-roundtop"><p class="ex-eyebrow" id="exConceptCount">Concept ${round.index+1} of ${round.ids.length}</p><button class="ex-button" id="exConceptChange">Choose concept round</button></div><progress aria-label="Concept round progress" value="${round.index}" max="${round.ids.length}"></progress><article class="ex-card ex-concept"><p class="ex-eyebrow">${esc(data.groups.find(g=>g.id===c.group)?.title)} · CH. 1–3</p><h1 id="exConceptQuestion" tabindex="-1">${esc(c.front)}</h1><p class="ex-muted">Answer in your own words before you flip.</p><button class="ex-button primary" id="exConceptFlip" aria-expanded="false" aria-controls="exConceptBack">Flip card</button><div id="exConceptBack" hidden><p class="ex-concept-answer">${esc(c.back)}</p><p class="ex-given"><strong>Don’t fall for this:</strong> ${esc(c.trap)}</p></div><div id="exConceptRating" hidden><button class="ex-button" id="exConceptAgain">Again</button><button class="ex-button primary" id="exConceptGot">Got it</button></div><div class="ex-read-controls"><button class="ex-button" id="exSpeak">Read concept aloud</button><button class="ex-button" id="exStop">Stop reading</button><span id="exSpeechStatus" role="status"></span></div><p class="ex-source">Original study prompt based on <a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.label)}</a> · not a professor exam question.</p></article><button class="ex-button" id="exConceptShuffle">Shuffle remaining cards</button>`;
+      el.querySelector('#exConceptFlip').onclick=e=>{
+        revealed=!revealed;stopReading();el.querySelector('#exConceptBack').hidden=!revealed;el.querySelector('#exConceptRating').hidden=!revealed;
+        e.currentTarget.textContent=revealed?'Show question only':'Flip card';e.currentTarget.setAttribute('aria-expanded',String(revealed));
+      };
+      function rate(got) {
+        if(!revealed)return;
+        study.history[c.id]=got;if(!got)round.missed.push(c.id);
+        round.index++;save(who);stopReading();paint(true);
+      }
+      el.querySelector('#exConceptAgain').onclick=()=>rate(false);
+      el.querySelector('#exConceptGot').onclick=()=>rate(true);
+      el.querySelector('#exConceptChange').onclick=()=>{study.round=null;save(who);setup();};
+      el.querySelector('#exConceptShuffle').onclick=()=>{
+        for(let i=round.ids.length-1;i>round.index;i--){const j=round.index+Math.floor(Math.random()*(i-round.index+1));[round.ids[i],round.ids[j]]=[round.ids[j],round.ids[i]];}
+        save(who);stopReading();paint(true);
+      };
+      wireSpeech(el,()=>c.front+(revealed?' '+c.back+' Watch for: '+c.trap:''));
+      if(moveFocus)el.querySelector('#exConceptQuestion').focus();
+    }
+    paint();
+  }
   function sheet(el,data) {
     el.innerHTML=`<header class="ex-hero"><p class="ex-eyebrow">READ ONCE. THEN TRY WITHOUT IT.</p><h1>One-page guide</h1><p>A compact map of the supplied comprehensive problem.</p><button id="exPrint" class="ex-button">Print guide</button></header>
       <div class="ex-guide"><section class="ex-card"><h2>1. Know which side increases</h2><p><b>Debit:</b> assets, expenses, dividends.<br><b>Credit:</b> liabilities, common stock, revenue.</p><p>Decreases go on the opposite side. Every entry: total debits = total credits.</p></section>
@@ -160,12 +217,33 @@ const Exam1 = (() => {
   }
   const renderShell=render;
   async function renderRoom(root,who,mode) {
+    ExamGames.stop();
     renderShell(root,who,mode);
+    const conceptsLink=document.createElement('a');
+    conceptsLink.href=url(who,'concepts');conceptsLink.className=`ex-nav ${mode==='concepts'?'selected':''}`;
+    conceptsLink.textContent='Ch. 1–3 Concepts';
+    root.querySelector('nav[aria-label="Exam study modes"]').children[1].before(conceptsLink);
+    const gamesLink=document.createElement('a');
+    gamesLink.href=url(who,'games');gamesLink.className=`ex-nav ${mode==='games'?'selected':''}`;gamesLink.textContent='Games';
+    conceptsLink.after(gamesLink);
     preferences(root,who);
     const el=root.querySelector('#exContent');
-    if(!['practice','cards','sheet'].includes(mode))return;
+    if(!['practice','cards','sheet','concepts','games'].includes(mode)) {
+      const feature=document.createElement('section');feature.className='ex-card';
+      feature.innerHTML=`<p class="ex-eyebrow">EXAM SCOPE · CHAPTERS 1–3</p><h2>Nail the conceptual questions</h2><p>Know what the terms mean, why the rules work, and which answer traps to avoid. No Chapter 4 drills in this set.</p>${link(who,'concepts','Study concept flashcards →','ex-button primary')}`;
+      el.prepend(feature);return;
+    }
     el.innerHTML='<p role="status">Loading the professor’s review…</p>';
     try {
+      if(mode==='concepts'||mode==='games') {
+        if(!conceptsPromise)conceptsPromise=fetch('exam1-concepts.json').then(r=>{if(!r.ok)throw new Error('Concept cards unavailable');return r.json();}).catch(e=>{conceptsPromise=null;throw e;});
+        const conceptsData=await conceptsPromise;
+        if(el.isConnected) {
+          if(mode==='games')ExamGames.render(el,who,conceptsData);
+          else concepts(el,who,conceptsData);
+        }
+        return;
+      }
       if(!dataPromise)dataPromise=fetch('exam1-data.json').then(r=>{if(!r.ok)throw new Error('Source data unavailable');return r.json();}).catch(e=>{dataPromise=null;throw e;});
       const data=await dataPromise;
       if(!el.isConnected)return;
