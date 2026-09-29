@@ -779,6 +779,8 @@
 <script src="exam1.js"></script>
 <script src="exam1-games.js"></script>
 <link rel="stylesheet" href="exam1.css">
+<script src="law.js"></script>
+<link rel="stylesheet" href="law.css">
 <script>
 /* ================== ROUTER + STATE ================== */
 const $ = (sel) => document.querySelector(sel);
@@ -809,6 +811,7 @@ const STUDENTS = {
     classes: [
       { code: "ACC-289", name: "Financial Accounting", meta: "Section 001 · Fall 2026", progress: 50, count: "32 cards" },
       { code: "ACC-298", name: "Accounting · Exam 1 Review", meta: "Professor review · Chapters 1–3", progress: 0, count: "Source-based cram room", examReview: true },
+      { code: "LE-253", name: "Business Law · Exam Study", meta: "Cooper’s outline · Chapters 1, 4, 5, 6, 8, 9", progress: 0, count: "Outline-based study room", lawReview: true },
     ],
     note: "Cooper already has his own full study app — ",
     noteLink: { label: "coop-accounting-deck ↗", href: "https://dylanthrp.github.io/coop-accounting-deck/" },
@@ -819,6 +822,7 @@ const STUDENTS = {
     classes: [
       { code: "BUS-201", name: "Principles of Management", meta: "Fall 2026", progress: 15, count: "—" },
       { code: "ACC-298", name: "Exam 1 · Focus view", meta: "Shared accounting review · optional prototype", progress: 0, count: "One question at a time", examReview: true },
+      { code: "LE-253", name: "Business Law · Focus Study", meta: "Cooper’s outline · Chapters 1, 4, 5, 6, 8, 9", progress: 0, count: "One rule at a time", lawReview: true },
     ],
   },
   christian: {
@@ -834,7 +838,8 @@ function go(path) { if (location.hash !== '#' + path) { location.hash = path; re
 function render(path) {
   const [pathOnly, qs] = path.split('?');
   const params = new URLSearchParams(qs || '');
-  document.body.classList.remove('dashboard-active', 'calc-active', 'exam-active');
+  LawRoom.cleanup();
+  document.body.classList.remove('dashboard-active', 'calc-active', 'exam-active', 'law-active');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
   if (pathOnly === '/' || pathOnly === '') return viewHome();
   const u = pathOnly.match(/^\/u\/(\w+)$/); if (u) return viewStudent(u[1], params);
@@ -941,6 +946,11 @@ function viewClass(who, code, mode) {
   const s = STUDENTS[who]; if (!s) { root.innerHTML = notFound(); return; }
   const c = s.classes.find(x => x.code === code); if (!c) { root.innerHTML = notFound(); return; }
   Dashboard.recordVisit(who, code, mode);
+
+  if (c.lawReview) {
+    updateCrumbs(`/u/${who}/${code}`);
+    return LawRoom.render(root, who, mode);
+  }
 
   if (c.examReview) {
     updateCrumbs(`/u/${who}/${code}`);

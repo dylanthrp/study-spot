@@ -1,0 +1,54 @@
+/* Law-only overrides; accounting's screen and print rules are untouched. */
+#lawRoom { overflow-wrap:anywhere; }
+#lawRoom .law-caveat { padding:16px 18px; margin:6px 0 18px; border-left:4px solid #c59515; border-radius:0 10px 10px 0; background:var(--ex-raised); font-size:13px; }
+#lawRoom .law-caveat strong { display:block; font-size:15px; }
+#lawRoom .law-caveat p { margin:5px 0 0; }
+#lawRoom .law-provenance { padding:12px 14px; border-left:3px solid #c59515; background:var(--ex-raised); font-size:.85em; line-height:1.6; }
+#lawRoom #lawQuestion { font-size:1.15em; font-weight:500; line-height:1.65; white-space:pre-line; }
+#lawRoom h1 { scroll-margin-top:100px; }
+#lawRoom .law-caveat summary { cursor:pointer; margin-top:10px; font-weight:700; }
+#lawRoom .law-filter { display:flex; flex-direction:column; gap:8px; font-weight:700; margin-bottom:22px; }
+#lawRoom .law-filter select { width:100%; }
+#lawRoom .law-chapters { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+#lawRoom .law-chapters article { border-top:1px solid var(--ex-border); }
+#lawRoom .law-chapters h3 { line-height:1.35; margin-bottom:8px; }
+#lawRoom .law-answer { font-size:1.15em; border-left:4px solid #c59515; padding-left:16px; margin:18px 0; }
+#lawRoom .law-choices { border:0; min-width:0; margin:20px 0; }
+#lawRoom .law-choices legend { font-weight:700; margin-bottom:12px; }
+#lawRoom .law-choices label { display:flex; align-items:flex-start; gap:12px; padding:14px; margin-bottom:10px; background:var(--ex-raised); border:1px solid var(--ex-border); border-radius:10px; cursor:pointer; }
+#lawRoom .law-choices input { flex:0 0 18px; width:18px; height:18px; margin-top:4px; accent-color:#9b7200; }
+#lawRoom .law-choices label:has(input:checked) { border-color:#b68411; box-shadow:inset 0 0 0 1px #b68411; }
+#lawRoom .law-match-bar { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
+#lawRoom #lawClock { font-size:1.8em; font-variant-numeric:tabular-nums; }
+#lawRoom #lawBest { color:var(--ex-muted); font-size:.9em; }
+#lawRoom #lawMatchStatus { min-height:3em; margin:12px 0; }
+#lawRoom .law-match-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:1fr; gap:10px; }
+#lawRoom .law-tile { font:inherit; font-size:.85em; line-height:1.45; background:var(--ex-card); color:var(--ex-ink); border:2px solid var(--ex-border); border-radius:12px; min-height:150px; padding:12px; overflow-wrap:anywhere; }
+#lawRoom .law-tile.picked { border-color:#b68411; box-shadow:inset 0 0 0 2px #b68411; }
+#lawRoom .law-tile:disabled { opacity:.3; background:var(--ex-raised); text-decoration:line-through; }
+#lawRoom .law-rule { border-top:1px solid var(--ex-border); padding-top:16px; margin-top:18px; }
+#lawRoom .law-rule h3 { margin-bottom:8px; }
+#lawRoom a:not(.ex-nav):not(.ex-button) { text-decoration:underline; text-underline-offset:3px; }
+#lawRoom.law-spaced #lawContent { line-height:1.8; letter-spacing:.02em; word-spacing:.04em; }
+#lawRoom[data-size="large"] #lawContent { font-size:19px; }
+#lawRoom[data-size="largest"] #lawContent { font-size:22px; }
+#lawRoom.ex-focus .ex-problem,#lawRoom.ex-focus .ex-flash { max-width:760px; }
+@media(max-width:600px) {
+ #lawRoom .law-chapters { grid-template-columns:1fr; }
+ #lawRoom .law-match-grid { gap:5px; }
+ #lawRoom .law-tile { padding:6px; font-size:.72em; min-height:155px; border-radius:7px; }
+ #lawRoom .ex-hero h1 { font-size:32px; }
+ #lawRoom .ex-flash h2 { font-size:1.3em; }
+ #lawRoom .law-choices label { padding:10px; }
+ #lawRoom .ex-button { max-width:100%; }
+}
+@media print {
+ body.law-active #lawRoom { color:#000!important; }
+ body.law-active #lawContent { font-size:11px!important; line-height:1.4!important; letter-spacing:0!important; word-spacing:0!important; }
+ body.law-active #lawRoom .law-attribution { display:block!important; color:#000; }
+ body.law-active #lawRoom .law-caveat { background:#fff; border:1px solid #999; font-size:10px; }
+ body.law-active #lawRoom .law-rule { break-inside:avoid; }
+ body.law-active #lawRoom .law-guide>.ex-card { break-inside:auto; }
+ body.law-active #lawRoom .law-guide h2 { break-after:avoid; }
+ body.law-active #lawRoom .ex-source { color:#333; }
+}

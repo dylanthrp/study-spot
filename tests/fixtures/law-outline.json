@@ -1,0 +1,62 @@
+[
+  {
+    "group": "ch4",
+    "prompt": "Chap 4 You participate in Black Lives Matter protests and have begun studying the issues raised about police officers. Your local protest group believes the budget of the local police department should be made public as well as the training manuals used to prepare recruits for the job. You and the group want this information to help assess the effectiveness of the police department. For example, is the money well spent? Is training appropriate?\n\nWhat law enables citizens to obtain information from the government about a subject of interest when a written request is made?",
+    "choices": [
+      "Freedom of Information Act",
+      "The Administrative Procedure Act",
+      "Privacy Act",
+      "Enabling Legislation"
+    ]
+  },
+  {
+    "group": "ch1",
+    "prompt": "Chap 1 As you begin studying business law, you become overwhelmed by the sheer volume of laws that can affect business. You dive in and begin the process of understanding where these laws come from; the first step in understanding how these laws apply to each other and how they apply to your business. You\u2019re looking at statutes that set out the penalties for forgery and learn that each state is free to make its own criminal laws that apply just to that state. Which branch of government do you think creates statutes?",
+    "choices": [
+      "The attorney general",
+      "The legislature",
+      "Administrative agencies",
+      "The judiciary"
+    ]
+  },
+  {
+    "group": "ch5",
+    "prompt": "Chap 5 You own a house with one acre of land on Main Street in your hometown. The property has been in your family for three generations. You have so many vivid memories of good times with your grandparents, parents, spouse, and two children there. Just last week, a local government official knocked on your front door. The official informed you that the town was taking the front one-half acre of your property (your house sits on the back one-half acre) for the purpose of widening Main Street and that the government would be issuing you a check for $15,000 for the one-half acre. You are taken aback. Just last year, you had your property (just the land, not the house) appraised, and the one acre you own was appraised at $60,000. By simple logic and math, you interpret the appraisal to mean that one-half acre of the property is worth $30,000, not $15,000 as the government has offered. Further, the fact that the government is taking the front one-half acre of your land means that once Main Street is widened, your house will sit closer to the road, thereby depriving you and your family of the peace and tranquility of the one-half acre setback and buffer. All things considered, you do not want to give up the one-half acre\u2014again, the property has been in your family for three generations, and given the fact that you have two children, you would like to ultimately extend that to four generations. Which of the following is true in this scenario?",
+    "choices": [
+      "You are protected by the Takings Clause of the U.S. Constitution but not the Due Process Clause.",
+      "You are entitled to base compensation of $30,000 (one-half of the appraisal value) for your one-half acre of property, plus an additional amount to account for your emotional attachment to the property not to exceed three times the base compensation amount.",
+      "You are entitled to reject the government\u2019s offer, which would effectively terminate the government\u2019s attempted taking of your one-half acre of property.",
+      "You are entitled to a fair price for your one-half acre of property."
+    ]
+  },
+  {
+    "group": "ch6",
+    "prompt": "Chap 6 You own a German Shepherd named Max whom you love and adore. You are aware that Max is sometimes aggressive with new people. Because of that, you are usually very careful to prevent Max from running out of the house unleashed. One day, as you open the door to bring in the mail, Max escapes out of the door and attacks a woman walking in the vicinity of your home. The woman suffers significant injuries on her right arm, some of which she claims will leave permanent scars. You feel very bad about this. The woman is now suing you for $18,000 to cover her alleged medical bills, missed time at work, and pain and suffering.\n\nTo prepare for the trial, you would like to review the woman\u2019s medical records, medical bills, work schedule, and salary. Additionally, you would like to have a doctor of your choosing examine her arm and assess the true extent of the injuries. What is the procedure a defendant uses to learn more about a plaintiff\u2019s claim before trial?",
+    "choices": [
+      "Voir dire",
+      "Discovery",
+      "Motion for a directed verdict",
+      "Pretrial conference"
+    ]
+  },
+  {
+    "group": "ch8",
+    "prompt": "Chap 8 Your best friend Abigail is undergoing a contentious divorce that has necessitated a court proceeding. Abigail has called you as her \u201cstar\u201d witness to testify against Raj, her soon-to-be ex-spouse. Prior to the proceeding, Abigail implored you to \u201cbe creative\u201d in your testimony so that she will receive a favorable ruling; after all, she says, \u201cThat\u2019s what best friends are for.\u201d In response to Abigail\u2019s cajoling, you take the witness stand and testify that Raj has had at least three extramarital affairs in the five years he has been married to Abigail and that he has frequently abused her, both physically and psychologically. None of this is factual, and you know it. Which of the following is true regarding your testimony?",
+    "choices": [
+      "You have slandered Raj, but you have not committed perjury because your testimony was at Abigail\u2019s instigation and insistence.",
+      "You have committed perjury, and you have slandered Raj.",
+      "Your testimony is subject to a limited privilege.",
+      "You have committed perjury."
+    ]
+  },
+  {
+    "group": "ch9",
+    "prompt": "Chap 9 You run a local marathon, and it is very crowded. As you approach the first mile marker, you accidentally trip one of the other runners. She falls hard, hits her head on the pavement, and is taken away in an ambulance. She later sues you for negligence.\n\nWhat do you think would happen if you defend the lawsuit by saying that you did not intend to trip her?",
+    "choices": [
+      "You would not be successful because intent is not required for a negligence claim.",
+      "You would win because you did not intend to trip her.",
+      "You would not be successful because intent doesn\u2019t matter.",
+      "You would win because you had no evil motive."
+    ]
+  }
+]

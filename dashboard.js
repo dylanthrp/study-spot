@@ -29,11 +29,13 @@ const Dashboard = (() => {
     catch { return false; }
   }
   function foldersFor(who) {
-    return readList(who, 'folders').filter(folder => typeof folder.id === 'string' && typeof folder.name === 'string' && Array.isArray(folder.courses));
+    const saved = readList(who, 'folders').filter(folder => typeof folder.id === 'string' && typeof folder.name === 'string' && Array.isArray(folder.courses));
+    if (!STUDENTS[who]?.classes.some(course => course.lawReview)) return saved;
+    return [{ id: 'businesslaw', name: 'Business Law', courses: ['LE-253'] }, ...saved.filter(folder => folder.id !== 'businesslaw')];
   }
   function recordVisit(who, code, mode = 'notes') {
     if (!STUDENTS[who]?.classes.some(c => c.code === code)) return;
-    const safeMode = ['notes', 'cards', 'flash', 'sheet', 'recall'].includes(mode) ? mode : 'notes';
+    const safeMode = ['notes', 'cards', 'flash', 'sheet', 'recall', 'concepts', 'practice', 'games'].includes(mode) ? mode : 'notes';
     const history = readList(who, 'recent').filter(item => item.code !== code);
     saveList(who, 'recent', [{ code, mode: safeMode, opened: Date.now() }, ...history].slice(0, 8));
   }
@@ -41,7 +43,9 @@ const Dashboard = (() => {
     const query = new URLSearchParams({ ...(tab === 'home' ? {} : { tab }), ...extra });
     return `#/u/${who}${query.size ? '?' + query : ''}`;
   };
-  const courseURL = (who, course, mode = 'notes') => course.examReview
+  const courseURL = (who, course, mode = 'notes') => course.lawReview
+    ? `#/u/${who}/LE-253/${mode === 'cards' || mode === 'concepts' ? 'concepts' : ['flash','recall','practice'].includes(mode) ? 'practice' : mode === 'games' ? 'games' : mode === 'sheet' ? 'sheet' : 'overview'}`
+    : course.examReview
     ? `#/u/${who}/ACC-298/${mode === 'cards' ? 'cards' : ['flash','recall'].includes(mode) ? 'practice' : mode === 'sheet' ? 'sheet' : 'overview'}`
     : course.code === 'ACC-289' && who === 'cooper'
     ? STUDENTS.cooper.noteLink.href
@@ -49,6 +53,7 @@ const Dashboard = (() => {
     ? `#/u/${who}/MATH-215${['flash','recall'].includes(mode) ? '/practice' : mode === 'sheet' ? '/sheet' : ''}`
     : `#/u/${who}/${course.code}${course.hasHub ? '/' + mode : ''}`;
   function availability(course) {
+    if (course.lawReview) return 'Cooper’s exam outline · concepts · scenarios · matching';
     if (course.examReview) return 'Exam 1 · quick reps · worked steps · retry missed';
     if (course.code === 'MATH-215') return 'Guided lessons · vector diagrams · quiz practice';
     if (course.hasHub) return 'Physics materials · content review pending';
@@ -196,9 +201,9 @@ const Dashboard = (() => {
     const modes = { cards: 'cards', guides: 'notes', tests: 'flash' };
     const query = (params.get('q') || '').trim().toLowerCase();
     const folder = tab === 'folder' ? foldersFor(who).find(item => item.id === params.get('folder')) : null;
-    const courses = student.classes.filter(c => (tab !== 'folder' || folder?.courses.includes(c.code)) && (!modes[tab] || c.examReview || c.hasHub || c.code === 'ACC-289' || (c.code === 'MATH-215' && tab !== 'cards')) && (!query || (c.code + ' ' + c.name).toLowerCase().includes(query)));
+    const courses = student.classes.filter(c => (tab !== 'folder' || folder?.courses.includes(c.code)) && (!modes[tab] || c.lawReview || c.examReview || c.hasHub || c.code === 'ACC-289' || (c.code === 'MATH-215' && tab !== 'cards')) && (!query || (c.code + ' ' + c.name).toLowerCase().includes(query)));
     return `<section class="dash-section"><h1>${escape(folder?.name || names[tab] || 'Your library')}</h1><p class="dash-page-sub">${tab === 'library' ? 'Your course collection. Pick up wherever you left off.' : tab === 'folder' ? (folder ? 'Your saved course collection · stored in this browser.' : 'This folder is not available for this student.') : 'Choose a course to open its study materials.'}</p>
-      ${tab === 'games' ? '<div class="dash-empty-panel"><h2>Room for a little friendly practice.</h2><p>Study games are not available yet. Your existing materials are in Your library.</p></div>' : `<div class="dash-course-grid dash-library-grid">${courses.map(c => courseTile(who, c, modes[tab] || 'notes')).join('') || '<div class="dash-empty-panel"><h2>No matching materials yet</h2><p>Try another course name, or browse Your library.</p></div>'}</div>`}
+      ${tab === 'games' ? (courses.some(c => c.lawReview) ? `<div class="dash-course-grid dash-library-grid">${courses.filter(c => c.lawReview).map(c => courseTile(who, c, 'games')).join('')}</div>` : '<div class="dash-empty-panel"><h2>Room for a little friendly practice.</h2><p>Study games are not available yet. Your existing materials are in Your library.</p></div>') : `<div class="dash-course-grid dash-library-grid">${courses.map(c => courseTile(who, c, c.lawReview && tab === 'guides' ? 'sheet' : modes[tab] || 'notes')).join('') || '<div class="dash-empty-panel"><h2>No matching materials yet</h2><p>Try another course name, or browse Your library.</p></div>'}</div>`}
       ${who !== 'dylan' && who !== 'charlie' && who !== 'cooper' ? '<p class="dash-data-note">Existing course list carried over from the first version; schedule confirmation is still needed.</p>' : ''}
       <p class="dash-data-note">Study tools are from the existing site. Physics content and grading still need the repair pass identified in our audit.</p>
     </section>`;
