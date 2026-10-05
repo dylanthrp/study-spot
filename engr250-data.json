@@ -1,0 +1,1322 @@
+{
+  "title": "ENGR 250 • Exam 1 Study Room",
+  "courseCode": "ENGR-250",
+  "scope": "Exam 1: modules 1–4 / Callister chapters 1–4, per the supplied Fall 2026 syllabus (PDF page 3). Chapter 5 diffusion is excluded even though a diffusion lecture precedes the test. Focused review of the supplied tutor notes and equation sheet, not a claim of exhaustive chapter coverage.",
+  "textbook": {
+    "title": "Materials Science and Engineering: An Introduction",
+    "authors": "William D. Callister Jr. and David G. Rethwisch",
+    "edition": "10th edition, Wiley",
+    "note": "Required text verified in syllabus PDF page 2. Publisher table of contents verified: chapters 1 Introduction; 2 Atomic Structure and Interatomic Bonding; 3 The Structure of Crystalline Solids; 4 Imperfections in Solids. Full textbook and assigned problem statements were not supplied or read. All practice is original or explicitly tutor-adapted, never textbook-verbatim or an official answer key.",
+    "url": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498"
+  },
+  "sources": [
+    {
+      "id": "tutornotes",
+      "title": "Supplied handwritten tutor notes",
+      "file": "CamScanner 10-1-26 16.50.pdf",
+      "pageNote": "All 7 PDF pages visually inspected. PDF page numbers differ from handwritten chapter labels. Corrections and limitations are in warnings and research/engr250-sources.md."
+    },
+    {
+      "id": "equationsheet",
+      "title": "Supplied Exam 1 equation sheet",
+      "file": "ENGR 250 Exam 1 Equations.pdf",
+      "pageNote": "PDF page 1 visually inspected, including both diagonal diagrams and constants."
+    },
+    {
+      "id": "syllabus",
+      "title": "Fall 2026 ENGR 250 syllabus",
+      "file": "Fall2026_ENGR250_Syllabus_GRV_OK.pdf",
+      "pageNote": "PDF page 2: required textbook. PDF page 3: course outline and Exam 1 modules 01–04."
+    },
+    {
+      "id": "wileycontents",
+      "title": "Wiley publisher listing and table of contents",
+      "file": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498",
+      "pageNote": "Public product page only. Chapter 1 starts p. 1; chapter 2 p. 19; chapter 3 p. 48; chapter 4 p. 92. These are publisher-listed book pages, not pages of an inspected textbook PDF."
+    }
+  ],
+  "topics": [
+    {
+      "id": "foundations",
+      "title": "Processing → structure → properties → performance",
+      "chapter": "1",
+      "summary": "Read the materials chain, structural scales, and property categories before choosing a material."
+    },
+    {
+      "id": "classes",
+      "title": "Metals, ceramics, polymers, composites",
+      "chapter": "1",
+      "summary": "Recognize typical class traits without treating them as universal laws."
+    },
+    {
+      "id": "atoms",
+      "title": "Atoms, isotopes, and electrons",
+      "chapter": "2",
+      "summary": "Separate proton identity, neutron variation, electron behavior, and abundance-weighted atomic mass."
+    },
+    {
+      "id": "bonds",
+      "title": "Bonding and electronegativity",
+      "chapter": "2",
+      "summary": "Distinguish electron transfer, sharing, delocalization, and secondary bonding; interpret ionic character carefully."
+    },
+    {
+      "id": "crystals",
+      "title": "Unit cells, packing, and density",
+      "chapter": "3",
+      "summary": "Count shared atoms; choose the correct contact diagonal; distinguish APF, coordination, and density."
+    },
+    {
+      "id": "planes",
+      "title": "Crystal order, directions, and planes",
+      "chapter": "3",
+      "summary": "Use reciprocal intercepts for planes, displacement components for directions, and the correct brackets."
+    },
+    {
+      "id": "defects",
+      "title": "Defects and equilibrium vacancies",
+      "chapter": "4",
+      "summary": "Identify point, line, and interfacial defects; compute vacancy fractions using kelvin and consistent energy units."
+    },
+    {
+      "id": "composition",
+      "title": "Composition and grain measurement",
+      "chapter": "4",
+      "summary": "Keep mass percent separate from atomic percent; interpret grain boundaries and microscope magnification."
+    }
+  ],
+  "cards": [
+    {
+      "id": "card01",
+      "topic": "foundations",
+      "front": "What is the processing–structure–properties–performance chain?",
+      "back": "Processing changes internal structure; structure influences properties; properties help determine performance in an application.",
+      "trap": "Jumping from a process directly to a guaranteed performance improvement without checking structure and properties.",
+      "term": "Materials chain",
+      "definition": "Processing affects structure, which affects properties and application performance.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card02",
+      "topic": "foundations",
+      "front": "How is a property different from performance?",
+      "back": "A property is a material response to a stimulus; performance is how well the material functions in a particular application.",
+      "trap": "Treating “best material” as independent of loading, environment, and application.",
+      "term": "Property vs performance",
+      "definition": "Material response versus success in a particular application.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card03",
+      "topic": "foundations",
+      "front": "Which structural scale concerns electron energies and interactions with nuclei?",
+      "back": "Subatomic structure. It concerns the internal electronic structure of atoms, rather than the arrangement of many atoms into crystals.",
+      "trap": "Confusing electrons within an atom with crystal-scale atomic arrangement.",
+      "term": "Subatomic structure",
+      "definition": "Electron behavior and interactions inside individual atoms.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card04",
+      "topic": "foundations",
+      "front": "What does atomic-scale structure describe?",
+      "back": "The arrangement of atoms into molecules or crystals.",
+      "trap": "Calling every microscopic feature an atomic arrangement; grains are a larger-scale feature.",
+      "term": "Atomic-scale structure",
+      "definition": "The organization of atoms into molecules or crystals.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card05",
+      "topic": "foundations",
+      "front": "How do microstructure and macrostructure differ?",
+      "back": "Microstructure contains features examined using microscopy; macrostructure contains features visible without a microscope. Nanostructure emphasizes nanoscale features.",
+      "trap": "Memorizing a rigid microscope cutoff as if it defined all material behavior.",
+      "term": "Microstructure vs macrostructure",
+      "definition": "Microscope-resolved features versus naked-eye-visible features.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card06",
+      "topic": "foundations",
+      "front": "How can you recognize a property category from its stimulus?",
+      "back": "Load or deformation: mechanical; electric field: electrical; temperature or gradient: thermal; magnetic field: magnetic; light: optical; environment/time: deterioration.",
+      "trap": "Classifying heat conduction as electrical just because both use the word conductivity.",
+      "term": "Property categories",
+      "definition": "Mechanical, electrical, thermal, magnetic, optical, and deteriorative responses.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card07",
+      "topic": "classes",
+      "front": "What traits commonly distinguish metals?",
+      "back": "Metals commonly combine metallic bonding, good thermal/electrical conductivity, and ductility. These are trends, not guarantees for every alloy or condition.",
+      "trap": "Assuming all metals have identical strength or must be denser than every ceramic.",
+      "term": "Metals",
+      "definition": "Materials commonly associated with metallic bonding, conduction, and ductility.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card08",
+      "topic": "classes",
+      "front": "What are typical ceramic traits, and what bonding caveat matters?",
+      "back": "Ceramics are commonly hard and brittle with low electrical conductivity. Their bonding may be ionic, covalent, or mixed—not exclusively ionic.",
+      "trap": "Treating the tutor column headed ionic bonding as a rule that all ceramics are purely ionic.",
+      "term": "Ceramics",
+      "definition": "Commonly hard, brittle inorganic materials with ionic and/or covalent bonding.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Bonding qualification is an original teaching correction."
+    },
+    {
+      "id": "card09",
+      "topic": "classes",
+      "front": "What are typical polymer traits?",
+      "back": "Polymers have long molecular chains with covalent backbone bonds and commonly low density and low conductivity. Their mechanical behavior varies with structure and conditions.",
+      "trap": "Thinking every polymer is soft and ductile or that only one bond type exists throughout it.",
+      "term": "Polymers",
+      "definition": "Chain-based materials commonly having low density and low conductivity.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card10",
+      "topic": "classes",
+      "front": "What makes a material a composite?",
+      "back": "It combines distinct constituent materials to obtain a useful combination of properties. A composite is not simply any single-phase alloy.",
+      "trap": "Calling every mixture of elements a composite.",
+      "term": "Composites",
+      "definition": "Materials that retain distinct constituents to combine useful properties.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card11",
+      "topic": "classes",
+      "front": "Which examples in the tutor notes are natural composites?",
+      "back": "Wood and bone. Fiberglass and carbon-fiber-reinforced polymer are man-made examples in the notes.",
+      "trap": "Assuming composites must be synthetic.",
+      "term": "Natural composites",
+      "definition": "Wood and bone are naturally occurring examples.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card12",
+      "topic": "classes",
+      "front": "Why are material-class property descriptions not absolute rules?",
+      "back": "Composition, bonding, structure, processing, and service conditions vary within each class. Class trends are a starting point for selection, not a substitute for actual property data.",
+      "trap": "Rejecting a real material solely because it violates a broad class stereotype.",
+      "term": "Class trends",
+      "definition": "Useful starting patterns, not universal property guarantees.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Original qualification of the summary table."
+    },
+    {
+      "id": "card13",
+      "topic": "atoms",
+      "front": "What distinguishes a proton, neutron, and electron by charge?",
+      "back": "Proton: positive; neutron: zero net charge; electron: negative. Protons and neutrons occupy the nucleus.",
+      "trap": "Repeating the handwritten statement that neutrons are electrically charged.",
+      "term": "Particle charges",
+      "definition": "Positive proton, neutral neutron, negative electron.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Corrected neutron statement."
+    },
+    {
+      "id": "card14",
+      "topic": "atoms",
+      "front": "What is the atomic number Z?",
+      "back": "The number of protons in the nucleus; it identifies the element. A neutral atom has the same number of electrons as protons.",
+      "trap": "Using mass number or neutron count to identify the element.",
+      "term": "Atomic number",
+      "definition": "The proton count that defines an element.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original definition clarifying the isotope discussion."
+    },
+    {
+      "id": "card15",
+      "topic": "atoms",
+      "front": "What are isotopes?",
+      "back": "Atoms of the same element with equal proton counts but different neutron counts and masses.",
+      "trap": "Calling ions isotopes merely because they have gained or lost electrons.",
+      "term": "Isotopes",
+      "definition": "Same element and proton count, different neutron counts.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card16",
+      "topic": "atoms",
+      "front": "How do you obtain an average atomic mass from isotope data?",
+      "back": "Multiply each isotope mass by its fractional abundance, then sum. The fractions must total one; the result lies between the isotope masses.",
+      "trap": "Using percent values as whole numbers or taking an unweighted average.",
+      "term": "Weighted atomic mass",
+      "definition": "Sum of each isotope mass times its fractional abundance.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card17",
+      "topic": "atoms",
+      "front": "What role do valence electrons play?",
+      "back": "Outer-shell electrons participate in bonding and strongly influence chemical behavior.",
+      "trap": "Looking only at neutron count to predict a chemical bond.",
+      "term": "Valence electrons",
+      "definition": "Outer-shell electrons central to bonding and chemical behavior.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card18",
+      "topic": "atoms",
+      "front": "What changes in the wave-mechanical description of an electron?",
+      "back": "Electron position is represented probabilistically rather than as a known classical orbit. Quantum numbers describe allowed states, including shell, subshell, orientation, and spin.",
+      "trap": "Reading an orbital probability cloud as a fixed path.",
+      "term": "Wave-mechanical model",
+      "definition": "Allowed electron states and position probabilities, not fixed classical orbits.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card19",
+      "topic": "bonds",
+      "front": "What is the essential mechanism of ionic bonding?",
+      "back": "Electron transfer produces oppositely charged ions, which attract electrostatically. A large electronegativity difference supports stronger ionic character.",
+      "trap": "Calling the electrostatic attraction itself electron sharing.",
+      "term": "Ionic bonding",
+      "definition": "Attraction between oppositely charged ions following electron transfer.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card20",
+      "topic": "bonds",
+      "front": "What is the essential mechanism of covalent bonding?",
+      "back": "Atoms share valence electrons; the bond is directional. A small electronegativity difference does not automatically imply a metallic bond.",
+      "trap": "Using “near-zero ionic character” as proof of metallic bonding.",
+      "term": "Covalent bonding",
+      "definition": "Directional bonding through shared valence electrons.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Original mechanism explanation; Fall2026_ENGR250_Syllabus_GRV_OK.pdf, PDF page 3, chapter 2 scope; Wiley publisher table of contents, chapter 2 (alignment only). Original teaching extension, not a quotation or assigned answer."
+    },
+    {
+      "id": "card21",
+      "topic": "bonds",
+      "front": "What is the essential mechanism of metallic bonding?",
+      "back": "Positive ion cores are held together through delocalized valence electrons. These mobile electrons help explain electrical conductivity.",
+      "trap": "Describing a metal as discrete positive and negative ions like a simple ionic solid.",
+      "term": "Metallic bonding",
+      "definition": "Positive ion cores bound through delocalized valence electrons.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Original mechanism explanation; Fall2026_ENGR250_Syllabus_GRV_OK.pdf, PDF page 3, chapter 2 scope; Wiley publisher table of contents, chapter 2 (alignment only). Original teaching extension, not a quotation or assigned answer."
+    },
+    {
+      "id": "card22",
+      "topic": "bonds",
+      "front": "What does electronegativity measure?",
+      "back": "An atom’s tendency to attract bonding electrons. A difference in electronegativity helps estimate bond polarity or ionic character.",
+      "trap": "Confusing electronegativity with an atom’s mass or the number of neutrons.",
+      "term": "Electronegativity",
+      "definition": "Tendency to attract electrons involved in a bond.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card23",
+      "topic": "bonds",
+      "front": "How should the percent ionic-character formula be interpreted?",
+      "back": "It estimates ionic character from an electronegativity difference. It does not identify metallic bonding, and real bonds may have mixed ionic–covalent character.",
+      "trap": "Treating a rough 50% predominance heuristic as a universal boundary.",
+      "term": "Ionic-character estimate",
+      "definition": "An electronegativity-based estimate, not a universal bond-class test.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original correction of the near-1% rule."
+    },
+    {
+      "id": "card24",
+      "topic": "bonds",
+      "front": "How do secondary bonds differ from primary bonds?",
+      "back": "Secondary interactions arise from electric dipoles and are generally weaker than primary ionic, covalent, or metallic bonds. They can matter between polymer chains even when the backbone is covalent.",
+      "trap": "Calling all bonding in a polymer covalent because its backbone is covalent.",
+      "term": "Secondary bonding",
+      "definition": "Generally weaker dipole-based interactions between atoms or molecules.",
+      "source": "Fall2026_ENGR250_Syllabus_GRV_OK.pdf, PDF page 3, chapter 2 scope; Wiley publisher table of contents, chapter 2 (alignment only). Original teaching extension, not a quotation or assigned answer."
+    },
+    {
+      "id": "card25",
+      "topic": "crystals",
+      "front": "What are the simple-cubic reference values?",
+      "back": "SC: one atom per conventional cell; coordination six; atoms touch along an edge, a = 2R; APF approximately 0.52.",
+      "trap": "Counting all corner atoms as wholly inside the cell.",
+      "term": "Simple cubic",
+      "definition": "Edge contact; one atom per cell; six nearest neighbors.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card26",
+      "topic": "crystals",
+      "front": "What are the body-centered-cubic reference values?",
+      "back": "BCC: two atoms per conventional cell; coordination eight; body-diagonal contact, sqrt(3)a = 4R; APF approximately 0.68.",
+      "trap": "Using the face diagonal or calling BCC close-packed.",
+      "term": "Body-centered cubic",
+      "definition": "Body-diagonal contact; two atoms per cell; eight nearest neighbors.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card27",
+      "topic": "crystals",
+      "front": "What are the face-centered-cubic reference values?",
+      "back": "FCC: four atoms per conventional cell; coordination twelve; face-diagonal contact, sqrt(2)a = 4R; APF approximately 0.74.",
+      "trap": "Counting face-centered atoms as whole atoms instead of halves.",
+      "term": "Face-centered cubic",
+      "definition": "Face-diagonal contact; four atoms per cell; twelve nearest neighbors.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card28",
+      "topic": "crystals",
+      "front": "What HCP cell convention do the tutor notes use?",
+      "back": "The conventional hexagonal prism with six atoms per cell. Ideal HCP is close-packed with APF approximately 0.74 and c/a = sqrt(8/3). A different cell convention requires a matching atom count and volume.",
+      "trap": "Mixing a conventional-prism atom count with a primitive-cell volume.",
+      "term": "Ideal HCP prism",
+      "definition": "Six atoms in the conventional prism; close packing and ideal c/a near 1.633.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 6; paraphrased notes with original teaching annotations. Intermediate c relation corrected."
+    },
+    {
+      "id": "card29",
+      "topic": "crystals",
+      "front": "How does atomic packing factor differ from coordination number?",
+      "back": "APF is occupied hard-sphere volume divided by cell volume. Coordination counts nearest neighbors. Neither is itself a mass density.",
+      "trap": "Equating APF 0.74 with 74 atoms or with a density in g/cm^3.",
+      "term": "Atomic packing factor",
+      "definition": "Fraction of cell volume occupied by the hard-sphere atoms.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 4; paraphrased notes with original teaching annotations. CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card30",
+      "topic": "crystals",
+      "front": "What inputs determine theoretical crystal density?",
+      "back": "Atoms per chosen cell n, molar mass A, Avogadro constant NA, and cell volume Vc: rho = nA/(NA Vc). Use compatible mass and length units.",
+      "trap": "Ranking densities from APF alone without atomic mass and lattice size.",
+      "term": "Theoretical density",
+      "definition": "Cell mass divided by matching unit-cell volume.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 6; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation."
+    },
+    {
+      "id": "card31",
+      "topic": "planes",
+      "front": "What distinguishes crystalline from noncrystalline structure?",
+      "back": "Crystalline material has long-range periodic atomic order. Noncrystalline material lacks that long-range periodicity, though local order can remain.",
+      "trap": "Assuming noncrystalline means no organization at any length scale.",
+      "term": "Crystalline order",
+      "definition": "Long-range periodic atomic arrangement.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 4; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card32",
+      "topic": "planes",
+      "front": "What is a unit cell?",
+      "back": "A repeating cell whose translation reconstructs the crystal. A conventional cell need not contain the fewest possible atoms.",
+      "trap": "Taking the tutor phrase “smallest number of atoms” as a requirement for every conventional cell.",
+      "term": "Unit cell",
+      "definition": "A repeating building block whose translations reproduce the crystal.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 4; paraphrased notes with original teaching annotations. Original conventional-cell qualification."
+    },
+    {
+      "id": "card33",
+      "topic": "planes",
+      "front": "What is the Miller-index recipe for a plane?",
+      "back": "Find intercepts in lattice-parameter units, take reciprocals, clear fractions, and write (h k l). A parallel axis has infinite intercept and zero index.",
+      "trap": "Using raw intercepts as indices or forgetting to normalize by a, b, c.",
+      "term": "Miller indices",
+      "definition": "Plane orientation from reciprocal normalized intercepts.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card34",
+      "topic": "planes",
+      "front": "What if a plane crosses the origin or has a negative intercept?",
+      "back": "Use a parallel plane or a shifted origin so the intercept method is usable. Retain negative signs; an overbar denotes a negative index. In this room, (-1 1 0) uses a minus sign instead of an overbar.",
+      "trap": "Taking the reciprocal of zero or dropping a minus sign when clearing fractions.",
+      "term": "Miller sign handling",
+      "definition": "Avoid zero intercepts; preserve negatives with overbars or minus signs.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card35",
+      "topic": "planes",
+      "front": "How is a crystallographic direction [u v w] found?",
+      "back": "Use endpoint minus start-point components in lattice-vector units, then scale to the smallest integer ratio. Do not take reciprocals.",
+      "trap": "Using the plane recipe for a direction.",
+      "term": "Direction indices",
+      "definition": "Integer-ratio displacement components written in square brackets.",
+      "source": "Fall2026_ENGR250_Syllabus_GRV_OK.pdf, PDF page 3, chapter 3 scope; Wiley publisher table of contents, chapter 3 (alignment only). Original teaching extension, not a quotation or assigned answer."
+    },
+    {
+      "id": "card36",
+      "topic": "planes",
+      "front": "What is the difference between [u v w], (h k l), and isotropy?",
+      "back": "[u v w] denotes a direction; (h k l) denotes a plane. Isotropy means a property is independent of direction; randomly oriented grains can give approximately isotropic bulk behavior.",
+      "trap": "Assuming every polycrystal is isotropic even when processing creates preferred orientation.",
+      "term": "Isotropy",
+      "definition": "Direction-independent property behavior; grain texture can prevent it.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 6; paraphrased notes with original teaching annotations. CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. Direction notation is an original chapter-3 extension."
+    },
+    {
+      "id": "card37",
+      "topic": "defects",
+      "front": "What is a vacancy?",
+      "back": "An unoccupied normal lattice site: a point defect. It is not an extra atom squeezed between sites.",
+      "trap": "Confusing a missing atom with an interstitial atom.",
+      "term": "Vacancy",
+      "definition": "An empty normal lattice site.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card38",
+      "topic": "defects",
+      "front": "What is a self-interstitial?",
+      "back": "A host-material atom occupying a normally unoccupied position between regular lattice sites.",
+      "trap": "Thinking every interstitial must be an impurity atom.",
+      "term": "Self-interstitial",
+      "definition": "A host atom between regular lattice sites.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card39",
+      "topic": "defects",
+      "front": "What is a substitutional impurity?",
+      "back": "A foreign atom occupying a normal host lattice site, replacing a host atom.",
+      "trap": "Calling a solute atom between sites substitutional.",
+      "term": "Substitutional impurity",
+      "definition": "A foreign atom replacing a host atom at a normal site.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. Original expansion of “sub atoms”."
+    },
+    {
+      "id": "card40",
+      "topic": "defects",
+      "front": "What is a dislocation’s defect dimensionality?",
+      "back": "A dislocation is a line defect. A vacancy is a point defect; a grain boundary is an interfacial defect.",
+      "trap": "Classifying a dislocation as a missing single atom.",
+      "term": "Dislocation",
+      "definition": "A line defect in a crystal.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "card41",
+      "topic": "defects",
+      "front": "How does equilibrium vacancy fraction respond to temperature?",
+      "back": "For fixed positive formation energy Qv, Nv/N = exp(-Qv/(kT)) increases as absolute temperature increases. The exponent becomes less negative.",
+      "trap": "Thinking the leading minus sign makes vacancy fraction decrease with temperature.",
+      "term": "Vacancy temperature trend",
+      "definition": "Equilibrium vacancy fraction rises as absolute temperature rises.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation."
+    },
+    {
+      "id": "card42",
+      "topic": "defects",
+      "front": "What must be checked before a vacancy calculation?",
+      "back": "Use kelvin, match k to the energy units of Qv, and decide whether N is a specimen total or a number per volume. The exponential gives a fraction, not a vacancy count.",
+      "trap": "Multiplying by volume twice or mixing eV with the joule-valued k.",
+      "term": "Vacancy unit check",
+      "definition": "Kelvin, matching energy units, and a consistent count or count-per-volume basis.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation."
+    },
+    {
+      "id": "card43",
+      "topic": "composition",
+      "front": "What is atomic percent?",
+      "back": "The fraction of all atoms belonging to a component, times 100. A mole fraction gives the same ratio because every mole contains the same number of atoms.",
+      "trap": "Using mass fractions directly when atomic masses differ.",
+      "term": "Atomic percent",
+      "definition": "Component mole fraction multiplied by 100.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation."
+    },
+    {
+      "id": "card44",
+      "topic": "composition",
+      "front": "What is weight percent?",
+      "back": "The component mass divided by total mass, times 100. It equals atomic percent only in special cases, not generally.",
+      "trap": "Treating mass percent and atomic percent as interchangeable.",
+      "term": "Weight percent",
+      "definition": "Component mass fraction multiplied by 100.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original comparison with mass fraction."
+    },
+    {
+      "id": "card45",
+      "topic": "composition",
+      "front": "What conversion comes before atomic percent when masses are given?",
+      "back": "Convert each component mass to moles with molar mass: moles = mass / molar mass. Then divide by total moles and multiply by 100.",
+      "trap": "Multiplying mass by molar mass instead of dividing.",
+      "term": "Mass-to-moles step",
+      "definition": "Divide each component mass by its molar mass before forming atomic fractions.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original derivation for mass inputs."
+    },
+    {
+      "id": "card46",
+      "topic": "composition",
+      "front": "What is a grain boundary?",
+      "back": "An interface separating neighboring crystals of different orientation. It is an interfacial defect; the grain itself is not the boundary.",
+      "trap": "Memorizing the tutor shorthand “grain” as the name of the defect.",
+      "term": "Grain boundary",
+      "definition": "An interface between neighboring grains of different orientation.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. Original correction of the shorthand label."
+    },
+    {
+      "id": "card47",
+      "topic": "composition",
+      "front": "How does the intercept method estimate grain scale?",
+      "back": "With consistent counting, divide total test-line length on the image by the number of boundary intersections and the linear magnification: lbar = LT/(P M). This is a mean lineal intercept, not a universal grain diameter.",
+      "trap": "Reporting the uncorrected image length as a specimen length.",
+      "term": "Mean lineal intercept",
+      "definition": "Image test-line length divided by intersection count and magnification.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Symbol interpretation is an original annotation; the sheet does not define the counting convention."
+    },
+    {
+      "id": "card48",
+      "topic": "composition",
+      "front": "Why must image magnification be handled carefully?",
+      "back": "Use the effective linear magnification of the measured image. If the image was resized, recalibrate from a scale bar or known dimension before using the formula.",
+      "trap": "Using the printed magnification label after changing image size, or applying magnification twice.",
+      "term": "Effective magnification",
+      "definition": "The actual image-to-specimen length ratio at the size being measured.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original measurement caution."
+    }
+  ],
+  "questions": [
+    {
+      "id": "question01",
+      "topic": "foundations",
+      "prompt": "A processing change alters grain structure, which changes a property and improves service behavior. Which order captures the reasoning?",
+      "choices": [
+        "Properties → processing → structure → performance",
+        "Processing → structure → properties → performance",
+        "Performance → properties → processing → structure",
+        "Structure → performance → processing → properties"
+      ],
+      "answerIndex": 1,
+      "explanation": "The materials chain links processing to structure, then properties, then application performance.",
+      "steps": [
+        "Identify the deliberate process change.",
+        "Ask what structural feature changes and which property it affects.",
+        "Connect that property to the application."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations. Original scenario.",
+      "kind": "original"
+    },
+    {
+      "id": "question02",
+      "topic": "foundations",
+      "prompt": "Which response is classified as a thermal property?",
+      "choices": [
+        "Response to an electric field",
+        "Response to light",
+        "Response to a temperature gradient",
+        "Response to an applied force"
+      ],
+      "answerIndex": 2,
+      "explanation": "A temperature gradient is the thermal stimulus. The distractors are electrical, optical, and mechanical.",
+      "steps": [
+        "Name the stimulus first.",
+        "Match a temperature gradient to thermal behavior."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations. Original question.",
+      "kind": "original"
+    },
+    {
+      "id": "question03",
+      "topic": "foundations",
+      "prompt": "Which observation belongs most clearly to microstructure?",
+      "choices": [
+        "Measuring a visible part width with a ruler",
+        "Counting protons in a nucleus",
+        "Specifying an electron state",
+        "Examining grains under a microscope"
+      ],
+      "answerIndex": 3,
+      "explanation": "Microscope-resolved grains are microstructural features.",
+      "steps": [
+        "Separate internal electron/nuclear details from grain-scale structure.",
+        "Choose the feature observed by microscopy."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 1; paraphrased notes with original teaching annotations. Original question.",
+      "kind": "original"
+    },
+    {
+      "id": "question04",
+      "topic": "classes",
+      "prompt": "Which material class is most commonly associated with ductility and good electrical conductivity?",
+      "choices": [
+        "Metals",
+        "Polymers",
+        "Ceramics",
+        "All composites equally"
+      ],
+      "answerIndex": 0,
+      "explanation": "Metallic bonding and mobile electrons commonly support this combination, but specific material data still matter.",
+      "steps": [
+        "Use typical traits rather than absolute rules.",
+        "Combine conduction with ductility to recognize the metallic class."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Original question.",
+      "kind": "original"
+    },
+    {
+      "id": "question05",
+      "topic": "classes",
+      "prompt": "Which is the best correction to “all ceramics are purely ionic”?",
+      "choices": [
+        "All ceramics are metallic",
+        "Ceramics may have ionic, covalent, or mixed bonding",
+        "All ceramics have only secondary bonding",
+        "Bond type never influences properties"
+      ],
+      "answerIndex": 1,
+      "explanation": "The tutor summary is simplified; ceramic bonding is not universally pure ionic.",
+      "steps": [
+        "Do not equate a class heading with an exclusive bonding law.",
+        "Allow mixed ionic–covalent character."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Original correction question.",
+      "kind": "original"
+    },
+    {
+      "id": "question06",
+      "topic": "classes",
+      "prompt": "Which pair is listed as natural composites in the tutor notes?",
+      "choices": [
+        "Glass and PVC",
+        "Pure copper and pure aluminum",
+        "Wood and bone",
+        "NaCl and MgO"
+      ],
+      "answerIndex": 2,
+      "explanation": "The notes identify wood and bone as natural composites, and fiberglass/CFRP as man-made examples.",
+      "steps": [
+        "Look for distinct constituents in a natural material.",
+        "Recall the actual examples in the tutor table."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Original question.",
+      "kind": "original"
+    },
+    {
+      "id": "question07",
+      "topic": "atoms",
+      "prompt": "Two neutral isotopes of the same element differ primarily in which count?",
+      "choices": [
+        "Protons",
+        "Neutrons",
+        "Protons and electrons equally",
+        "Valence electrons necessarily"
+      ],
+      "answerIndex": 1,
+      "explanation": "Isotopes keep the same atomic number but have different neutron counts.",
+      "steps": [
+        "Same element means same proton count.",
+        "Neutrality fixes electron count to proton count.",
+        "The isotope difference is in neutrons."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original question.",
+      "kind": "original"
+    },
+    {
+      "id": "question08",
+      "topic": "atoms",
+      "prompt": "A hypothetical element contains 75.0% isotope mass 10.0 u and 25.0% isotope mass 11.0 u. What is its mean atomic mass?",
+      "choices": [
+        "10.50 u",
+        "10.00 u",
+        "10.25 u",
+        "1025 u"
+      ],
+      "answerIndex": 2,
+      "explanation": "Use the abundance-weighted mean: 0.75(10.0) + 0.25(11.0) = 10.25 u.",
+      "steps": [
+        "Convert abundances to fractions.",
+        "Multiply each mass by its fraction.",
+        "Add; the answer must lie between 10.0 and 11.0 u."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original hypothetical isotope data; extra displayed digits retain the teaching arithmetic.",
+      "kind": "original"
+    },
+    {
+      "id": "question09",
+      "topic": "atoms",
+      "prompt": "Which correction should you make to the tutor particle-charge line?",
+      "choices": [
+        "Neutrons have zero net electric charge",
+        "Electrons are positively charged",
+        "Protons have zero electric charge",
+        "All nuclear particles are negative"
+      ],
+      "answerIndex": 0,
+      "explanation": "Neutrons are neutral; protons are positive and electrons negative.",
+      "steps": [
+        "Separate charge from mass.",
+        "Correct only the neutron claim."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original correction question.",
+      "kind": "original"
+    },
+    {
+      "id": "question10",
+      "topic": "bonds",
+      "prompt": "A bond has electronegativity difference 2.00. Using 100[1 − exp(-0.25(Delta chi)^2)], what is its estimated ionic character?",
+      "choices": [
+        "1.00%",
+        "36.8%",
+        "100%",
+        "63.2%"
+      ],
+      "answerIndex": 3,
+      "explanation": "The exponent is -1.00, so the result is 100(1 − e^-1) ≈ 63.2%. This is not a metallic-bond test.",
+      "steps": [
+        "Square the difference.",
+        "Multiply by -0.25 inside the exponential.",
+        "Subtract the exponential from one; multiply by 100."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original numerical scenario.",
+      "kind": "original"
+    },
+    {
+      "id": "question11",
+      "topic": "bonds",
+      "prompt": "Which description identifies metallic bonding rather than ionic bonding?",
+      "choices": [
+        "Directional sharing by a particular pair only",
+        "Positive ion cores interacting with delocalized electrons",
+        "Oppositely charged discrete ions following transfer",
+        "Only attraction between permanent molecular dipoles"
+      ],
+      "answerIndex": 1,
+      "explanation": "Delocalized valence electrons are characteristic of metallic bonding.",
+      "steps": [
+        "Identify whether electrons are shared locally, transferred, or delocalized.",
+        "Choose the delocalized-electron description."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 2; paraphrased notes with original teaching annotations. Original explanatory extension; Fall2026_ENGR250_Syllabus_GRV_OK.pdf, PDF page 3, chapter 2 scope; Wiley publisher table of contents, chapter 2 (alignment only). Original teaching extension, not a quotation or assigned answer.",
+      "kind": "original"
+    },
+    {
+      "id": "question12",
+      "topic": "bonds",
+      "prompt": "Why is “very low calculated ionic character proves metallic bonding” incorrect?",
+      "choices": [
+        "Low ionic character proves no bond exists",
+        "The calculation measures atomic mass",
+        "Covalent bonds can also have very low ionic character",
+        "Every low value means fully ionic bonding"
+      ],
+      "answerIndex": 2,
+      "explanation": "Electronegativity differences do not distinguish every covalent bond from metallic bonding.",
+      "steps": [
+        "Interpret the output as ionic character only.",
+        "Consider equal-electronegativity atoms sharing electrons."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original correction question.",
+      "kind": "original"
+    },
+    {
+      "id": "question13",
+      "topic": "crystals",
+      "prompt": "How many atoms belong to a conventional FCC cell?",
+      "choices": [
+        "1",
+        "2",
+        "6",
+        "4"
+      ],
+      "answerIndex": 3,
+      "explanation": "Eight corners contribute one atom in total; six face centers contribute three, giving four.",
+      "steps": [
+        "Count corners as eighths.",
+        "Count face atoms as halves.",
+        "Add 8/8 + 6/2 = 4."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations. Tutor derivation adapted into a new MCQ.",
+      "kind": "tutor-adapted"
+    },
+    {
+      "id": "question14",
+      "topic": "crystals",
+      "prompt": "For BCC spheres touching their nearest neighbors, which equation is correct?",
+      "choices": [
+        "sqrt(3)a = 4R",
+        "sqrt(2)a = 4R",
+        "a = 2R",
+        "sqrt(3)a = 2R"
+      ],
+      "answerIndex": 0,
+      "explanation": "Contact passes through a corner, the body center, and the opposite corner; the body diagonal spans four radii.",
+      "steps": [
+        "Recognize a body diagonal.",
+        "Set its length sqrt(3)a equal to 4R."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original question.",
+      "kind": "original"
+    },
+    {
+      "id": "question15",
+      "topic": "crystals",
+      "prompt": "An ideal FCC metal has R = 0.128 nm, A = 63.55 g/mol, and NA = 6.022e23 mol^-1. What is its theoretical density?",
+      "choices": [
+        "0.8895 g/cm^3",
+        "8.895 g/cm^3",
+        "88.95 g/cm^3",
+        "2.224 g/cm^3"
+      ],
+      "answerIndex": 1,
+      "explanation": "With four atoms per cell, a = 4R/sqrt(2) = 0.36204 nm and Vc = 4.7453e-23 cm^3, rho ≈ 8.895 g/cm^3 (8.90 to three significant figures).",
+      "steps": [
+        "Find a from FCC face-diagonal contact.",
+        "Convert nm to cm before cubing.",
+        "Use rho = 4A/(NA a^3)."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original idealized numerical model, not a quoted material data table.",
+      "kind": "original"
+    },
+    {
+      "id": "question16",
+      "topic": "planes",
+      "prompt": "A plane intercepts x at a and y at 2b and is parallel to z. What are its Miller indices?",
+      "choices": [
+        "(1 2 0)",
+        "[2 1 0]",
+        "(2 1 0)",
+        "(1 2 1)"
+      ],
+      "answerIndex": 2,
+      "explanation": "Normalized intercepts (1, 2, infinity) give reciprocals (1, 1/2, 0); multiplying by two gives (2 1 0).",
+      "steps": [
+        "Normalize intercepts by a, b, c.",
+        "Take reciprocals.",
+        "Clear fractions and use parentheses."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. Original plane example.",
+      "kind": "original"
+    },
+    {
+      "id": "question17",
+      "topic": "planes",
+      "prompt": "A displacement in lattice-vector units is (1/2, 1, 0). Which direction index describes it?",
+      "choices": [
+        "(2 1 0)",
+        "[2 1 0]",
+        "(1 2 0)",
+        "[1 2 0]"
+      ],
+      "answerIndex": 3,
+      "explanation": "Directions use displacement components, not reciprocals: multiplying by two gives [1 2 0].",
+      "steps": [
+        "Keep the component ratios.",
+        "Clear fractions without taking reciprocals.",
+        "Use square brackets."
+      ],
+      "source": "Fall2026_ENGR250_Syllabus_GRV_OK.pdf, PDF page 3, chapter 3 scope; Wiley publisher table of contents, chapter 3 (alignment only). Original teaching extension, not a quotation or assigned answer. Original coordinate example.",
+      "kind": "original"
+    },
+    {
+      "id": "question18",
+      "topic": "planes",
+      "prompt": "Which statement about a textured polycrystal is safest?",
+      "choices": [
+        "It may show direction-dependent bulk properties",
+        "It must always be perfectly isotropic",
+        "It has no crystal order",
+        "Every grain has the same orientation by definition"
+      ],
+      "answerIndex": 0,
+      "explanation": "Preferred grain orientation can prevent the averaging that often makes randomly oriented polycrystals approximately isotropic.",
+      "steps": [
+        "Distinguish random orientations from texture.",
+        "Do not turn a common approximation into an absolute rule."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 6; paraphrased notes with original teaching annotations. Original qualification question.",
+      "kind": "original"
+    },
+    {
+      "id": "question19",
+      "topic": "defects",
+      "prompt": "Which pair correctly matches a defect with its dimensionality?",
+      "choices": [
+        "Vacancy — line defect",
+        "Grain boundary — point defect",
+        "Dislocation — line defect",
+        "Self-interstitial — volume defect"
+      ],
+      "answerIndex": 2,
+      "explanation": "A dislocation is a line defect. Vacancies and self-interstitials are point defects, while grain boundaries are interfacial defects.",
+      "steps": [
+        "Identify the spatial character of each defect.",
+        "Choose the line-like dislocation."
+      ],
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. Original question.",
+      "kind": "original"
+    },
+    {
+      "id": "question20",
+      "topic": "defects",
+      "prompt": "For Qv = 1.00 eV/atom, T = 1000 K, and k = 8.62e-5 eV/(atom K), what is Nv/N?",
+      "choices": [
+        "9.16e-6",
+        "1.09e5",
+        "9.16e-4",
+        "7.30e17"
+      ],
+      "answerIndex": 0,
+      "explanation": "exp[-1.00/(8.62e-5 × 1000)] = 9.1576e-6. It is dimensionless; 7.30e17 would be a count from an additional specimen calculation.",
+      "steps": [
+        "Check that Qv and k use eV consistently.",
+        "Calculate the negative dimensionless exponent.",
+        "Exponentiate; do not multiply by N when asked only for a fraction."
+      ],
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original numerical scenario.",
+      "kind": "original"
+    },
+    {
+      "id": "question21",
+      "topic": "defects",
+      "prompt": "In N = rho V NA/A, why is specimen volume V required for a total atom/site count?",
+      "choices": [
+        "It converts kelvin to Celsius",
+        "rho NA/A is a count per volume, not a specimen total",
+        "It removes the need for molar mass",
+        "The exponential already includes volume"
+      ],
+      "answerIndex": 1,
+      "explanation": "rho V is specimen mass; dividing by A gives moles; multiplying by NA gives an atom count, used as the site-count approximation.",
+      "steps": [
+        "Track units: (g/cm^3)(cm^3)/(g/mol) gives mol.",
+        "Multiply by atoms per mole."
+      ],
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original unit-analysis question; site count uses the dilute-vacancy approximation.",
+      "kind": "original"
+    },
+    {
+      "id": "question22",
+      "topic": "composition",
+      "prompt": "A mixture has 20.0 g of component 1 (50.0 g/mol) and 80.0 g of component 2 (100.0 g/mol). What is the atomic percent of component 1?",
+      "choices": [
+        "20.0 at.%",
+        "66.7 at.%",
+        "50.0 at.%",
+        "33.3 at.%"
+      ],
+      "answerIndex": 3,
+      "explanation": "Component amounts are 0.400 mol and 0.800 mol. Its atomic fraction is 0.400/1.200, so atomic percent is 33.3%.",
+      "steps": [
+        "Convert each mass to moles.",
+        "Divide component-1 moles by total moles.",
+        "Multiply by 100, not by molar mass."
+      ],
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original hypothetical binary mixture.",
+      "kind": "original"
+    },
+    {
+      "id": "question23",
+      "topic": "composition",
+      "prompt": "A measured micrograph has LT = 100 mm, P = 50 counted boundary intersections, and effective linear magnification M = 100. What is lbar?",
+      "choices": [
+        "0.020 mm = 20 micrometers",
+        "2.00 mm = 2000 micrometers",
+        "200 mm",
+        "0.00020 mm"
+      ],
+      "answerIndex": 0,
+      "explanation": "lbar = 100/(50 × 100) = 0.020 mm, equivalent to 20 micrometers.",
+      "steps": [
+        "Use the length on the measured image.",
+        "Divide by both P and effective M.",
+        "Convert mm to micrometers only after calculating."
+      ],
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original measurement model; P is defined for this question.",
+      "kind": "original"
+    },
+    {
+      "id": "question24",
+      "topic": "composition",
+      "prompt": "A micrograph is enlarged after its printed magnification label was added. What should you do before using LT/(P M)?",
+      "choices": [
+        "Use the old label regardless of resizing",
+        "Multiply LT by the old label",
+        "Determine the effective magnification or calibrate from a scale bar",
+        "Ignore magnification because P is dimensionless"
+      ],
+      "answerIndex": 2,
+      "explanation": "The formula needs the image-to-specimen length ratio at the size actually measured.",
+      "steps": [
+        "Check whether the image size changed.",
+        "Use a trustworthy scale bar or effective magnification."
+      ],
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original measurement caution question.",
+      "kind": "original"
+    }
+  ],
+  "examples": [
+    {
+      "id": "example01",
+      "topic": "atoms",
+      "title": "Model: isotope-weighted atomic mass",
+      "given": "Hypothetical isotope masses 10.0 u and 11.0 u; abundances 75.0% and 25.0%.",
+      "find": "Mean atomic mass.",
+      "steps": [
+        "Recognition cue: masses plus abundances require a weighted mean, not a plain average.",
+        "Convert to fractions: 0.750 and 0.250; they sum to one.",
+        "Abar = 0.750(10.0) + 0.250(11.0) = 10.25 u.",
+        "Self-check: the result lies between the isotope masses and is nearer the more abundant mass.",
+        "Practice transfer: change the abundance first, then predict the direction of change before recalculating."
+      ],
+      "answer": "10.25 u (unrounded teaching result; report precision consistent with the supplied data).",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original hypothetical isotope model.",
+      "kind": "original"
+    },
+    {
+      "id": "example02",
+      "topic": "bonds",
+      "title": "Model: estimated ionic character",
+      "given": "Electronegativity difference Delta chi = 2.00.",
+      "find": "Percent ionic character using the tutor formula.",
+      "steps": [
+        "Recognition cue: the input is an electronegativity difference.",
+        "Use %IC = 100[1 − exp(-0.25(Delta chi)^2)].",
+        "The exponent is -0.25(2.00)^2 = -1.00.",
+        "100(1 − exp(-1.00)) = 63.212...%.",
+        "Self-check: the estimate must be between zero and 100%; it does not determine whether a bond is metallic."
+      ],
+      "answer": "Approximately 63.2% ionic character.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Original numerical model; not a textbook exercise.",
+      "kind": "original"
+    },
+    {
+      "id": "example03",
+      "topic": "crystals",
+      "title": "Tutor model: derive SC, BCC, and FCC packing factors",
+      "given": "Equal hard spheres; conventional cubic cells. SC n=1 and R=a/2; BCC n=2 and R=sqrt(3)a/4; FCC n=4 and R=sqrt(2)a/4.",
+      "find": "APF for each cubic structure.",
+      "steps": [
+        "Start with APF = n(4piR^3/3)/a^3.",
+        "SC: substitute n=1 and R=a/2; obtain pi/6 = 0.52360.",
+        "BCC: substitute n=2 and R=sqrt(3)a/4; obtain pi sqrt(3)/8 = 0.68017.",
+        "FCC: substitute n=4 and R=sqrt(2)a/4; obtain pi/(3sqrt(2)) = 0.74048.",
+        "Self-check: a cancels; APF is dimensionless. Coordination counts are not the n values in this formula."
+      ],
+      "answer": "SC ≈ 0.52; BCC ≈ 0.68; FCC ≈ 0.74.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations. Symbolic tutor derivations rewritten and independently recalculated, not a verbatim quotation.",
+      "kind": "tutor-adapted"
+    },
+    {
+      "id": "example04",
+      "topic": "crystals",
+      "title": "Model: FCC density from radius",
+      "given": "Idealized FCC metal: R = 0.128 nm, A = 63.55 g/mol, NA = 6.022e23 mol^-1.",
+      "find": "Theoretical density in g/cm^3.",
+      "steps": [
+        "Recognition cue: radius plus crystal structure supplies a cell volume.",
+        "FCC has n = 8(1/8) + 6(1/2) = 4 atoms per conventional cell.",
+        "Face-diagonal contact gives a = 4R/sqrt(2) = 0.3620387 nm.",
+        "Convert a to cm: a = 3.620387e-8 cm; Vc = a^3 = 4.745313e-23 cm^3.",
+        "rho = 4(63.55)/[(6.022e23)(4.745313e-23)] = 8.89549 g/cm^3.",
+        "Self-check: use cell count four, not coordination twelve; converting the length before cubing avoids a volume-unit error."
+      ],
+      "answer": "8.90 g/cm^3 to three significant figures.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original idealized numerical model.",
+      "kind": "original"
+    },
+    {
+      "id": "example05",
+      "topic": "planes",
+      "title": "Model: plane versus direction",
+      "given": "Plane intercepts a, 2b, infinity along x, y, z. Separately, a direction displacement is (1/2, 1, 0) in lattice-vector units.",
+      "find": "Plane Miller indices and direction indices.",
+      "steps": [
+        "Plane: normalize intercepts to (1, 2, infinity).",
+        "Plane: take reciprocals to get (1, 1/2, 0); multiply by two to get (2 1 0).",
+        "Direction: do not take reciprocals. Multiply (1/2, 1, 0) by two to get [1 2 0].",
+        "Self-check: parentheses mark the plane; square brackets mark the direction. A parallel plane-axis intercept produces a zero index."
+      ],
+      "answer": "Plane (2 1 0); direction [1 2 0].",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. Original plane inputs; direction procedure is an original chapter-3 extension aligned by the syllabus and Wiley contents.",
+      "kind": "original"
+    },
+    {
+      "id": "example06",
+      "topic": "defects",
+      "title": "Model: vacancy fraction and specimen count",
+      "given": "T = 726.85 degrees C; Qv = 1.00 eV/atom; k = 8.62e-5 eV/(atom K); rho = 8.40 g/cm^3; V = 1.00 cm^3; A = 63.5 g/mol; NA = 6.022e23 mol^-1.",
+      "find": "Equilibrium vacancy fraction and approximate vacancy count.",
+      "steps": [
+        "Recognition cue: the exponential produces a fraction; specimen mass is needed for a total.",
+        "Convert temperature: 726.85 + 273.15 = 1000.00 K.",
+        "Nv/N = exp[-1.00/(8.62e-5 × 1000)] = 9.157585e-6.",
+        "Estimate the total site count in the dilute-vacancy model: N ≈ rho V NA/A = (8.40)(1.00)(6.022e23)/63.5 = 7.966110e22.",
+        "Multiply only once: Nv = N(Nv/N) = 7.295033e17.",
+        "Self-check: Nv is much less than N; the fraction is dimensionless and the count is not a percentage."
+      ],
+      "answer": "Nv/N ≈ 9.16e-6; Nv ≈ 7.30e17 vacancies in the specimen.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original hypothetical numerical model; rho is stipulated at the stated temperature.",
+      "kind": "original"
+    },
+    {
+      "id": "example07",
+      "topic": "composition",
+      "title": "Model: mass percent is not atomic percent",
+      "given": "20.0 g component 1 with A1 = 50.0 g/mol; 80.0 g component 2 with A2 = 100.0 g/mol.",
+      "find": "Weight percent and atomic percent of component 1.",
+      "steps": [
+        "Weight percent uses masses: 100(20.0)/(20.0+80.0) = 20.0 wt.%.",
+        "Convert each mass to moles: n1 = 20.0/50.0 = 0.400 mol; n2 = 80.0/100.0 = 0.800 mol.",
+        "Atomic percent uses moles: 100(0.400)/(0.400+0.800) = 33.333... at.%.",
+        "Self-check: the lighter component contributes more atoms per gram, so its atomic percentage exceeds its mass percentage."
+      ],
+      "answer": "Component 1: 20.0 wt.% and 33.3 at.%.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original hypothetical binary mixture.",
+      "kind": "original"
+    },
+    {
+      "id": "example08",
+      "topic": "composition",
+      "title": "Model: mean lineal intercept",
+      "given": "At the measured image size: LT = 100 mm, P = 50 grain-boundary intersections, effective linear magnification M = 100.",
+      "find": "Mean lineal intercept at specimen scale.",
+      "steps": [
+        "Recognition cue: LT is a length measured on the image, not already at specimen scale.",
+        "Use lbar = LT/(P M).",
+        "Substitute: 100/(50 × 100) = 0.020 mm.",
+        "Convert: 0.020 mm × 1000 micrometers/mm = 20 micrometers.",
+        "Self-check: dividing by magnification makes the real specimen length smaller than the corresponding image length.",
+        "Use the course counting convention for P; the supplied sheet does not specify endpoint rules."
+      ],
+      "answer": "Mean lineal intercept = 0.020 mm = 20 micrometers.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Original measurement model, with explicit symbol definitions.",
+      "kind": "original"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "formula01",
+      "topic": "atoms",
+      "name": "Weighted mean atomic mass",
+      "ascii": "Abar = sum(f_i * A_i); f_i = percent_i / 100; sum(f_i) = 1",
+      "when": "Isotope masses and relative abundances are provided.",
+      "units": "A_i and Abar in u per atom; the corresponding molar mass is numerically expressed in g/mol.",
+      "pitfall": "Use fractions, not whole-number percentages; check the average lies within the isotope-mass range.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "formula02",
+      "topic": "bonds",
+      "name": "Estimated ionic character",
+      "ascii": "percent_IC = 100 * [1 - exp(-0.25 * (chi_A - chi_B)^2)]",
+      "when": "Estimate ionic character from the stated electronegativity values.",
+      "units": "chi values and exponential argument dimensionless; result in percent.",
+      "pitfall": "Square the entire difference. This estimate does not prove metallic bonding when small.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 3; paraphrased notes with original teaching annotations. Interpretation corrected."
+    },
+    {
+      "id": "formula03",
+      "topic": "crystals",
+      "name": "Hard-sphere contact geometry",
+      "ascii": "SC: a=2R; BCC: sqrt(3)*a=4R; FCC: sqrt(2)*a=4R; ideal HCP: a=2R, c/a=sqrt(8/3)",
+      "when": "Convert atomic radius to lattice dimensions for the stated structure.",
+      "units": "a, c, and R must use the same length unit.",
+      "pitfall": "BCC uses a body diagonal; FCC uses a face diagonal. Ideal HCP c/a need not describe every real HCP metal.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations. CamScanner 10-1-26 16.50.pdf, PDF page 6; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation."
+    },
+    {
+      "id": "formula04",
+      "topic": "crystals",
+      "name": "Atomic packing factor",
+      "ascii": "APF = n*(4*pi*R^3/3)/Vc; cubic Vc=a^3; conventional HCP Vc=(3*sqrt(3)/2)*a^2*c",
+      "when": "Find the occupied hard-sphere volume fraction.",
+      "units": "Dimensionless fraction; multiply by 100 for percent occupied volume.",
+      "pitfall": "Use n matching the selected cell: SC 1, BCC 2, FCC 4, conventional HCP prism 6.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 4; paraphrased notes with original teaching annotations. CamScanner 10-1-26 16.50.pdf, PDF page 5; paraphrased notes with original teaching annotations. CamScanner 10-1-26 16.50.pdf, PDF page 6; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "formula05",
+      "topic": "crystals",
+      "name": "Density: bulk and theoretical",
+      "ascii": "rho=m/V; rho=n*A/(NA*Vc)",
+      "when": "Use measured mass/volume, or mass and volume of a consistent crystallographic cell.",
+      "units": "A in g/mol and Vc in cm^3 gives g/cm^3; NA=6.022e23 mol^-1 for these models. 1 nm=1e-7 cm.",
+      "pitfall": "n is atoms per cell, not coordination number. Convert length units before cubing.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 6; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. NA and unit conversion are standard constants used in original models."
+    },
+    {
+      "id": "formula06",
+      "topic": "defects",
+      "name": "Atom count and site-count approximation",
+      "ascii": "N = rho*V*NA/A; N/V = rho*NA/A",
+      "when": "Estimate a specimen atom count, used as the lattice-site count in the dilute-vacancy model.",
+      "units": "rho and V must use matching volume units; A matches the mass unit. N is a count, N/V a count per volume.",
+      "pitfall": "Tutor N=rho*NA/A is a number density unless a unit volume is implicit. Do not omit or double-count V.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation."
+    },
+    {
+      "id": "formula07",
+      "topic": "defects",
+      "name": "Absolute temperature",
+      "ascii": "T_K = T_C + 273.15",
+      "when": "Convert Celsius before using a thermal exponential.",
+      "units": "T_K in kelvin; T_C in degrees Celsius.",
+      "pitfall": "Never substitute Celsius directly in exp(-Qv/(kT)).",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Conversion rule expanded from the printed 0 degrees C = 273.15 K."
+    },
+    {
+      "id": "formula08",
+      "topic": "defects",
+      "name": "Equilibrium vacancy population",
+      "ascii": "Nv/N = exp(-Qv/(k*T)); Nv = N*exp(-Qv/(k*T))",
+      "when": "Estimate equilibrium vacancies for a specified positive vacancy formation energy and temperature.",
+      "units": "T in K; k=8.62e-5 eV/(atom K) for Qv in eV/atom, or k=1.38e-23 J/(atom K) for Qv in J/atom.",
+      "pitfall": "Keep the minus sign; use matching energy units. A fraction is not a count or a percentage.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations. ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation."
+    },
+    {
+      "id": "formula09",
+      "topic": "composition",
+      "name": "Atomic percent from moles or masses",
+      "ascii": "at.%_1 = 100*n1/(n1+n2); n_i=m_i/A_i; wt.%_1=100*m1/(m1+m2)",
+      "when": "Compute binary composition and convert mass inputs to an atomic basis.",
+      "units": "n_i in mol; masses and molar masses compatible; composition in percent.",
+      "pitfall": "The n_i here means moles, not atoms per crystal cell. Atomic percent generally differs from weight percent.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Mole conversion and weight-percent comparison are original derivations."
+    },
+    {
+      "id": "formula10",
+      "topic": "composition",
+      "name": "Mean lineal intercept",
+      "ascii": "lbar = LT/(P*M)",
+      "when": "Estimate mean intercept length using image test lines and counted boundary intersections.",
+      "units": "LT and lbar are lengths; P is a count; M is effective linear magnification.",
+      "pitfall": "The sheet does not define counting conventions. If LT is already specimen-scale, do not divide by M again; recalibrate resized images.",
+      "source": "ENGR 250 Exam 1 Equations.pdf, PDF page 1; original explanation of the supplied equation. Symbol definitions and caution are original teaching annotations."
+    },
+    {
+      "id": "formula11",
+      "topic": "planes",
+      "name": "Plane-index procedure",
+      "ascii": "(h k l) proportional to (1/p, 1/q, 1/r); intercepts=(p*a,q*b,r*c); 1/infinity=0",
+      "when": "Find Miller indices from intercepts of a plane not through the chosen origin.",
+      "units": "p, q, r are dimensionless normalized intercepts; clear fractions to integer indices.",
+      "pitfall": "Do not take the reciprocal of zero. Translate to a parallel plane or shift the origin; retain negative signs.",
+      "source": "CamScanner 10-1-26 16.50.pdf, PDF page 7; paraphrased notes with original teaching annotations."
+    },
+    {
+      "id": "formula12",
+      "topic": "planes",
+      "name": "Direction-index procedure",
+      "ascii": "[u v w] proportional to (delta_x/a, delta_y/b, delta_z/c) for orthogonal crystal axes",
+      "when": "Use endpoint minus start point; for general lattice coordinates use coefficients along the lattice basis, then clear fractions.",
+      "units": "Dimensionless integer ratio in square brackets.",
+      "pitfall": "Do not take reciprocals or confuse direction [u v w] with plane (h k l).",
+      "source": "Fall2026_ENGR250_Syllabus_GRV_OK.pdf, PDF page 3, chapter 3 scope; Wiley publisher table of contents, chapter 3 (alignment only). Original teaching extension, not a quotation or assigned answer."
+    }
+  ],
+  "studyPlan": [
+    "Start with Foundations and Material classes: explain the processing–structure–properties–performance chain aloud, then do a short mixed recall round.",
+    "Learn Atoms and Bonds next. State what is transferred, shared, or delocalized before naming the bond. Never infer metallic bonding from low ionic character alone.",
+    "Make one comparison table from memory: SC / BCC / FCC / HCP. Include atoms per chosen cell, contact geometry, coordination, and APF; then check the cards.",
+    "Practice planes and directions separately. Say “reciprocals for planes, displacement for directions.” Use a minus sign for an overbar in the plain-text answers.",
+    "Work the vacancy example without revealing steps. Write kelvin, the matching k, and whether N is a total count or a count per volume before calculating.",
+    "Finish composition and grain-size examples. Carry units and decide whether the input is mass, moles, or an image length.",
+    "Do a mixed practice round, explain every wrong option, then repeat only missed ideas. Matching is recognition; use flashcard recall and unrevealed calculations to test understanding.",
+    "Final pass: read the corrections in Warnings and the supplied equation sheet. Do not spend this Exam 1 review block on chapter 5 diffusion unless the instructor has explicitly changed the syllabus scope."
+  ],
+  "warnings": [
+    "This is a focused source-based review, not a complete reading of Callister or a prediction of the test. All cards and explanations are paraphrases/original teaching. No textbook assigned answers are reproduced.",
+    "Tutor PDF page 3 appears to call neutrons “electrically charged.” Correction: neutrons have zero net electric charge. Proton identity, not neutron count, defines the element.",
+    "Tutor PDF page 3 suggests ionic character near 1% means metallic bonding. That is not a reliable rule: low electronegativity difference can indicate covalent bonding. The ionic-character formula is not a metallic-bond detector; a 50% cutoff is only a rough predominance heuristic, not a universal classification law.",
+    "Tutor PDF page 6 has an inconsistent intermediate HCP c relation. Use ideal c/a = sqrt(8/3) ≈ 1.633, with a = 2R, hence c = 4sqrt(2/3)R. Its final c = sqrt(8/3)a and APF ≈ 0.74 agree with independent calculation.",
+    "Tutor PDF page 6 says polycrystalline materials are isotropic without qualification. Approximate bulk isotropy requires sufficiently random grain orientations; texture can produce anisotropy. Density rankings across material classes are typical trends, not universal inequalities.",
+    "Tutor PDF page 7 writes N = rho NA/A: that is a number per unit volume when rho is mass per volume. For the total number in a specimen use N = rho V NA/A, as on the supplied equation sheet.",
+    "Tutor PDF page 7 labels interfacial defects “grain”; the interface is a grain boundary, not the whole grain. Qv in the vacancy expression is the vacancy formation energy, not a diffusion migration energy.",
+    "No standalone numerical tutor problem statements were present in the 7-page packet. Tutor-adapted packing work checks its symbolic derivations; all new numerical scenarios are explicitly original practice.",
+    "The equation sheet prints lbar = LT/(P M) without defining LT, P, or the counting convention. Here LT is total image test-line length, P the counted grain-boundary intersections under the course convention, and M the effective linear magnification. Do not assume a resized on-screen image still has its printed magnification.",
+    "The scans have faint show-through and small cropped fragments. Unclear fragments were not used as source content. No raw source PDFs have been published by this data task."
+  ]
+}

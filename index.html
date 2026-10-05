@@ -781,6 +781,8 @@
 <link rel="stylesheet" href="exam1.css">
 <script src="law.js"></script>
 <link rel="stylesheet" href="law.css">
+<script src="engr250.js"></script>
+<link rel="stylesheet" href="engr250.css">
 <script>
 /* ================== ROUTER + STATE ================== */
 const $ = (sel) => document.querySelector(sel);
@@ -792,7 +794,7 @@ const STUDENTS = {
     major: "Mechanical Engineering",
     classes: [
       { code: "ANTH-101",  name: "Introduction to Anthropology",      meta: "Section 001 · Fall 2026", progress: 12, count: "12 notes",  hasHub: false },
-      { code: "ENGR-250",  name: "Principles of Engineering Materials", meta: "Section 001 · Fall 2026", progress: 28, count: "8 notes",   hasHub: false },
+      { code: "ENGR-250",  name: "Principles of Engineering Materials", meta: "Section 001 · Fall 2026", progress: 28, count: "Exam 1 · Modules 1–4", hasHub: false, engrReview: true },
       { code: "ENGR-250R", name: "Prin of Eng Materials Recitation",  meta: "Section 003 · Fall 2026", progress: 14, count: "3 notes",   hasHub: false },
       { code: "MATH-215",  name: "Calculus III",                       meta: "Section 001 · Fall 2026", progress: 41, count: "16 notes",  hasHub: false },
       { code: "PHYS-150",  name: "General Physics I",                  meta: "Section 003 · Fall 2026", progress: 8,  count: "27 verified items · Ch 2/3/5", hasHub: true },
@@ -839,6 +841,7 @@ function render(path) {
   const [pathOnly, qs] = path.split('?');
   const params = new URLSearchParams(qs || '');
   LawRoom.cleanup();
+  Engr250.cleanup();
   document.body.classList.remove('dashboard-active', 'calc-active', 'exam-active', 'law-active');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
   if (pathOnly === '/' || pathOnly === '') return viewHome();
@@ -946,6 +949,11 @@ function viewClass(who, code, mode) {
   const s = STUDENTS[who]; if (!s) { root.innerHTML = notFound(); return; }
   const c = s.classes.find(x => x.code === code); if (!c) { root.innerHTML = notFound(); return; }
   Dashboard.recordVisit(who, code, mode);
+
+  if (c.engrReview) {
+    updateCrumbs(`/u/${who}/${code}`);
+    return Engr250.render(root, who, mode);
+  }
 
   if (c.lawReview) {
     updateCrumbs(`/u/${who}/${code}`);
@@ -1552,7 +1560,7 @@ document.addEventListener('click', (e) => {
 let mode = ''; // tracked just so search-input can re-show home when cleared
 document.addEventListener('keydown', (e) => {
   // The classroom owns its controls; legacy global shortcuts must not eat notes.
-  if (document.body.classList.contains('calc-active')) return;
+  if (document.body.classList.contains('calc-active') || document.querySelector('#engrRoom')) return;
   if (document.body.classList.contains('dashboard-active')) {
     Dashboard.handleKeydown(e);
     return;

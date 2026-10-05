@@ -72,7 +72,7 @@ test('dashboard search filters courses, clears, and preserves user routes', asyn
   await search.press('Escape');
   await expect(page.locator('.dash-course')).toHaveCount(6);
   await page.getByRole('link', { name: 'Games', exact: true }).click();
-  await expect(page.getByText('Study games are not available yet.', { exact: false })).toBeVisible();
+  await expect(page.locator('.dash-course[data-course-code="ENGR-250"]')).toHaveAttribute('href', '#/u/dylan/ENGR-250/games');
 });
 
 test('mobile sidebar opens and closes without horizontal overflow', async ({ page }) => {

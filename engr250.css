@@ -1,0 +1,54 @@
+/* Scoped additions to the approved neutral/navy/maize exam shell. */
+#engrRoom { overflow-wrap:anywhere; }
+#engrRoom h1,#engrRoom h2 { scroll-margin-top:100px; }
+#engrRoom .engr-scope { border-left:3px solid #b78916; padding:10px 18px; margin:10px 0 24px; font-size:14px; }
+#engrRoom .engr-scope p { margin:5px 0; }
+#engrRoom .engr-topic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+#engrRoom .engr-filter { display:flex; flex-direction:column; gap:8px; margin:12px 0 20px; max-width:650px; }
+#engrRoom .engr-filter select { width:100%; }
+#engrRoom #engrQuestion { font-size:1.3em; line-height:1.6; letter-spacing:0; font-weight:650; margin:18px 0; }
+#engrRoom #engrCardQuestion { font-size:1.5em; line-height:1.5; }
+#engrRoom .engr-answer { border-left:3px solid #bb9018; padding-left:16px; font-size:1.15em; }
+#engrRoom .engr-choices { border:0; padding:0; min-width:0; }
+#engrRoom .engr-choices legend { font-size:.85em; color:var(--ex-muted); margin-bottom:12px; }
+#engrRoom .engr-choices label { display:flex; gap:12px; align-items:flex-start; padding:14px; border:1px solid var(--ex-border); background:var(--ex-raised); border-radius:10px; margin:10px 0; cursor:pointer; }
+#engrRoom .engr-choices input { width:20px; height:20px; flex:0 0 20px; margin-top:4px; accent-color:#b28100; }
+#engrRoom .engr-formula { font-family:ui-monospace,monospace; font-size:1.1em; padding:16px; background:var(--ex-raised); white-space:pre-wrap; }
+#engrRoom[data-size="large"] #engrContent { font-size:19px; }
+#engrRoom[data-size="largest"] #engrContent { font-size:22px; }
+#engrRoom[data-size] #engrContent .ex-card h2 { font-size:1.25em; }
+#engrRoom.engr-spaced #engrContent { line-height:1.9; }
+#engrRoom.engr-spaced li { margin-bottom:14px; }
+#engrRoom .engr-match-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:1fr; gap:10px; }
+#engrRoom .engr-tile { font:inherit; font-size:.85em; line-height:1.5; min-width:0; min-height:155px; background:var(--ex-card); border:2px solid var(--ex-border); border-radius:12px; padding:12px; color:var(--ex-ink); overflow-wrap:anywhere; cursor:pointer; touch-action:manipulation; }
+#engrRoom .engr-tile[aria-pressed="true"] { border-color:#a87900; box-shadow:inset 0 0 0 2px #a87900; }
+#engrRoom .engr-tile:disabled { opacity:.3; cursor:default; border-style:dashed; }
+#engrRoom .engr-match-bar { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+#engrClock { font-size:1.8em; font-variant-numeric:tabular-nums; }
+#engrRoom svg { width:100%; max-width:520px; display:block; margin:12px auto; }
+#engrRoom svg text { fill:var(--ex-ink); font:12px Arial,sans-serif; }
+#engrRoom .engr-edges { stroke:var(--ex-muted); stroke-width:2; fill:none; }
+#engrRoom .engr-atom { fill:#63849e; stroke:var(--ex-ink); stroke-width:1.5; }
+#engrRoom .engr-atom.body { fill:#ffcb05; }
+#engrRoom .engr-atom.face { fill:#65bca0; }
+#engrRoom .engr-curve { fill:none; stroke:#bd8b08; stroke-width:3; }
+#engrRoom #engrDensity,#engrRoom #engrVacancy { display:block; background:var(--ex-raised); border-radius:10px; padding:16px; }
+#engrRoom .ex-fields { grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); }
+@media(max-width:720px) {
+ #engrRoom .engr-topic-grid { grid-template-columns:1fr; }
+ #engrRoom .engr-match-grid { gap:5px; }
+ #engrRoom .engr-tile { padding:7px 4px; font-size:.75em; min-height:150px; border-radius:8px; }
+ #engrRoom .ex-card { padding:18px; }
+ #engrRoom .ex-sidebar { position:static; }
+ #engrRoom .ex-sidebar nav { display:flex; flex-wrap:wrap; gap:4px; }
+ #engrRoom .ex-nav { padding:8px 10px; font-size:14px; }
+ #engrRoom .ex-sidebar h2,#engrRoom .ex-sidebar>p { display:none; }
+}
+@media print {
+ body.exam-active:has(#engrRoom) .topbar, #engrRoom .ex-sidebar,#engrRoom .ex-top,#engrRoom .ex-preferences,#engrRoom .engr-scope,#engrRoom button,#engrRoom .ex-footer { display:none!important; }
+ #engrRoom { display:block!important; margin:0!important; color:#111!important; --ex-ink:#111; --ex-card:#fff; --ex-raised:#fff; --ex-muted:#333; --ex-border:#aaa; }
+ #engrRoom .ex-main,#engrRoom .ex-card,#engrRoom .engr-formula { color:#111!important; background:#fff!important; }
+ #engrRoom .ex-card { break-inside:avoid; padding:12px; margin:10px 0; }
+ #engrRoom .ex-hero { padding:0; }
+ #engrRoom .ex-hero h1 { font-size:26px; }
+}
