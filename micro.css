@@ -1,0 +1,39 @@
+/* Scoped to the source-based microeconomics room; existing rooms unchanged. */
+#microRoom { overflow-wrap:anywhere; }
+#microRoom .micro-scope { padding:16px 18px; margin:6px 0 18px; border-left:4px solid #b98b16; border-radius:0 10px 10px 0; background:var(--ex-raised); font-size:13px; line-height:1.6; }
+#microRoom .micro-scope p { margin:8px 0 0; }
+#microRoom .micro-answer { white-space:pre-line; line-height:1.7; text-align:left; }
+#microRoom .micro-note { margin:16px 0; padding:14px; border-left:3px solid #b98b16; background:var(--ex-raised); font-size:.92em; text-align:left; }
+#microRoom #microQuestion { font-size:1.35em; line-height:1.55; scroll-margin-top:100px; text-align:left; }
+#microRoom textarea { display:block; width:100%; resize:vertical; font:inherit; line-height:1.6; padding:12px; margin:12px 0; background:var(--ex-card); color:var(--ex-ink); border:1px solid var(--ex-border); border-radius:10px; }
+#microRoom .micro-filter { display:flex; flex-direction:column; gap:8px; margin:20px 0; font-weight:700; }
+#microRoom .micro-filter select { width:100%; }
+#microRoom .micro-match-bar { display:flex; align-items:center; flex-wrap:wrap; gap:14px; }
+#microRoom #microClock { font-size:1.7em; font-variant-numeric:tabular-nums; }
+#microRoom #microMatchStatus { margin:16px 0; min-height:3em; }
+#microRoom .micro-match-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; align-items:stretch; }
+#microRoom .micro-tile { font:inherit; font-size:.85em; line-height:1.5; padding:12px; min-width:0; min-height:150px; background:var(--ex-card); color:var(--ex-ink); border:2px solid var(--ex-border); border-radius:12px; overflow-wrap:anywhere; white-space:pre-line; }
+#microRoom .micro-tile[aria-pressed="true"] { border-color:#bd8d13; box-shadow:inset 0 0 0 2px #bd8d13; }
+#microRoom .micro-tile:disabled { opacity:.4; text-decoration:line-through; }
+#microRoom .micro-rule { border-top:1px solid var(--ex-border); margin-top:20px; padding-top:20px; }
+#microRoom .micro-rule h3 { line-height:1.5; }
+#microRoom[data-size="large"] #microContent { font-size:19px; }
+#microRoom[data-size="largest"] #microContent { font-size:22px; }
+#microRoom.ex-focus #microContent { line-height:1.8; }
+#microRoom.ex-focus .ex-flash { text-align:left; }
+#microRoom .ex-button { max-width:100%; }
+@media(max-width:600px) {
+ #microRoom .micro-match-grid { gap:4px; }
+ #microRoom .micro-tile { padding:5px; font-size:12px; border-radius:6px; }
+ #microRoom[data-size="largest"] .micro-tile { font-size:15px; }
+ #microRoom .ex-hero h1 { font-size:32px; }
+}
+@media print {
+ body.micro-active #microRoom,body.micro-active #microContent { color:#000!important; background:#fff!important; }
+ body.micro-active #microRoom .ex-sidebar,body.micro-active #microRoom .ex-preferences,body.micro-active #microRoom .ex-button,body.micro-active #microRoom .micro-filter { display:none!important; }
+ body.micro-active #microRoom .ex-footer { display:block!important; color:#000!important; }
+ body.micro-active #microRoom .ex-card { break-inside:auto; }
+ body.micro-active #microRoom .micro-rule { break-inside:avoid; }
+ body.micro-active #microRoom .micro-scope,body.micro-active #microRoom .micro-note { background:#fff!important; color:#000!important; }
+ body.micro-active #microContent { font-size:11px!important; line-height:1.4!important; }
+}

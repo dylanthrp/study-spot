@@ -1,0 +1,1062 @@
+{
+  "source_file": "Study guide 1 micro (1) (1).docx",
+  "title": "Microeconomics · Study guide 1",
+  "scope_note": "Organized from the supplied guide’s actual sections: chapters 1, 3, 5, 7, 9, 10 and 11. Its opening line says Macroeconomics and lists a different chapter range; no missing chapter content has been invented. Answers retain the supplied wording; separate study clarifications are explanatory annotations, not an official answer key. Embedded Word equations are transcribed into plain-text fractions and subscripts.",
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1 · Foundations and choices",
+      "items": [
+        {
+          "id": "micro1p4",
+          "question": "What is scarcity in economics?",
+          "answer": "Scarcity means limited resources in comparison to unlimited human wants. It forces individuals and societies to make choices about how to allocate resources.",
+          "paragraphs": [
+            4,
+            5
+          ],
+          "match": {
+            "term": "Scarcity",
+            "definition": "Limited resources cannot satisfy all wants."
+          }
+        },
+        {
+          "id": "micro1p6",
+          "question": "What is opportunity cost?",
+          "answer": "Opportunity cost is the value of the next best alternative foregone when a choice is made. It highlights the trade-offs in decision-making.",
+          "paragraphs": [
+            6,
+            7
+          ],
+          "match": {
+            "term": "Opportunity cost",
+            "definition": "The value of the next-best alternative forgone."
+          }
+        },
+        {
+          "id": "micro1p8",
+          "question": "What is marginal decision-making?",
+          "answer": "Marginal decision-making involves comparing the additional benefits and costs of a decision. People make choices based on whether the marginal benefit exceeds the marginal cost.",
+          "paragraphs": [
+            8,
+            9
+          ],
+          "match": {
+            "term": "Marginal decisions",
+            "definition": "Compare the extra benefit with the extra cost."
+          }
+        },
+        {
+          "id": "micro1p10",
+          "question": "What does the Production Possibilities Frontier (PPF) show?",
+          "answer": "The PPF illustrates the maximum output combinations of two goods that an economy can produce given its resources and technology. It highlights trade-offs and opportunity costs.",
+          "paragraphs": [
+            10,
+            11
+          ],
+          "match": {
+            "term": "Production possibilities frontier",
+            "definition": "Maximum output combinations with existing resources and technology."
+          }
+        },
+        {
+          "id": "micro1p12",
+          "question": "What causes the PPF to shift outward?",
+          "answer": "Economic growth, such as improved technology or an increase in resources, shifts the PPF outward. This reflects an increased production capacity.",
+          "paragraphs": [
+            12,
+            13
+          ]
+        },
+        {
+          "id": "micro1p15",
+          "question": "What is neoclassical economics?",
+          "answer": "Neoclassical economics emphasizes rational decision-making, marginal analysis, and market equilibrium. It assumes individuals maximize utility and firms maximize profit.",
+          "paragraphs": [
+            15,
+            16
+          ]
+        },
+        {
+          "id": "micro1p17",
+          "question": "What is behavioral economics?",
+          "answer": "Behavioral economics incorporates psychology into economic decision-making. It shows that people often act irrationally due to biases and cognitive limitations.",
+          "paragraphs": [
+            17,
+            18
+          ],
+          "match": {
+            "term": "Behavioral economics",
+            "definition": "Studies how psychology and biases affect economic choices."
+          }
+        },
+        {
+          "id": "micro1p19",
+          "question": "How do economic systems vary across countries?",
+          "answer": "Countries exist on a spectrum from free markets to command economies. Most modern economies are mixed, combining elements of both systems.",
+          "paragraphs": [
+            19,
+            20
+          ]
+        },
+        {
+          "id": "micro1p21",
+          "question": "What is a mixed economy?",
+          "answer": "A mixed economy blends private enterprise with government regulation. It seeks to balance efficiency with equity and stability.",
+          "paragraphs": [
+            21,
+            22
+          ],
+          "match": {
+            "term": "Mixed economy",
+            "definition": "Combines market allocation with government involvement."
+          }
+        },
+        {
+          "id": "micro1p23",
+          "question": "How does a market economy allocate resources?",
+          "answer": "In a market economy, resources are allocated through voluntary exchange based on prices and incentives. Decisions are driven by supply and demand.",
+          "paragraphs": [
+            23,
+            24
+          ]
+        },
+        {
+          "id": "micro1p25",
+          "question": "How does a command economy allocate resources?",
+          "answer": "In a command economy, the government makes all economic decisions. Production and distribution are planned centrally.",
+          "paragraphs": [
+            25,
+            26
+          ]
+        },
+        {
+          "id": "micro1p27",
+          "question": "Why do economists use models?",
+          "answer": "Models simplify complex real-world situations to analyze economic behavior. They help predict outcomes and test theories.",
+          "paragraphs": [
+            27,
+            28
+          ]
+        },
+        {
+          "id": "micro1p29",
+          "question": "What is utility in economics?",
+          "answer": "Utility measures satisfaction or happiness from consuming goods and services. Consumers aim to maximize total utility.",
+          "paragraphs": [
+            29,
+            30
+          ]
+        },
+        {
+          "id": "micro1p31",
+          "question": "What is diminishing marginal utility?",
+          "answer": "Diminishing marginal utility means each additional unit of a good provides less additional satisfaction. This underlies the downward-sloping demand curve.",
+          "paragraphs": [
+            31,
+            32
+          ],
+          "note": "Study clarification: diminishing marginal utility helps explain consumer choices; income and substitution effects also matter for demand."
+        },
+        {
+          "id": "micro1p33",
+          "question": "How do marginal utility and marginal cost guide individual decision-making?",
+          "answer": "Individuals compare the marginal utility gained from one more unit of a good to its marginal cost. A rational decision is to consume the next unit only if marginal utility is at least as large as marginal cost.",
+          "paragraphs": [
+            33,
+            33
+          ],
+          "note": "Study clarification: compare marginal benefit and marginal cost in the same units, such as willingness to pay in dollars versus dollar cost. Raw utility units cannot be compared directly with dollars."
+        },
+        {
+          "id": "micro1p34",
+          "question": "How does this framework apply to real-world choices like subscription services?",
+          "answer": "When choosing between subscriptions, each additional service provides extra utility but also adds an extra cost. Consumers should keep adding subscriptions until the marginal utility of the next service is lower than the marginal cost, at which point they stop.",
+          "paragraphs": [
+            34,
+            34
+          ],
+          "note": "Study clarification: compare the extra willingness to pay with the extra subscription price; utility and dollar cost need a common unit."
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3 · Supply, demand and markets",
+      "items": [
+        {
+          "id": "micro3p38",
+          "question": "What is the law of demand?",
+          "answer": "The law of demand states that, all else equal, as the price of a good falls, the quantity demanded rises. It reflects an inverse relationship between price and demand.",
+          "paragraphs": [
+            38,
+            39
+          ],
+          "note": "Terminology: own-price changes affect quantity demanded (movement along the demand curve), not demand (a shift of the curve).",
+          "match": {
+            "term": "Law of demand",
+            "definition": "Other things equal, a higher own price lowers quantity demanded."
+          }
+        },
+        {
+          "id": "micro3p40",
+          "question": "What factors cause a shift in demand?",
+          "answer": "Changes in income, tastes, expectations, the prices of related goods, and the number of buyers shift demand. These shifts occur independently of the good’s own price.",
+          "paragraphs": [
+            40,
+            41
+          ]
+        },
+        {
+          "id": "micro3p42",
+          "question": "What is the law of supply?",
+          "answer": "The law of supply states that, all else equal, as the price of a good rises, the quantity supplied increases. Producers are willing to supply more at higher prices.",
+          "paragraphs": [
+            42,
+            43
+          ],
+          "match": {
+            "term": "Law of supply",
+            "definition": "Other things equal, a higher own price raises quantity supplied."
+          }
+        },
+        {
+          "id": "micro3p44",
+          "question": "What factors cause a shift in supply?",
+          "answer": "Changes in input costs, technology, taxes/subsidies, expectations, and number of sellers shift supply. These shifts are not caused by the good’s price.",
+          "paragraphs": [
+            44,
+            45
+          ]
+        },
+        {
+          "id": "micro3p46",
+          "question": "What is the equilibrium price?",
+          "answer": "The equilibrium price is where quantity demanded equals quantity supplied. It represents the market-clearing price.",
+          "paragraphs": [
+            46,
+            47
+          ],
+          "match": {
+            "term": "Equilibrium price",
+            "definition": "The price at which quantity demanded equals quantity supplied."
+          }
+        },
+        {
+          "id": "micro3p48",
+          "question": "What happens when there is a surplus in the market?",
+          "answer": "A surplus occurs when supply exceeds demand at a given price. Prices tend to fall to restore equilibrium.",
+          "paragraphs": [
+            48,
+            49
+          ],
+          "note": "Terminology: a surplus means quantity supplied exceeds quantity demanded at the current price, not that the supply curve exceeds the demand curve.",
+          "match": {
+            "term": "Market surplus",
+            "definition": "Quantity supplied exceeds quantity demanded at the current price."
+          }
+        },
+        {
+          "id": "micro3p50",
+          "question": "What happens when there is a shortage in the market?",
+          "answer": "A shortage occurs when demand exceeds supply at a given price. Prices tend to rise, encouraging more supply and reducing demand.",
+          "paragraphs": [
+            50,
+            51
+          ],
+          "note": "Terminology: a shortage means quantity demanded exceeds quantity supplied at the current price. Rising own price increases quantity supplied and decreases quantity demanded along existing curves; it does not itself shift either curve.",
+          "match": {
+            "term": "Market shortage",
+            "definition": "Quantity demanded exceeds quantity supplied at the current price."
+          }
+        },
+        {
+          "id": "micro3p52",
+          "question": "What is the invisible hand?",
+          "answer": "The invisible hand is Adam Smith's concept that individuals pursuing their self-interest unintentionally benefit society. It explains how free markets allocate resources efficiently.",
+          "paragraphs": [
+            52,
+            53
+          ],
+          "note": "Qualification: self-interest does not guarantee efficiency when externalities, market power or other market failures are present."
+        },
+        {
+          "id": "micro3p54",
+          "question": "How does income affect demand?",
+          "answer": "As income increases, demand for normal goods rises and demand for inferior goods may fall. It shifts the demand curve rightward or leftward.",
+          "paragraphs": [
+            54,
+            55
+          ]
+        },
+        {
+          "id": "micro3p56",
+          "question": "How do substitutes affect demand?",
+          "answer": "An increase in the price of a substitute good increases demand for the original good. Consumers switch to the relatively cheaper option.",
+          "paragraphs": [
+            56,
+            57
+          ]
+        },
+        {
+          "id": "micro3p58",
+          "question": "How do complements affect demand?",
+          "answer": "An increase in the price of a complementary good reduces demand for the original good. The goods are consumed together.",
+          "paragraphs": [
+            58,
+            59
+          ]
+        },
+        {
+          "id": "micro3p60",
+          "question": "What is price elasticity of demand?",
+          "answer": "Price elasticity of demand measures how much quantity demanded changes with price. If demand is elastic, quantity changes a lot with price changes.",
+          "paragraphs": [
+            60,
+            61
+          ],
+          "note": "Precision note: price elasticity is percentage change in quantity divided by percentage change in price. Demand classification compares the absolute ratio with 1; more or less refers to percentage changes, not units versus dollars."
+        },
+        {
+          "id": "micro3p62",
+          "question": "What is inelastic demand?",
+          "answer": "Inelastic demand means quantity demanded changes little when price changes. Necessities often have inelastic demand.",
+          "paragraphs": [
+            62,
+            63
+          ],
+          "note": "Precision note: price elasticity is percentage change in quantity divided by percentage change in price. Demand classification compares the absolute ratio with 1; more or less refers to percentage changes, not units versus dollars."
+        },
+        {
+          "id": "micro3p64",
+          "question": "What is total revenue?",
+          "answer": "Total revenue is price times quantity sold. It's influenced by the price elasticity of demand.",
+          "paragraphs": [
+            64,
+            65
+          ],
+          "match": {
+            "term": "Total revenue",
+            "definition": "Price multiplied by quantity sold."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5 · Elasticity",
+      "items": [
+        {
+          "id": "micro5p68",
+          "question": "What is inelastic demand?",
+          "answer": "Demand is inelastic when the absolute value of price elasticity is less than 1, meaning quantity demanded changes less than price. For example, if price increases by 10% and quantity demanded decreases by 5%, demand is inelastic.",
+          "paragraphs": [
+            68,
+            69
+          ],
+          "note": "Precision note: price elasticity is percentage change in quantity divided by percentage change in price. Demand classification compares the absolute ratio with 1; more or less refers to percentage changes, not units versus dollars.",
+          "match": {
+            "term": "Inelastic demand",
+            "definition": "Absolute price elasticity is less than 1."
+          }
+        },
+        {
+          "id": "micro5p70",
+          "question": "What characterizes elastic demand?",
+          "answer": "Elastic demand occurs when the absolute value of price elasticity is greater than 1, indicating quantity demanded changes more than price. If price decreases by 10% and quantity demanded increases by 20%, demand is elastic.",
+          "paragraphs": [
+            70,
+            71
+          ],
+          "note": "Precision note: price elasticity is percentage change in quantity divided by percentage change in price. Demand classification compares the absolute ratio with 1; more or less refers to percentage changes, not units versus dollars.",
+          "match": {
+            "term": "Elastic demand",
+            "definition": "Absolute price elasticity is greater than 1."
+          }
+        },
+        {
+          "id": "micro5p72",
+          "question": "What does unitary elasticity mean?",
+          "answer": "Unitary elasticity exists when the price elasticity of demand equals 1, meaning quantity demanded changes proportionately with price. A 10% increase in price results in a 10% decrease in quantity demanded.",
+          "paragraphs": [
+            72,
+            73
+          ],
+          "note": "Precision note: unit-elastic demand has absolute elasticity 1 (signed elasticity -1). A literal 10% price increase and 10% quantity decrease from initial values changes revenue to 1.10 × 0.90 = 0.99 of its original level. Those same endpoints have midpoint elasticity -21/19, not -1. Equal midpoint percentage changes imply unchanged endpoint revenue; constant revenue throughout an interval requires unit elasticity throughout that interval.",
+          "match": {
+            "term": "Unit-elastic demand",
+            "definition": "Absolute price elasticity is exactly 1."
+          }
+        },
+        {
+          "id": "micro5p74",
+          "question": "How does elasticity affect total revenue?",
+          "answer": "If demand is elastic, a price decrease will increase total revenue, whereas if demand is inelastic, a price increase will increase total revenue. With unitary elasticity, revenue remains unchanged with price changes.",
+          "paragraphs": [
+            74,
+            75
+          ],
+          "note": "Precision note: classifications use absolute demand elasticity. For a finite two-point comparison, use midpoint percentages consistently: absolute arc elasticity 1 corresponds to equal endpoint revenues. Local unit elasticity alone does not guarantee unchanged revenue for every finite price change."
+        },
+        {
+          "id": "micro5p76",
+          "question": "What is the elasticity of a vertical demand curve?",
+          "answer": "A vertical demand curve represents perfectly inelastic demand, with elasticity equal to 0. Quantity demanded remains constant regardless of price",
+          "paragraphs": [
+            76,
+            77
+          ],
+          "match": {
+            "term": "Perfectly inelastic demand",
+            "definition": "A vertical demand curve; price elasticity is zero."
+          }
+        },
+        {
+          "id": "micro5p78",
+          "question": "Why is elasticity important for policymakers?",
+          "answer": "Policymakers use elasticity to predict how changes in taxes or subsidies will affect consumption. Understanding elasticity helps in designing policies that achieve desired economic outcomes.",
+          "paragraphs": [
+            78,
+            79
+          ]
+        },
+        {
+          "id": "micro5p80",
+          "question": "What factors influence the elasticity of demand?",
+          "answer": "Elasticity is influenced by availability of substitutes, necessity versus luxury, time horizon, and proportion of income spent on the good. Goods with more substitutes or that are luxuries tend to be more elastic.",
+          "paragraphs": [
+            80,
+            81
+          ]
+        },
+        {
+          "id": "micro5p82",
+          "question": "What is the elasticity of supply",
+          "answer": "Price elasticity of supply measures the response of quantity supplied to a change in price.",
+          "paragraphs": [
+            82,
+            83
+          ],
+          "note": "Precision note: price elasticity is percentage change in quantity divided by percentage change in price. Demand classification compares the absolute ratio with 1; more or less refers to percentage changes, not units versus dollars."
+        },
+        {
+          "id": "micro5p84",
+          "question": "How does elasticity relate to tax incidence?",
+          "answer": "Elasticity affects tax incidence; if demand is more elastic than supply, producers bear more of the tax burden. Conversely, if supply is more elastic, consumers bear more of the tax burden.",
+          "paragraphs": [
+            84,
+            85
+          ],
+          "match": {
+            "term": "Tax burden",
+            "definition": "Falls more heavily on the less elastic side of the market."
+          }
+        },
+        {
+          "id": "micro5p86",
+          "question": "What determines the price elasticity of supply?",
+          "answer": "Price elasticity of supply is determined by factors such as production flexibility, availability of inputs, and time. Supply tends  to be more elastic if producers can easily increase production.",
+          "paragraphs": [
+            86,
+            87
+          ]
+        },
+        {
+          "id": "micro5p88",
+          "question": "How does necessity versus luxury affect elasticity?",
+          "answer": "Necessities usually have inelastic demand because consumers continue buying despite price increases, while luxuries have more elastic demand. For example, insulin is inelastic, while designer bags are elastic.",
+          "paragraphs": [
+            88,
+            89
+          ]
+        },
+        {
+          "id": "micro5p90",
+          "question": "What is perfectly elastic demand?",
+          "answer": "Perfectly elastic demand exists when any price increase results in zero quantity demanded. The demand curve is horizontal, indicating infinite elasticity.",
+          "paragraphs": [
+            90,
+            91
+          ],
+          "match": {
+            "term": "Perfectly elastic demand",
+            "definition": "A horizontal demand curve; price elasticity is infinite."
+          }
+        },
+        {
+          "id": "micro5p92",
+          "question": "Give an example of a good with elastic demand.",
+          "answer": "Electronics, such as smartphones, often have elastic demand; a small price drop can lead to a large increase in quantity demanded. Consumers can delay purchases or choose substitutes easily.",
+          "paragraphs": [
+            92,
+            93
+          ]
+        },
+        {
+          "id": "micro5p94",
+          "question": "How would you describe a product with a high income elasticity of demand?",
+          "answer": "A product with high income elasticity is typically a luxury, where quantity demanded increases significantly with rising incomes. Fine dining and vacations usually have high-income elasticity.",
+          "paragraphs": [
+            94,
+            95
+          ],
+          "note": "Qualification: a luxury has income elasticity greater than 1; merely positive income elasticity means a normal good."
+        },
+        {
+          "id": "micro5p96",
+          "question": "What is an example of a good with inelastic supply?",
+          "answer": "Agricultural products often have inelastic supply in the short term due to growing cycles. Farmers cannot quickly increase output in response to price changes.",
+          "paragraphs": [
+            96,
+            97
+          ]
+        },
+        {
+          "id": "micro5p98",
+          "question": "Why might elasticity differ in the short run versus the long run?",
+          "answer": "Elasticity can differ due to adjustment time for consumers and producers. In the long run, consumers find alternatives, and producers adjust production, often making demand and supply more elastic.",
+          "paragraphs": [
+            98,
+            99
+          ]
+        },
+        {
+          "id": "micro5p101",
+          "question": "The price of a product rises from $10 to $14, and quantity demanded falls from 100 units to 80 units. Calculate the price elasticity of demand using the midpoint formula.",
+          "answer": "Price increases from $10 to $14.\nQuantity demanded falls from 100 units to 80 units.\nChange in quantity = 80 − 100 = −20\nAverage quantity = (100 + 80) / 2 = 90\nChange in price = 14 − 10 = 4\nAverage price = (10 + 14) / 2 = 12\nElasticity = (−20 / 90) ÷ (4 / 12)\nElasticity = −0.22 ÷ 0.33 ≈ −0.67",
+          "paragraphs": [
+            101,
+            105
+          ]
+        },
+        {
+          "id": "micro5p107",
+          "question": "If Demand for a good is given by Q_d=-2P+100. Calculate the price elasticity of demand when price increases from P_1=20 to P_2=30.",
+          "answer": "At P_1=20, Q_1=-2(20)+100=60; at P_2=30, Q_2=-2(30)+100=40.\nUsing the midpoint formula:\nE_d=((40-60)/((40+60)/(2)))/((30-20)/((30+20)/(2)))=(-20/50)/(10/25)=(-0.4)/(0.4)=-1",
+          "paragraphs": [
+            107,
+            109
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch7",
+      "title": "Chapter 7 · Surplus and efficiency",
+      "items": [
+        {
+          "id": "micro7p111",
+          "question": "How are buyers’ willingness to pay, consumer surplus, and the demand curve related?",
+          "answer": "Buyers’ willingness to pay is the maximum price they are willing to pay for a good. Consumer surplus is the difference between willingness to pay and the market price, and the demand curve reflects willingness to pay at each quantity.",
+          "paragraphs": [
+            111,
+            111
+          ]
+        },
+        {
+          "id": "micro7p112",
+          "question": "How are sellers’ costs, producer surplus, and the supply curve related?",
+          "answer": "Sellers’ costs represent the minimum price at which they are willing to sell a good. Producer surplus is the difference between the market price and cost, and the supply curve reflects sellers’ costs.",
+          "paragraphs": [
+            112,
+            112
+          ],
+          "note": "Clarification: the competitive supply curve reflects marginal opportunity cost. In the standard short-run firm model, producer surplus is revenue minus variable cost; profit also subtracts fixed cost."
+        },
+        {
+          "id": "micro7p113",
+          "question": "What is consumer surplus on a supply-and-demand graph?",
+          "answer": "Consumer surplus is the area above the market price and below the demand curve. It measures the benefit buyers receive from participating in the market.",
+          "paragraphs": [
+            113,
+            113
+          ],
+          "match": {
+            "term": "Consumer surplus on a graph",
+            "definition": "Area below demand and above the price, over units bought."
+          }
+        },
+        {
+          "id": "micro7p114",
+          "question": "What is producer surplus on a supply-and-demand graph?",
+          "answer": "Producer surplus is the area below the market price and above the supply curve. It measures the benefit sellers receive from selling in the market.",
+          "paragraphs": [
+            114,
+            114
+          ],
+          "note": "Clarification: the competitive supply curve reflects marginal opportunity cost. In the standard short-run firm model, producer surplus is revenue minus variable cost; profit also subtracts fixed cost.",
+          "match": {
+            "term": "Producer surplus on a graph",
+            "definition": "Area above supply and below the price, over units sold."
+          }
+        },
+        {
+          "id": "micro7p115",
+          "question": "How are total surplus and market equilibrium related?",
+          "answer": "Total surplus is the sum of consumer surplus and producer surplus. At the market equilibrium, total surplus is maximized.",
+          "paragraphs": [
+            115,
+            115
+          ],
+          "note": "Qualification: the surplus-maximizing result assumes competitive markets without externalities or other relevant market failures."
+        },
+        {
+          "id": "micro7p116",
+          "question": "What does efficiency mean in economics?",
+          "answer": "Efficiency means that goods are allocated to buyers who value them most highly and produced by sellers with the lowest costs. An efficient outcome maximizes total surplus.",
+          "paragraphs": [
+            116,
+            116
+          ],
+          "match": {
+            "term": "Economic efficiency",
+            "definition": "Allocation that maximizes total surplus."
+          }
+        },
+        {
+          "id": "micro7p117",
+          "question": "Is efficiency the only goal of economic policymakers?",
+          "answer": "No, policymakers also care about equity, fairness, and distributional outcomes. Sometimes policies trade off efficiency to achieve other social goals.",
+          "paragraphs": [
+            117,
+            117
+          ],
+          "match": {
+            "term": "Equity concern",
+            "definition": "How fairly economic benefits are distributed."
+          }
+        },
+        {
+          "id": "micro7p118",
+          "question": "What is a market failure?",
+          "answer": "A market failure occurs when the market outcome is not efficient. In these cases, total surplus is not maximized.",
+          "paragraphs": [
+            118,
+            118
+          ],
+          "match": {
+            "term": "Market failure",
+            "definition": "An unregulated market does not allocate resources efficiently."
+          }
+        },
+        {
+          "id": "micro7p119",
+          "question": "Name and explain one type of market failure.",
+          "answer": "Externalities cause market failure because some costs or benefits fall on third parties. As a result, market prices do not reflect true social costs or benefits.",
+          "paragraphs": [
+            119,
+            119
+          ]
+        },
+        {
+          "id": "micro7p120",
+          "question": "Name and explain another type of market failure.",
+          "answer": "Market power causes market failure when a single buyer or seller influences prices. This leads to reduced output and lower total surplus.",
+          "paragraphs": [
+            120,
+            120
+          ],
+          "match": {
+            "term": "Market power",
+            "definition": "A firm can influence market price rather than take it as given."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ch9",
+      "title": "Chapter 9 · International trade",
+      "items": [
+        {
+          "id": "micro9p122",
+          "question": "What is comparative advantage?",
+          "answer": "Comparative advantage means a country can produce a good at a lower opportunity cost than another country. International trade allows countries to specialize according to their comparative advantages.",
+          "paragraphs": [
+            122,
+            122
+          ],
+          "match": {
+            "term": "Comparative advantage",
+            "definition": "Producing a good at a lower opportunity cost."
+          }
+        },
+        {
+          "id": "micro9p123",
+          "question": "What is the world price?",
+          "answer": "The world price is the price of a good that prevails in the world market. A country compares the world price with its domestic price to determine whether it will import or export the good.",
+          "paragraphs": [
+            123,
+            123
+          ],
+          "match": {
+            "term": "World price",
+            "definition": "The price prevailing in international markets."
+          }
+        },
+        {
+          "id": "micro9p124",
+          "question": "When does a country export a good?",
+          "answer": "A country exports a good when the world price is higher than its domestic price without trade. This indicates that the country has a comparative advantage in producing the good.",
+          "paragraphs": [
+            124,
+            124
+          ],
+          "note": "Model scope: the import/export and surplus conclusions use the standard small-country competitive-market model, without trade costs or externalities.",
+          "match": {
+            "term": "Exporter in the small-country model",
+            "definition": "World price exceeds the domestic no-trade equilibrium price."
+          }
+        },
+        {
+          "id": "micro9p125",
+          "question": "When does a country import a good?",
+          "answer": "A country imports a good when the world price is lower than its domestic price without trade. Domestic consumers benefit from being able to purchase the good at the lower world price.",
+          "paragraphs": [
+            125,
+            125
+          ],
+          "match": {
+            "term": "Importer in the small-country model",
+            "definition": "World price is below the domestic no-trade equilibrium price."
+          }
+        },
+        {
+          "id": "micro9p126",
+          "question": "Who gains and who loses when a country becomes an exporter?",
+          "answer": "Domestic producers gain because the domestic price rises to the world price, while domestic consumers lose because they pay a higher price. However, the gains to producers exceed the losses to consumers, so total surplus increases.",
+          "paragraphs": [
+            126,
+            126
+          ]
+        },
+        {
+          "id": "micro9p127",
+          "question": "Who gains and who loses when a country becomes an importer?",
+          "answer": "Domestic consumers gain because the domestic price falls to the world price, while domestic producers lose. Overall, total surplus increases because the gains to consumers exceed the losses to producers.",
+          "paragraphs": [
+            127,
+            127
+          ]
+        },
+        {
+          "id": "micro9p128",
+          "question": "What is a tariff?",
+          "answer": "A tariff is a tax on goods produced abroad and sold domestically. It raises the domestic price, reduces imports, and generates revenue for the government.",
+          "paragraphs": [
+            128,
+            128
+          ],
+          "note": "Model scope: in the small-country model, count consumer surplus, producer surplus and government tariff revenue before identifying deadweight loss. A nonprohibitive tariff raises revenue; a prohibitive tariff eliminates imports and import-tax revenue. Deadweight losses reflect distorted production and consumption.",
+          "match": {
+            "term": "Tariff",
+            "definition": "A tax on imported goods."
+          }
+        },
+        {
+          "id": "micro9p129",
+          "question": "Why does a tariff create a deadweight loss?",
+          "answer": "A tariff reduces the quantity of imports and moves the market closer to the no-trade equilibrium. The resulting reduction in total surplus is the deadweight loss of the tariff.",
+          "paragraphs": [
+            129,
+            129
+          ],
+          "note": "Model scope: in the small-country model, count consumer surplus, producer surplus and government tariff revenue before identifying deadweight loss. A nonprohibitive tariff raises revenue; a prohibitive tariff eliminates imports and import-tax revenue. Deadweight losses reflect distorted production and consumption."
+        },
+        {
+          "id": "micro9p130",
+          "question": "What are some benefits of international trade besides lower prices?",
+          "answer": "International trade increases the variety of goods, encourages competition, and allows firms to take advantage of economies of scale. It can also increase productivity and promote the international flow of ideas and technology.",
+          "paragraphs": [
+            130,
+            130
+          ]
+        },
+        {
+          "id": "micro9p131",
+          "question": "Why do economists generally support free trade?",
+          "answer": "Economists generally view free trade as a way to allocate production more efficiently and raise living standards. Although some groups gain and others lose, the gains from trade exceed the losses.",
+          "paragraphs": [
+            131,
+            131
+          ]
+        },
+        {
+          "id": "micro9p132",
+          "question": "What is the Economic Complexity Index (ECI)?",
+          "answer": "The Economic Complexity Index measures how sophisticated and diverse a country's exports are. Countries that produce and export many complex products, especially products requiring advanced knowledge and capabilities, tend to have higher economic complexity.",
+          "paragraphs": [
+            132,
+            132
+          ],
+          "match": {
+            "term": "Economic Complexity Index",
+            "definition": "Reflects the diversity and sophistication of productive capabilities."
+          }
+        },
+        {
+          "id": "micro9p133",
+          "question": "Why is the Economic Complexity Index useful for understanding international trade?",
+          "answer": "The ECI provides information about the productive capabilities of an economy, rather than simply measuring how much a country exports. A higher level of economic complexity is generally associated with the ability to produce a wider range of sophisticated products and compete in more advanced industries.",
+          "paragraphs": [
+            133,
+            133
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch10",
+      "title": "Chapter 10 · Externalities",
+      "items": [
+        {
+          "id": "micro10p135",
+          "question": "Give an example of a negative externality and a positive externality.",
+          "answer": "Pollution from a factory is a negative externality because it harms people not involved in production. Education is a positive externality because it benefits society beyond the individual student.",
+          "paragraphs": [
+            135,
+            135
+          ]
+        },
+        {
+          "id": "micro10p136",
+          "question": "How does a negative externality affect market outcomes?",
+          "answer": "A negative externality causes the market to produce more than the socially efficient quantity. This happens because firms do not account for the external cost.",
+          "paragraphs": [
+            136,
+            136
+          ],
+          "note": "Model scope: this explanation describes a negative production externality, with social marginal cost above private marginal cost. A negative consumption externality instead puts social marginal benefit below private marginal benefit."
+        },
+        {
+          "id": "micro10p137",
+          "question": "How is a negative externality shown on a supply-and-demand diagram?",
+          "answer": "The social cost curve lies above the private supply curve. The market equilibrium quantity exceeds the socially optimal quantity.",
+          "paragraphs": [
+            137,
+            137
+          ],
+          "note": "Model scope: this explanation describes a negative production externality, with social marginal cost above private marginal cost. A negative consumption externality instead puts social marginal benefit below private marginal benefit."
+        },
+        {
+          "id": "micro10p138",
+          "question": "How does the patent system help address a positive externality?",
+          "answer": "Patents give inventors exclusive rights, allowing them to capture more benefits of innovation. This encourages more research and development.",
+          "paragraphs": [
+            138,
+            138
+          ],
+          "match": {
+            "term": "Patent incentive",
+            "definition": "Temporary exclusive rights encourage innovation."
+          }
+        },
+        {
+          "id": "micro10p139",
+          "question": "What are corrective (Pigouvian) taxes?",
+          "answer": "Corrective taxes are taxes equal to the external cost of an activity. They align private incentives with social costs.",
+          "paragraphs": [
+            139,
+            139
+          ],
+          "note": "Precision note: the efficient corrective tax equals marginal external damage at the socially efficient quantity, rather than total external cost.",
+          "match": {
+            "term": "Efficient Pigouvian tax",
+            "definition": "Equals marginal external damage at the efficient quantity."
+          }
+        },
+        {
+          "id": "micro10p140",
+          "question": "Why do economists prefer corrective taxes to regulation?",
+          "answer": "Corrective taxes give firms flexibility in how they reduce pollution. They achieve pollution reduction at lower total cost.",
+          "paragraphs": [
+            140,
+            140
+          ],
+          "note": "Qualification: the cost advantage relies on suitable information and enforcement; a tax is not always superior to every possible regulation.",
+          "match": {
+            "term": "Corrective-tax incentive",
+            "definition": "Rewards further pollution reduction when abatement costs less than the tax."
+          }
+        },
+        {
+          "id": "micro10p141",
+          "question": "How can externalities be solved without government intervention?",
+          "answer": "Private solutions include moral norms, charities, and contracts. Clear property rights can allow parties to negotiate.",
+          "paragraphs": [
+            141,
+            141
+          ],
+          "match": {
+            "term": "Private externality remedies",
+            "definition": "Bargaining, social norms or voluntary agreements can help."
+          }
+        },
+        {
+          "id": "micro10p142",
+          "question": "According to the Coase theorem, what determines whether your roommate smokes?",
+          "answer": "The outcome depends on property rights and bargaining, not who initially holds the rights. If transaction costs are low, the outcome will be efficient.",
+          "paragraphs": [
+            142,
+            142
+          ],
+          "note": "Coase clarification: with well-defined enforceable rights and negligible transaction costs, bargaining can reach an efficient outcome. Initial rights affect who pays whom; under the standard assumptions they need not determine the efficient activity level."
+        },
+        {
+          "id": "micro10p143",
+          "question": "Why might different firms reduce pollution by different amounts efficiently?",
+          "answer": "Firms have different costs of pollution reduction. Efficiency requires larger reductions from firms with lower abatement costs.",
+          "paragraphs": [
+            143,
+            143
+          ],
+          "note": "Precision note: cost-effective abatement equalizes marginal abatement costs, not necessarily total costs or amounts reduced. Firms can reduce pollution by different amounts at the same marginal abatement cost.",
+          "match": {
+            "term": "Cost-effective abatement",
+            "definition": "Equalize marginal abatement costs, not each firm's amount reduced."
+          }
+        },
+        {
+          "id": "micro10p144",
+          "question": "Do tradable pollution permits achieve efficiency?",
+          "answer": "Yes, firms that can reduce pollution cheaply will sell permits, while others will buy them. This ensures pollution is reduced at the lowest total cost.",
+          "paragraphs": [
+            144,
+            144
+          ],
+          "note": "Qualification: competitive, enforceable permit trading can meet a given cap at minimum total abatement cost by equalizing marginal abatement costs. Social efficiency also requires an appropriately chosen cap and consideration of differences in damages across sources.",
+          "match": {
+            "term": "Tradable pollution permits",
+            "definition": "Trading can meet a given emissions cap at minimum total abatement cost."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ch11",
+      "title": "Chapter 11 · Public goods and common resources",
+      "items": [
+        {
+          "id": "micro11p147",
+          "question": "What does it mean for a good to be excludable? Rival in consumption?",
+          "answer": "A good is excludable if people can be prevented from using it. It is rival if one person’s use reduces another’s ability to use it.",
+          "paragraphs": [
+            147,
+            147
+          ],
+          "match": {
+            "term": "Excludability",
+            "definition": "Users can be prevented from accessing a good."
+          }
+        },
+        {
+          "id": "micro11p148",
+          "question": "Is a slice of pizza excludable and rival?",
+          "answer": "Yes, a slice of pizza is excludable because access can be restricted. It is rival because only one person can eat it.",
+          "paragraphs": [
+            148,
+            148
+          ],
+          "match": {
+            "term": "Slice of pizza",
+            "definition": "A private good: both excludable and rival."
+          }
+        },
+        {
+          "id": "micro11p149",
+          "question": "What is a public good? Give an example.",
+          "answer": "A public good is neither excludable nor rival in consumption. National defense is a classic example.",
+          "paragraphs": [
+            149,
+            149
+          ],
+          "match": {
+            "term": "Public good",
+            "definition": "Neither excludable nor rival in consumption."
+          }
+        },
+        {
+          "id": "micro11p150",
+          "question": "Can private markets provide public goods efficiently?",
+          "answer": "No, because people can free ride. This leads to underprovision of the good.",
+          "paragraphs": [
+            150,
+            150
+          ],
+          "note": "Qualification: free riding means ordinary voluntary markets tend to underprovide public goods, not that efficient provision by every private or voluntary arrangement is impossible."
+        },
+        {
+          "id": "micro11p151",
+          "question": "What is cost–benefit analysis of public goods?",
+          "answer": "Cost–benefit analysis compares the total costs and benefits of providing a public good. It is important but difficult because benefits are hard to measure.",
+          "paragraphs": [
+            151,
+            151
+          ],
+          "match": {
+            "term": "Public-good cost–benefit analysis",
+            "definition": "Compare the project's total social benefits with its total social costs."
+          }
+        },
+        {
+          "id": "micro11p152",
+          "question": "What is a common resource? Give an example.",
+          "answer": "A common resource is rival but not excludable. Clean air is an example.",
+          "paragraphs": [
+            152,
+            152
+          ],
+          "note": "Example clarification: a shared clean-air resource can be depleted through pollution; the benefit of clean air is often modeled as a public good. Rivalry depends on whether the example concerns consumption of the benefit or use of the limited pollution-absorption resource.",
+          "match": {
+            "term": "Common resource",
+            "definition": "Rival in use but nonexcludable."
+          }
+        },
+        {
+          "id": "micro11p153",
+          "question": "Are common resources overused or underused in free markets? Why?",
+          "answer": "They are overused because individuals do not consider the social cost. This leads to depletion or congestion.",
+          "paragraphs": [
+            153,
+            153
+          ],
+          "match": {
+            "term": "Common-resource overuse",
+            "definition": "Users ignore depletion costs imposed on others."
+          }
+        },
+        {
+          "id": "micro11p154",
+          "question": "What type of externalities do public goods create?",
+          "answer": "Public goods generate positive externalities as we have less than the socially efficient quantity.",
+          "paragraphs": [
+            154,
+            154
+          ],
+          "note": "Qualification: underprovision is driven by nonexcludability and free riding. Public-good classification itself is about rivalry and excludability, not simply the presence of any positive externality."
+        },
+        {
+          "id": "micro11p155",
+          "question": "What type of externalities do common resources create?",
+          "answer": "Common resources generate negative externalities as we have excessive use.",
+          "paragraphs": [
+            155,
+            155
+          ]
+        },
+        {
+          "id": "micro11p156",
+          "question": "What happens to free airport Wi-Fi as usage increases?",
+          "answer": "It starts as a public good but becomes a common resource as congestion occurs. Overuse reduces speed, which can be corrected with pricing or access limits.",
+          "paragraphs": [
+            156,
+            156
+          ],
+          "note": "Model scope: this assumes unrestricted access. If a password or payment excludes users, Wi-Fi can instead be an excludable club good before congestion."
+        }
+      ]
+    }
+  ],
+  "unresolved": [],
+  "source_url": "assets/micro/study-guide-1.docx",
+  "match_description": "Concise study paraphrases grounded in the cited guide items and their clarifications; full source wording remains in concept cards and the guide."
+}

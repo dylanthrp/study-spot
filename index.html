@@ -779,6 +779,8 @@
 <script src="exam1.js"></script>
 <script src="exam1-games.js"></script>
 <link rel="stylesheet" href="exam1.css">
+<script src="micro.js"></script>
+<link rel="stylesheet" href="micro.css">
 <script src="law.js"></script>
 <link rel="stylesheet" href="law.css">
 <script src="engr250.js"></script>
@@ -823,6 +825,7 @@ const STUDENTS = {
     major: "Business",
     classes: [
       { code: "BUS-201", name: "Principles of Management", meta: "Fall 2026", progress: 15, count: "—" },
+      { code: "MICRO", name: "Microeconomics", meta: "Wyatt’s supplied study guide · course code unconfirmed", progress: 0, count: "Source-based study room", microReview: true },
       { code: "ACC-298", name: "Exam 1 · Focus view", meta: "Shared accounting review · optional prototype", progress: 0, count: "One question at a time", examReview: true },
       { code: "LE-253", name: "Business Law · Focus Study", meta: "Cooper’s outline · Chapters 1, 4, 5, 6, 8, 9", progress: 0, count: "One rule at a time", lawReview: true },
     ],
@@ -840,9 +843,10 @@ function go(path) { if (location.hash !== '#' + path) { location.hash = path; re
 function render(path) {
   const [pathOnly, qs] = path.split('?');
   const params = new URLSearchParams(qs || '');
+  MicroRoom.cleanup();
   LawRoom.cleanup();
   Engr250.cleanup();
-  document.body.classList.remove('dashboard-active', 'calc-active', 'exam-active', 'law-active');
+  document.body.classList.remove('dashboard-active', 'calc-active', 'exam-active', 'law-active', 'micro-active');
   root.style.animation = 'none'; void root.offsetWidth; root.style.animation = '';
   if (pathOnly === '/' || pathOnly === '') return viewHome();
   const u = pathOnly.match(/^\/u\/(\w+)$/); if (u) return viewStudent(u[1], params);
@@ -953,6 +957,11 @@ function viewClass(who, code, mode) {
   if (c.engrReview) {
     updateCrumbs(`/u/${who}/${code}`);
     return Engr250.render(root, who, mode);
+  }
+
+  if (c.microReview) {
+    updateCrumbs(`/u/${who}/${code}`);
+    return MicroRoom.render(root, who, mode);
   }
 
   if (c.lawReview) {
@@ -1560,7 +1569,7 @@ document.addEventListener('click', (e) => {
 let mode = ''; // tracked just so search-input can re-show home when cleared
 document.addEventListener('keydown', (e) => {
   // The classroom owns its controls; legacy global shortcuts must not eat notes.
-  if (document.body.classList.contains('calc-active') || document.querySelector('#engrRoom')) return;
+  if (document.body.classList.contains('calc-active') || document.querySelector('#engrRoom') || document.querySelector('#microRoom')) return;
   if (document.body.classList.contains('dashboard-active')) {
     Dashboard.handleKeydown(e);
     return;

@@ -1,6 +1,8 @@
 .hermes/
 enable_pages.py
 *.py
+!scripts/extract-micro.py
+!tests/micro-source-check.py
 *.tmp
 .DS_Store
 node_modules/
